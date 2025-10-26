@@ -59,3 +59,8 @@ npm run dev
 ## PHASE 2:
 
 ![!\[alt text\](docs\image.png)](image.png)
+
+## PHASE 3:
+
+![alt text](image-1.png)
+![alt text](image-2.png)
