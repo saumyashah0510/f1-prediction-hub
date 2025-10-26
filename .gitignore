@@ -1,0 +1,68 @@
+# --- Python / FastAPI Backend ---
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Database
+*.db
+*.sqlite3
+*.sql
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Test / Coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# --- React (Vite) Frontend ---
+
+# Node modules and build outputs
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# Environment variables (frontend)
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
