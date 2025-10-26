@@ -81,7 +81,7 @@ async def update_driver(driver_id:int,driver_update:DriverUpdate,db:AsyncSession
 
 
 # Doesnt actually delete but marks inactive
-@router.delete("/{driver_id}",status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{driver_id}")
 async def delete_driver(driver_id:int, db: AsyncSession = Depends(get_db)):
 
     result = await db.execute(
@@ -98,7 +98,7 @@ async def delete_driver(driver_id:int, db: AsyncSession = Depends(get_db)):
     return {"message" : f"Driver {db_driver.first_name} {db_driver.last_name} deleted successfully"}
 
 
-@router.delete("/{driver_id}/permanent",status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{driver_id}/permanent")
 async def permanently_delete_driver(driver_id : int, db :AsyncSession = Depends(get_db)):
 
     result = await db.execute(

@@ -20,6 +20,15 @@ class RaceCreate(RaceBase):
     pass
 
 
+class RaceUpdate(BaseModel):
+    season: Optional[int] = None
+    round_number: Optional[int] = None
+    race_name: Optional[str] = None
+    circuit_name: Optional[str] = None
+    race_date: Optional[date] = None
+    is_completed: Optional[int] = None
+
+
 class RaceResponse(RaceBase):
 
     id: int
