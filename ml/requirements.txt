@@ -1,0 +1,33 @@
+# Data Processing 
+pandas>=2.0.0
+numpy>=1.24.0
+
+# F1 Data
+fastf1>=3.0.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+xgboost>=2.0.0
+lightgbm>=4.0.0
+
+# Model Persistence
+joblib>=1.3.0
+
+# Data Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Jupyter
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# Database Connection
+psycopg2-binary>=2.9.0
+sqlalchemy>=2.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+requests>=2.31.0
+
+# Model Evaluation
+scipy>=1.10.0
