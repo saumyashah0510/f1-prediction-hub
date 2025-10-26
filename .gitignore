@@ -67,8 +67,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# ... existing content ...
-
 # ML
 ml/data/raw/*.csv
 ml/data/raw/*.parquet
@@ -77,7 +75,6 @@ ml/models/*.h5
 ml/models/*.joblib
 *.ipynb_checkpoints/
 
-# FastF1 Cache (ADD THIS SECTION)
 ml/data/cache/
 ml/scripts/cache/
 **/__pycache__/
