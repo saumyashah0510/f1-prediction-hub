@@ -58,4 +58,4 @@ npm run dev
 
 ## PHASE 2:
 
-![!\[alt text\](docs\tables.png)](tables.png)
+![!\[alt text\](docs\image.png)](image.png)
