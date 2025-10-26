@@ -66,3 +66,27 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# ... existing content ...
+
+# ML
+ml/data/raw/*.csv
+ml/data/raw/*.parquet
+ml/models/*.pkl
+ml/models/*.h5
+ml/models/*.joblib
+*.ipynb_checkpoints/
+
+# FastF1 Cache (ADD THIS SECTION)
+ml/data/cache/
+ml/scripts/cache/
+**/__pycache__/
+*.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
