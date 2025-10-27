@@ -64,3 +64,12 @@ npm run dev
 
 ![alt text](image-1.png)
 ![alt text](image-2.png)
+
+## PHASE 4:
+
+1) Install FastF1 library (official F1 data source)
+2) Fetch 2024 season data (complete results)
+3) Populate all tables with real information
+4) Test standings with actual championship data
+5) Build ML models for predictions
+6) Generate 2025 race predictions
