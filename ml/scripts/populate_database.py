@@ -39,7 +39,7 @@ class F1DatabasePopulater:
                     'full_name' : 'Oracle Red Bull Racing',
                     'nationality' : 'Austrian',
                     'base' : 'Milton Keynes, United Kingdom',
-                    'engine' : 'Honda RBFT' 
+                    'engine' : 'Honda RBPT' 
                 },
                 'Ferrari' : {
                     'full_name' : 'Scuderia Ferrari HP',
@@ -71,28 +71,98 @@ class F1DatabasePopulater:
                     'base' : 'Enstone, United Kingdom',
                     'engine' : 'Renault'
                 },
-                '' : {
-                    'full_name' : ,
-                    'nationality' : ,
-                    'base' : ,
-                    'engine' : 
+                'Williams' : {
+                    'full_name' : 'Williams Racing',
+                    'nationality' : 'British',
+                    'base' : 'Grove, United Kingdom',
+                    'engine' : 'Mercedes'
                 },
-                '' : {
-                    'full_name' : ,
-                    'nationality' : ,
-                    'base' : ,
-                    'engine' : 
+                'RB' : {
+                    'full_name' : 'Visa Cash App RB Formula One Team',
+                    'nationality' : 'Italian',
+                    'base' : 'Faenza, Italy',
+                    'engine' : 'Honda RBPT' 
                 },
-                '' : {
-                    'full_name' : ,
-                    'nationality' : ,
-                    'base' : ,
-                    'engine' : 
+                'Kick Sauber' : {
+                    'full_name' : 'Stake F1 Team Kick Sauber',
+                    'nationality' : 'Swiss',
+                    'base' : 'Hinwil, Switzerland',
+                    'engine' : 'Ferrari'
                 },
-                '' : {
-                    'full_name' : ,
-                    'nationality' : ,
-                    'base' : ,
-                    'engine' : 
+                'Haas F1 Team' : {
+                    'full_name' : 'MoneyGram Haas F1 Team',
+                    'nationality' : 'American',
+                    'base' : 'Kannapolis, United States',
+                    'engine' : 'Ferrari'
                 }
             }
+
+            for team_data in teams_data:
+
+                team_name = team_data['name']
+
+                details = team_details(team_name,{
+                    'full_name' : team_name,
+                    'nationality' : 'unknown',
+                    'base' : 'unknown',
+                    'engine' : 'unknown'
+                })
+
+                team = Team(
+                    name = team_name,
+                    full_name = details['full_name'],
+                    nationality = details['nationality'],
+                    base = details['base'],
+                    engine = details['engine'],
+                    team_color = team_data['color'],
+                    is_active = 1
+                )
+
+                db.add(team)
+                await db.flush() #adds id
+
+                self.team_mapping[team_name] = team.id
+                print(f"   ✅ {team_name} (ID: {team.id})")
+
+            await db.commit()
+            print(f"✅ Added {len(teams_data)} teams")
+
+
+    async def populate_drivers(self,year=2024):
+
+
+        print(f"Populating Drivers (from {year} data)")
+
+        drivers_data = self.fetcher.get_all_drivers(year)
+        
+        if not drivers_data:
+            print("No driver data found")
+            return
+        
+        async with AsyncSessionLocal() as db:
+
+            for driver_data in drivers_data:
+
+                name_parts = driver_data['full_name'].split()
+                first_name = name_parts[0] if name_parts else "Unknown"
+                last_name = " ".join(name_parts[1:]) if len(name_parts)>1 else "Unknown"
+
+                team_id = self.team_mapping.get(driver_data['team'])
+
+                driver = Driver(
+                    driver_number = int(driver_data['number']),
+                    code = driver_data['abbreviation'],
+                    first_name = first_name,
+                    last_name = last_name,
+                    team_id = team_id,
+                    is_active = 1
+                )
+
+                db.add(driver)
+                await db.flush()
+
+                self.driver_mapping[driver_data['abbreviation']] = driver.id
+                print(f"   ✅ {driver_data['abbreviation']}: {driver_data['full_name']} (ID: {driver.id})")
+            
+            await db.commit()
+            print(f"✅ Added {len(drivers_data)} drivers")
