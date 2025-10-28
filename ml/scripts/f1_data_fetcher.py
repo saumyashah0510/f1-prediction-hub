@@ -53,6 +53,21 @@ class F1DataFetcher:
             return None    
         
 
+    def get_sprint_results(self, year, race_round):
+
+        try:
+            sprint = fastf1.get_session(year, race_round, 'S')  # 'S' = Sprint
+            sprint.load()
+
+            return {
+                'results': sprint.results,
+                'session': sprint
+            }
+        except Exception as e:
+            print(f"Error fetching sprint {year} R{race_round}: {e}")
+            return None
+    
+
     def get_completed_and_upcoming_races(self,year):
 
         try:

@@ -244,7 +244,7 @@ class F1DatabasePopulator:
 
 
     async def populate_race_results(self, year, race_round):
-        
+
         print(f"\n🏆 Populating Results: {year} Round {race_round}...")
         
         race_data = self.fetcher.get_race_results(year, race_round)
@@ -472,6 +472,70 @@ class F1DatabasePopulator:
             print(f"✅ Qualifying results added")
 
 
+    async def populate_sprint_results(self, year, race_round):
+        
+            print(f"\n⚡ Populating Sprint Results: {year} Round {race_round}...")
+
+            sprint_data = self.fetcher.get_sprint_results(year, race_round)
+
+            if not sprint_data:
+                print(f"❌ No sprint data found for {year} Round {race_round}")
+                return
+
+            from sqlalchemy import select
+            import pandas as pd
+            from backend.app.models.result import RaceResult
+            from backend.app.models.race import Race
+
+            async with AsyncSessionLocal() as db:
+                result = await db.execute(
+                    select(Race).where(
+                        Race.season == year,
+                        Race.round_number == race_round
+                    )
+                )
+                race = result.scalar_one_or_none()
+
+                if not race:
+                    print("❌ Race not found in DB")
+                    return
+
+                sprint_df = sprint_data["results"]
+                print(f"   Found {len(sprint_df)} sprint results")
+
+                for _, row in sprint_df.iterrows():
+                    driver_id = self.driver_mapping.get(row['Abbreviation'])
+                    team_id = self.team_mapping.get(row['TeamName'])
+
+                    if not driver_id or not team_id:
+                        print(f"⚠️ Missing mapping for {row['Abbreviation']}")
+                        continue
+
+                    position = int(row['Position']) if 'Position' in row and pd.notna(row['Position']) else None
+                    points = float(row['Points']) if 'Points' in row and pd.notna(row['Points']) else 0.0
+                    laps = int(row['Laps']) if 'Laps' in row and pd.notna(row['Laps']) else None
+                    time = str(row['Time']) if 'Time' in row and pd.notna(row['Time']) else None
+                    status = str(row['Status']) if 'Status' in row and pd.notna(row['Status']) else 'Finished'
+
+                    result_entry = RaceResult(
+                        race_id=race.id,
+                        driver_id=driver_id,
+                        team_id=team_id,
+                        position=position,
+                        points=points,
+                        laps_completed=laps,
+                        race_time=time,
+                        status=status,
+                        is_sprint=True  # <— Important
+                    )
+
+                    db.add(result_entry)
+
+                await db.commit()
+                print(f"✅ Added sprint results for {year} Round {race_round}")
+        
+
+
 async def main():
     """Main population workflow"""
     print("=" * 70)
@@ -499,56 +563,68 @@ async def main():
     choice = input("\nEnter choice (1-4): ").strip()
     
     if choice == "1":
-        # Test with single race
+        # 🧪 Test single race
         print("\n🧪 Populating single race (2024 Bahrain GP)...")
-        await populator.populate_race_results(2024, 1)
         await populator.populate_qualifying_results(2024, 1)
+        await populator.populate_sprint_results(2024, 1)      # ⚡ Sprint results (if available)
+        await populator.populate_race_results(2024, 1)
         
     elif choice == "2":
-        # Full 2024 season
+        # 📅 Full 2024 season
         print("\n📅 Populating FULL 2024 season (24 races)...")
         print("⚠️  This will take 15-20 minutes!")
         confirm = input("Continue? (yes/no): ").strip().lower()
         
         if confirm == "yes":
-            for race_round in range(1, 25):  # 24 races in 2024
-                await populator.populate_race_results(2024, race_round)
+            for race_round in range(1, 25):
+                print(f"\n🏁 ROUND {race_round} ============================")
                 await populator.populate_qualifying_results(2024, race_round)
+                await populator.populate_sprint_results(2024, race_round)  # ⚡ Add sprint
+                await populator.populate_race_results(2024, race_round)
         
     elif choice == "3":
-        # 2025 completed races
+        # 🏆 2025 completed races
         await populator.populate_races(2025)
         
         completed, upcoming = populator.fetcher.get_completed_and_upcoming_races(2025)
         print(f"\n📅 Populating {len(completed)} completed 2025 races...")
         
         for race in completed:
-            await populator.populate_race_results(2025, race['round'])
-            await populator.populate_qualifying_results(2025, race['round'])
+            round_num = race['round']
+            print(f"\n🏁 ROUND {round_num} ============================")
+            await populator.populate_qualifying_results(2025, round_num)
+            await populator.populate_sprint_results(2025, round_num)
+            await populator.populate_race_results(2025, round_num)
     
     elif choice == "4":
-        # Everything
+        # 🚀 Everything (2024 + 2025)
         print("\n🚀 Populating EVERYTHING!")
         print("⚠️  This will take 30-40 minutes!")
         confirm = input("Continue? (yes/no): ").strip().lower()
         
         if confirm == "yes":
-            # 2024
+            # ---- 2024 ----
             for race_round in range(1, 25):
-                await populator.populate_race_results(2024, race_round)
+                print(f"\n🏁 2024 ROUND {race_round} ============================")
                 await populator.populate_qualifying_results(2024, race_round)
+                await populator.populate_sprint_results(2024, race_round)
+                await populator.populate_race_results(2024, race_round)
             
-            # 2025
+            # ---- 2025 ----
             await populator.populate_races(2025)
             completed, _ = populator.fetcher.get_completed_and_upcoming_races(2025)
             
             for race in completed:
-                await populator.populate_race_results(2025, race['round'])
-                await populator.populate_qualifying_results(2025, race['round'])
+                round_num = race['round']
+                print(f"\n🏁 2025 ROUND {round_num} ============================")
+                await populator.populate_qualifying_results(2025, round_num)
+                await populator.populate_sprint_results(2025, round_num)
+                await populator.populate_race_results(2025, round_num)
     
     print("\n" + "=" * 70)
     print("✅ DATABASE POPULATION COMPLETE!")
     print("=" * 70)
 
+
 if __name__ == "__main__":
-    asyncio.run(main())        
+    asyncio.run(main())
