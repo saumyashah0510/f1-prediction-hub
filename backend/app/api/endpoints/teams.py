@@ -3,9 +3,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List
 
-from app.models.database import get_db
-from app.models.team import Team
-from app.schemas.team import TeamResponse, TeamCreate, TeamUpdate
+from backend.app.models.database import get_db
+from backend.app.models.team import Team
+from backend.app.schemas.team import TeamResponse, TeamCreate, TeamUpdate
 
 
 router = APIRouter()

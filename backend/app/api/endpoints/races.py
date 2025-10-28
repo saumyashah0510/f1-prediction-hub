@@ -3,9 +3,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List
 
-from app.models.database import get_db
-from app.models.race import Race
-from app.schemas.race import RaceResponse, RaceCreate, RaceUpdate
+from backend.app.models.database import get_db
+from backend.app.models.race import Race
+from backend.app.schemas.race import RaceResponse, RaceCreate, RaceUpdate
 
 
 router = APIRouter()

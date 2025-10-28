@@ -1,7 +1,7 @@
-from app.schemas.driver import DriverResponse, DriverCreate,DriverUpdate
-from app.schemas.team import TeamResponse, TeamCreate,TeamUpdate
-from app.schemas.race import RaceResponse, RaceCreate,RaceUpdate
-from app.schemas.standing import DriverStandingResponse, ConstructorStandingResponse
+from backend.app.schemas.driver import DriverResponse, DriverCreate,DriverUpdate
+from backend.app.schemas.team import TeamResponse, TeamCreate,TeamUpdate
+from backend.app.schemas.race import RaceResponse, RaceCreate,RaceUpdate
+from backend.app.schemas.standing import DriverStandingResponse, ConstructorStandingResponse
 
 __all__ = [
     "DriverResponse",

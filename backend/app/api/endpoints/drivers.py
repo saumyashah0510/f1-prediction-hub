@@ -3,9 +3,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List
 
-from app.models.database import get_db
-from app.models.driver import Driver
-from app.schemas.driver import DriverResponse,DriverCreate,DriverUpdate
+from backend.app.models.database import get_db
+from backend.app.models.driver import Driver
+from backend.app.schemas.driver import DriverResponse,DriverCreate,DriverUpdate
 
 router = APIRouter()
 

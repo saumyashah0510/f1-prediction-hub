@@ -3,11 +3,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List
 
-from app.models.database import get_db
-from app.models.standing import DriverStanding, ConstructorStanding
-from app.models.driver import Driver
-from app.models.team import Team
-from app.schemas.standing import DriverStandingResponse, ConstructorStandingResponse
+from backend.app.models.database import get_db
+from backend.app.models.standing import DriverStanding, ConstructorStanding
+from backend.app.models.driver import Driver
+from backend.app.models.team import Team
+from backend.app.schemas.standing import DriverStandingResponse, ConstructorStandingResponse
 
 
 router = APIRouter()

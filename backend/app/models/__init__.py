@@ -1,10 +1,10 @@
-from app.models.database import Base, engine, get_db
-from app.models.driver import Driver
-from app.models.team import Team
-from app.models.race import Race
-from app.models.result import RaceResult, QualifyingResult
-from app.models.standing import DriverStanding, ConstructorStanding
-from app.models.prediction import Prediction, DriverPrediction
+from backend.app.models.database import Base, engine, get_db
+from backend.app.models.driver import Driver
+from backend.app.models.team import Team
+from backend.app.models.race import Race
+from backend.app.models.result import RaceResult, QualifyingResult
+from backend.app.models.standing import DriverStanding, ConstructorStanding
+from backend.app.models.prediction import Prediction, DriverPrediction
 
 __all__ = [
     "Base",

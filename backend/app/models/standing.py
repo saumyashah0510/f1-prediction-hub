@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, Float, ForeignKey, String
-from app.models.database import Base
+from backend.app.models.database import Base
 
 class DriverStanding(Base):
     __tablename__ = "driver_standings"

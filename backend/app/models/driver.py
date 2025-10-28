@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, Float
 from sqlalchemy.orm import relationship
-from app.models.database import Base
+from backend.app.models.database import Base
 
 class Driver(Base):
     __tablename__ = "drivers"

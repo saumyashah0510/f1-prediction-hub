@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.config import settings
+from backend.app.core.config import settings
 
-from app.api.endpoints import drivers,races,teams,standings
+from backend.app.api.endpoints import drivers,races,teams,standings
 
 app = FastAPI(
     title=settings.APP_NAME,

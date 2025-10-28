@@ -3,9 +3,7 @@ import os
 import asyncio
 from datetime import datetime
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
-
-from f1_data_fetcher import F1DataFetcher
+from ml.scripts.f1_data_fetcher import F1DataFetcher
 from backend.app.models.database import AsyncSessionLocal
 from backend.app.models.driver import Driver
 from backend.app.models.team import Team
@@ -14,7 +12,7 @@ from backend.app.models.result import RaceResult,QualifyingResult
 from backend.app.models.standing import DriverStanding,ConstructorStanding
 
 
-class F1DatabasePopulater:
+class F1DatabasePopulator:
 
     def __init__(self):
         self.fetcher = F1DataFetcher()
@@ -101,7 +99,7 @@ class F1DatabasePopulater:
 
                 team_name = team_data['name']
 
-                details = team_details(team_name,{
+                details = team_details.get(team_name,{
                     'full_name' : team_name,
                     'nationality' : 'unknown',
                     'base' : 'unknown',
@@ -166,3 +164,391 @@ class F1DatabasePopulater:
             
             await db.commit()
             print(f"✅ Added {len(drivers_data)} drivers")
+
+
+    async def populate_races(self, year):
+    
+        print(f"\n🏁 Populating Races for {year}...")
+    
+        schedule = self.fetcher.get_season_schedule(year)
+    
+        if schedule is None:
+            print(f"❌ No schedule found for {year}")
+            return
+    
+        async with AsyncSessionLocal() as db:
+            race_count = 0
+        
+            for idx, event in schedule.iterrows():
+            
+                if 'Testing' in event['EventName']:
+                    continue
+            
+            
+                try:
+                    test_session = self.fetcher.get_race_results(year, event['RoundNumber'])
+                
+                    if test_session and 'session' in test_session:
+                        session = test_session['session']
+                    
+                        circuit_length = None
+                        if hasattr(session, 'event') and 'Circuit' in session.event:
+                            circuit_info = session.event.get('Circuit', {})
+                            if 'Length' in circuit_info:
+                                circuit_length = float(circuit_info['Length']) / 1000  
+                    
+                   
+                        laps = session.total_laps if hasattr(session, 'total_laps') else None
+                    
+                        race = Race(
+                            season=year,
+                            round_number=event['RoundNumber'],
+                            race_name=event['EventName'],
+                            circuit_name=event.get('OfficialEventName', event['EventName']),
+                            circuit_location=event['Location'],
+                            country=event['Country'],
+                            circuit_length=circuit_length,
+                            laps=laps,
+                            race_date=event['EventDate'],
+                            is_completed=0
+                        )
+                    else:
+                        race = Race(
+                            season=year,
+                            round_number=event['RoundNumber'],
+                            race_name=event['EventName'],
+                            circuit_name=event.get('OfficialEventName', event['EventName']),
+                            circuit_location=event['Location'],
+                            country=event['Country'],
+                            race_date=event['EventDate'],
+                            is_completed=0
+                        )
+                except:
+                    race = Race(
+                        season=year,
+                        round_number=event['RoundNumber'],
+                        race_name=event['EventName'],
+                        circuit_name=event.get('OfficialEventName', event['EventName']),
+                        circuit_location=event['Location'],
+                        country=event['Country'],
+                        race_date=event['EventDate'],
+                        is_completed=0
+                    )
+            
+                db.add(race)
+                race_count += 1
+                print(f"   ✅ Round {event['RoundNumber']}: {event['EventName']}")
+        
+            await db.commit()
+            print(f"✅ Added {race_count} races for {year}")
+
+
+    async def populate_race_results(self, year, race_round):
+        
+        print(f"\n🏆 Populating Results: {year} Round {race_round}...")
+        
+        race_data = self.fetcher.get_race_results(year, race_round)
+        
+        if not race_data:
+            print(f"❌ No results found")
+            return
+        
+        async with AsyncSessionLocal() as db:
+            from sqlalchemy import select
+            import pandas as pd
+            
+            # Get race from database
+            result = await db.execute(
+                select(Race).where(
+                    Race.season == year,
+                    Race.round_number == race_round
+                )
+            )
+            race = result.scalar_one_or_none()
+            
+            if not race:
+                print(f"❌ Race not found in database")
+                return
+            
+            # Mark race as completed
+            race.is_completed = 1
+            
+            # Check for sprint
+            session = race_data['session']
+            if hasattr(session, 'event') and hasattr(session.event, 'EventFormat'):
+                race.has_sprint = 1 if 'Sprint' in str(session.event.get('EventFormat', '')) else 0
+            
+            # Get results dataframe
+            results_df = race_data['results']
+            
+            # ✨ NEW: Extract fastest laps from lap data
+            print(f"   Extracting fastest laps from lap data...")
+            fastest_laps_dict = {}
+            fastest_ranks_dict = {}
+            
+            try:
+                laps = session.laps
+                
+                # Get fastest lap per driver
+                for driver_code in laps['Driver'].unique():
+                    driver_laps = laps[laps['Driver'] == driver_code]
+                    # Filter valid laps (has time and not pit lap)
+                    valid_laps = driver_laps[
+                        (driver_laps['LapTime'].notna()) & 
+                        (driver_laps['PitOutTime'].isna())
+                    ]
+                    
+                    if len(valid_laps) > 0:
+                        fastest = valid_laps['LapTime'].min()
+                        fastest_laps_dict[driver_code] = fastest
+                
+                # Rank fastest laps
+                sorted_laps = sorted(fastest_laps_dict.items(), key=lambda x: x[1])
+                for rank, (driver_code, _) in enumerate(sorted_laps, 1):
+                    fastest_ranks_dict[driver_code] = rank
+                
+                print(f"   ✅ Extracted {len(fastest_laps_dict)} fastest laps")
+            
+            except Exception as e:
+                print(f"   ⚠️  Could not extract fastest laps: {e}")
+            
+            # Process each driver result
+            print(f"   Processing {len(results_df)} drivers...")
+            
+            for idx, driver_result in results_df.iterrows():
+                driver_id = self.driver_mapping.get(driver_result['Abbreviation'])
+                team_id = self.team_mapping.get(driver_result['TeamName'])
+                
+                if not driver_id or not team_id:
+                    print(f"   ⚠️  Skipping {driver_result['Abbreviation']} - missing mapping")
+                    continue
+                
+                # Position (finishing position)
+                position = None
+                if 'Position' in driver_result and pd.notna(driver_result['Position']):
+                    position = int(driver_result['Position'])
+                
+                # Grid Position (starting position)
+                grid_position = None
+                if 'GridPosition' in driver_result and pd.notna(driver_result['GridPosition']):
+                    grid_position = int(driver_result['GridPosition'])
+                
+                # Points
+                points = 0.0
+                if 'Points' in driver_result and pd.notna(driver_result['Points']):
+                    points = float(driver_result['Points'])
+                
+                # Laps Completed ✅
+                laps_completed = 0
+                if 'Laps' in driver_result and pd.notna(driver_result['Laps']):
+                    laps_completed = int(driver_result['Laps'])
+                
+                # Race Time ✅
+                race_time = None
+                if 'Time' in driver_result:
+                    time_value = driver_result['Time']
+                    if pd.notna(time_value):
+                        try:
+                            if isinstance(time_value, pd.Timedelta):
+                                total_seconds = time_value.total_seconds()
+                                
+                                if position == 1:
+                                    # Winner gets full time
+                                    hours = int(total_seconds // 3600)
+                                    minutes = int((total_seconds % 3600) // 60)
+                                    seconds = total_seconds % 60
+                                    race_time = f"{hours}:{minutes:02d}:{seconds:06.3f}"
+                                else:
+                                    # Others get delta
+                                    race_time = f"+{total_seconds:.3f}"
+                            else:
+                                race_time = str(time_value)
+                        except Exception as e:
+                            print(f"   ⚠️  Error processing time for {driver_result['Abbreviation']}: {e}")
+                
+                # Fastest Lap Time ✨ NEW - from lap data
+                fastest_lap = None
+                driver_code = driver_result['Abbreviation']
+                
+                if driver_code in fastest_laps_dict:
+                    try:
+                        lap_time = fastest_laps_dict[driver_code]
+                        if isinstance(lap_time, pd.Timedelta):
+                            total_seconds = lap_time.total_seconds()
+                            minutes = int(total_seconds // 60)
+                            seconds = total_seconds % 60
+                            fastest_lap = f"{minutes}:{seconds:06.3f}"
+                    except Exception as e:
+                        print(f"   ⚠️  Error formatting fastest lap for {driver_code}: {e}")
+                
+                # Fastest Lap Rank ✨ NEW - from lap data
+                fastest_lap_rank = None
+                if driver_code in fastest_ranks_dict:
+                    fastest_lap_rank = fastest_ranks_dict[driver_code]
+                
+                # Status
+                status = 'Unknown'
+                if 'Status' in driver_result and driver_result['Status']:
+                    status = str(driver_result['Status'])
+                
+                # Create race result
+                race_result = RaceResult(
+                    race_id=race.id,
+                    driver_id=driver_id,
+                    team_id=team_id,
+                    position=position,
+                    grid_position=grid_position,
+                    points=points,
+                    laps_completed=laps_completed,
+                    race_time=race_time,
+                    fastest_lap=fastest_lap,
+                    fastest_lap_rank=fastest_lap_rank,
+                    status=status
+                )
+                
+                db.add(race_result)
+            
+            await db.commit()
+            
+            # Show summary
+            winner = results_df.iloc[0]
+            print(f"✅ Results added - Winner: {winner['Abbreviation']} ({winner['TeamName']})")
+            
+            # Show fastest lap info
+            if fastest_laps_dict:
+                fastest_driver = min(fastest_laps_dict.items(), key=lambda x: x[1])
+                print(f"   🏎️  Fastest Lap: {fastest_driver[0]} - {fastest_driver[1]}")
+            
+            print(f"   📊 Captured: Position, Grid, Points, Laps, Time, Fastest Lap, Status")
+
+
+    async def populate_qualifying_results(self, year, race_round):
+        """Populate qualifying results"""
+        print(f"⏱️  Populating Qualifying: {year} Round {race_round}...")
+        
+        quali_data = self.fetcher.get_qualifying_results(year, race_round)
+        
+        if not quali_data:
+            print(f"❌ No qualifying results found")
+            return
+        
+        async with AsyncSessionLocal() as db:
+            # Get race from database
+            from sqlalchemy import select
+            result = await db.execute(
+                select(Race).where(
+                    Race.season == year,
+                    Race.round_number == race_round
+                )
+            )
+            race = result.scalar_one_or_none()
+            
+            if not race:
+                return
+            
+            # Add qualifying results
+            quali_df = quali_data['results']
+            
+            for idx, driver_quali in quali_df.iterrows():
+                driver_id = self.driver_mapping.get(driver_quali['Abbreviation'])
+                team_id = self.team_mapping.get(driver_quali['TeamName'])
+                
+                if not driver_id or not team_id:
+                    continue
+                
+                quali_result = QualifyingResult(
+                    race_id=race.id,
+                    driver_id=driver_id,
+                    team_id=team_id,
+                    position=int(driver_quali['Position']) if driver_quali['Position'] > 0 else None,
+                    q1_time=str(driver_quali['Q1']) if driver_quali['Q1'] else None,
+                    q2_time=str(driver_quali['Q2']) if driver_quali['Q2'] else None,
+                    q3_time=str(driver_quali['Q3']) if driver_quali['Q3'] else None
+                )
+                
+                db.add(quali_result)
+            
+            await db.commit()
+            print(f"✅ Qualifying results added")
+
+
+async def main():
+    """Main population workflow"""
+    print("=" * 70)
+    print("🏎️  F1 DATABASE POPULATOR")
+    print("=" * 70)
+    
+    populator = F1DatabasePopulator()
+    
+    # Step 1: Populate teams and drivers (from 2024 data)
+    await populator.populate_teams(2024)
+    await populator.populate_drivers(2024)
+    
+    # Step 2: Populate 2024 races (full season)
+    await populator.populate_races(2024)
+    
+    # Step 3: Ask user what to populate
+    print("\n" + "=" * 70)
+    print("📊 What would you like to populate?")
+    print("=" * 70)
+    print("1. Single race (test)")
+    print("2. Full 2024 season")
+    print("3. 2025 completed races")
+    print("4. Everything (2024 + 2025)")
+    
+    choice = input("\nEnter choice (1-4): ").strip()
+    
+    if choice == "1":
+        # Test with single race
+        print("\n🧪 Populating single race (2024 Bahrain GP)...")
+        await populator.populate_race_results(2024, 1)
+        await populator.populate_qualifying_results(2024, 1)
+        
+    elif choice == "2":
+        # Full 2024 season
+        print("\n📅 Populating FULL 2024 season (24 races)...")
+        print("⚠️  This will take 15-20 minutes!")
+        confirm = input("Continue? (yes/no): ").strip().lower()
+        
+        if confirm == "yes":
+            for race_round in range(1, 25):  # 24 races in 2024
+                await populator.populate_race_results(2024, race_round)
+                await populator.populate_qualifying_results(2024, race_round)
+        
+    elif choice == "3":
+        # 2025 completed races
+        await populator.populate_races(2025)
+        
+        completed, upcoming = populator.fetcher.get_completed_and_upcoming_races(2025)
+        print(f"\n📅 Populating {len(completed)} completed 2025 races...")
+        
+        for race in completed:
+            await populator.populate_race_results(2025, race['round'])
+            await populator.populate_qualifying_results(2025, race['round'])
+    
+    elif choice == "4":
+        # Everything
+        print("\n🚀 Populating EVERYTHING!")
+        print("⚠️  This will take 30-40 minutes!")
+        confirm = input("Continue? (yes/no): ").strip().lower()
+        
+        if confirm == "yes":
+            # 2024
+            for race_round in range(1, 25):
+                await populator.populate_race_results(2024, race_round)
+                await populator.populate_qualifying_results(2024, race_round)
+            
+            # 2025
+            await populator.populate_races(2025)
+            completed, _ = populator.fetcher.get_completed_and_upcoming_races(2025)
+            
+            for race in completed:
+                await populator.populate_race_results(2025, race['round'])
+                await populator.populate_qualifying_results(2025, race['round'])
+    
+    print("\n" + "=" * 70)
+    print("✅ DATABASE POPULATION COMPLETE!")
+    print("=" * 70)
+
+if __name__ == "__main__":
+    asyncio.run(main())        
