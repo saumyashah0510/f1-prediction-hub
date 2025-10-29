@@ -1,0 +1,846 @@
+id,position,grid_position,points,laps_completed,fastest_lap_rank,status,driver_code,driver_name,driver_nationality,driver_age,team_name,season,round_number,race_name,circuit_location,country,total_laps,season_team_id
+1,1,1,26.0,57,1.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,1
+2,2,5,18.0,57,4.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,1
+3,3,4,15.0,57,6.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,2
+4,4,2,12.0,57,2.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,2
+5,5,3,10.0,57,12.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,3
+6,6,7,8.0,57,5.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,4
+7,7,9,6.0,57,7.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,3
+8,8,8,4.0,57,9.0,Finished,PIA,Oscar Piastri,Australian,22.0,McLaren,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,4
+9,9,6,2.0,57,3.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,5
+10,10,12,1.0,57,16.0,Finished,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,5
+11,11,17,0.0,56,14.0,Lapped,ZHO,Guanyu Zhou,Chinese,24.0,Kick Sauber,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,6
+12,12,15,0.0,56,15.0,Lapped,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,7
+13,13,14,0.0,56,13.0,Lapped,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,8
+14,14,11,0.0,56,18.0,Lapped,TSU,Yuki Tsunoda,Japanese,23.0,RB,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,8
+15,15,13,0.0,56,17.0,Lapped,ALB,Alexander Albon,Thai,24.0,Williams,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,9
+16,16,10,0.0,56,11.0,Lapped,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,7
+17,17,19,0.0,56,20.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,10
+18,18,20,0.0,56,10.0,Lapped,GAS,Pierre Gasly,French,28.0,Alpine,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,10
+19,19,16,0.0,56,19.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,6
+20,20,18,0.0,55,8.0,Lapped,SAR,Logan Sargeant,American,23.0,Williams,2024,1,Bahrain Grand Prix,Sakhir,Bahrain,,9
+21,1,1,25.0,50,3.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,1
+22,2,3,18.0,50,8.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,1
+23,3,2,16.0,50,1.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,2
+24,4,5,12.0,50,10.0,Finished,PIA,Oscar Piastri,Australian,22.0,McLaren,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,4
+25,5,4,10.0,50,13.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,5
+26,6,7,8.0,50,7.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,3
+27,8,6,4.0,50,4.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,4
+28,9,8,2.0,50,2.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,3
+29,10,15,1.0,50,12.0,Finished,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,7
+30,11,12,0.0,50,9.0,Finished,ALB,Alexander Albon,Thai,24.0,Williams,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,9
+31,12,13,0.0,50,11.0,Finished,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,7
+32,13,17,0.0,49,17.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,10
+33,14,19,0.0,49,15.0,Lapped,SAR,Logan Sargeant,American,23.0,Williams,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,9
+34,15,9,0.0,49,18.0,Lapped,TSU,Yuki Tsunoda,Japanese,23.0,RB,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,8
+35,16,14,0.0,49,16.0,Lapped,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,8
+36,17,16,0.0,49,14.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,6
+37,18,20,0.0,49,6.0,Lapped,ZHO,Guanyu Zhou,Chinese,24.0,Kick Sauber,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,6
+38,19,10,0.0,5,19.0,Retired,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,5
+39,20,18,0.0,1,20.0,Retired,GAS,Pierre Gasly,French,28.0,Alpine,2024,2,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,10
+40,1,2,25.0,58,3.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,3,Australian Grand Prix,Melbourne,Australia,,2
+41,2,4,19.0,58,1.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,3,Australian Grand Prix,Melbourne,Australia,,2
+42,3,3,15.0,58,2.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,3,Australian Grand Prix,Melbourne,Australia,,4
+43,4,5,12.0,58,4.0,Finished,PIA,Oscar Piastri,Australian,22.0,McLaren,2024,3,Australian Grand Prix,Melbourne,Australia,,4
+44,5,6,10.0,58,6.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,3,Australian Grand Prix,Melbourne,Australia,,1
+45,6,9,8.0,58,8.0,Finished,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,3,Australian Grand Prix,Melbourne,Australia,,5
+46,7,8,6.0,58,11.0,Finished,TSU,Yuki Tsunoda,Japanese,23.0,RB,2024,3,Australian Grand Prix,Melbourne,Australia,,8
+47,8,10,4.0,58,7.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,3,Australian Grand Prix,Melbourne,Australia,,5
+48,9,16,2.0,58,12.0,Finished,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,3,Australian Grand Prix,Melbourne,Australia,,7
+49,10,14,1.0,57,9.0,Lapped,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,3,Australian Grand Prix,Melbourne,Australia,,7
+50,11,12,0.0,57,17.0,Lapped,ALB,Alexander Albon,Thai,24.0,Williams,2024,3,Australian Grand Prix,Melbourne,Australia,,9
+51,12,18,0.0,57,13.0,Lapped,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,3,Australian Grand Prix,Melbourne,Australia,,8
+52,13,17,0.0,57,10.0,Lapped,GAS,Pierre Gasly,French,28.0,Alpine,2024,3,Australian Grand Prix,Melbourne,Australia,,10
+53,14,13,0.0,57,16.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,3,Australian Grand Prix,Melbourne,Australia,,6
+54,15,19,0.0,57,14.0,Lapped,ZHO,Guanyu Zhou,Chinese,24.0,Kick Sauber,2024,3,Australian Grand Prix,Melbourne,Australia,,6
+55,16,15,0.0,57,15.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,3,Australian Grand Prix,Melbourne,Australia,,10
+56,17,7,0.0,56,5.0,Retired,RUS,George Russell,British,26.0,Mercedes,2024,3,Australian Grand Prix,Melbourne,Australia,,3
+57,18,11,0.0,15,18.0,Retired,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,3,Australian Grand Prix,Melbourne,Australia,,3
+58,19,1,0.0,3,19.0,Retired,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,3,Australian Grand Prix,Melbourne,Australia,,1
+59,1,1,26.0,53,1.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,4,Japanese Grand Prix,Suzuka,Japan,,1
+60,2,2,18.0,53,3.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,4,Japanese Grand Prix,Suzuka,Japan,,1
+61,3,4,15.0,53,2.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,4,Japanese Grand Prix,Suzuka,Japan,,2
+62,4,8,12.0,53,9.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,4,Japanese Grand Prix,Suzuka,Japan,,2
+63,5,3,10.0,53,10.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,4,Japanese Grand Prix,Suzuka,Japan,,4
+64,6,5,8.0,53,6.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,4,Japanese Grand Prix,Suzuka,Japan,,5
+65,7,9,6.0,53,5.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,4,Japanese Grand Prix,Suzuka,Japan,,3
+66,8,6,4.0,53,7.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,4,Japanese Grand Prix,Suzuka,Japan,,4
+67,9,7,2.0,53,4.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,4,Japanese Grand Prix,Suzuka,Japan,,3
+68,10,10,1.0,52,14.0,Lapped,TSU,Yuki Tsunoda,Japanese,23.0,RB,2024,4,Japanese Grand Prix,Suzuka,Japan,,8
+69,11,12,0.0,52,11.0,Lapped,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,4,Japanese Grand Prix,Suzuka,Japan,,7
+70,12,16,0.0,52,12.0,Lapped,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,4,Japanese Grand Prix,Suzuka,Japan,,5
+71,13,18,0.0,52,17.0,Lapped,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,4,Japanese Grand Prix,Suzuka,Japan,,7
+72,14,13,0.0,52,15.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,4,Japanese Grand Prix,Suzuka,Japan,,6
+73,15,15,0.0,52,13.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,4,Japanese Grand Prix,Suzuka,Japan,,10
+74,16,17,0.0,52,16.0,Lapped,GAS,Pierre Gasly,French,28.0,Alpine,2024,4,Japanese Grand Prix,Suzuka,Japan,,10
+75,17,19,0.0,52,8.0,Lapped,SAR,Logan Sargeant,American,23.0,Williams,2024,4,Japanese Grand Prix,Suzuka,Japan,,9
+76,18,20,0.0,12,18.0,Retired,ZHO,Guanyu Zhou,Chinese,24.0,Kick Sauber,2024,4,Japanese Grand Prix,Suzuka,Japan,,6
+77,19,11,0.0,0,,Retired,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,4,Japanese Grand Prix,Suzuka,Japan,,8
+78,20,14,0.0,0,,Retired,ALB,Alexander Albon,Thai,24.0,Williams,2024,4,Japanese Grand Prix,Suzuka,Japan,,9
+99,1,1,25.0,56,2.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,5,Chinese Grand Prix,Shanghai,China,,1
+100,2,4,18.0,56,4.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,5,Chinese Grand Prix,Shanghai,China,,4
+101,3,2,15.0,56,7.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,5,Chinese Grand Prix,Shanghai,China,,1
+102,4,6,12.0,56,6.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,5,Chinese Grand Prix,Shanghai,China,,2
+103,5,7,10.0,56,10.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,5,Chinese Grand Prix,Shanghai,China,,2
+104,6,8,8.0,56,11.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,5,Chinese Grand Prix,Shanghai,China,,3
+105,7,3,7.0,56,1.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,5,Chinese Grand Prix,Shanghai,China,,5
+106,8,5,4.0,56,9.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,5,Chinese Grand Prix,Shanghai,China,,4
+107,9,18,2.0,56,14.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,5,Chinese Grand Prix,Shanghai,China,,3
+108,10,9,1.0,56,13.0,Finished,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,5,Chinese Grand Prix,Shanghai,China,,7
+109,11,13,0.0,56,15.0,Finished,OCO,Esteban Ocon,French,27.0,Alpine,2024,5,Chinese Grand Prix,Shanghai,China,,10
+110,12,14,0.0,56,12.0,Finished,ALB,Alexander Albon,Thai,24.0,Williams,2024,5,Chinese Grand Prix,Shanghai,China,,9
+111,13,15,0.0,56,5.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,5,Chinese Grand Prix,Shanghai,China,,10
+112,14,16,0.0,56,3.0,Finished,ZHO,Guanyu Zhou,Chinese,24.0,Kick Sauber,2024,5,Chinese Grand Prix,Shanghai,China,,6
+113,15,11,0.0,56,8.0,Finished,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,5,Chinese Grand Prix,Shanghai,China,,5
+114,16,17,0.0,56,18.0,Finished,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,5,Chinese Grand Prix,Shanghai,China,,7
+115,17,20,0.0,56,17.0,Finished,SAR,Logan Sargeant,American,23.0,Williams,2024,5,Chinese Grand Prix,Shanghai,China,,9
+116,18,12,0.0,33,16.0,Retired,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,5,Chinese Grand Prix,Shanghai,China,,8
+117,19,19,0.0,26,20.0,Retired,TSU,Yuki Tsunoda,Japanese,23.0,RB,2024,5,Chinese Grand Prix,Shanghai,China,,8
+118,20,10,0.0,19,19.0,Retired,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,5,Chinese Grand Prix,Shanghai,China,,6
+139,1,5,25.0,57,5.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,6,Miami Grand Prix,Miami,United States,,4
+140,2,1,18.0,57,8.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,6,Miami Grand Prix,Miami,United States,,1
+141,3,2,15.0,57,6.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,6,Miami Grand Prix,Miami,United States,,2
+142,4,4,12.0,57,3.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,6,Miami Grand Prix,Miami,United States,,1
+143,5,3,10.0,57,4.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,6,Miami Grand Prix,Miami,United States,,2
+144,6,8,8.0,57,7.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,6,Miami Grand Prix,Miami,United States,,3
+145,7,10,6.0,57,10.0,Finished,TSU,Yuki Tsunoda,Japanese,23.0,RB,2024,6,Miami Grand Prix,Miami,United States,,8
+146,8,7,4.0,57,13.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,6,Miami Grand Prix,Miami,United States,,3
+147,9,15,2.0,57,11.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,6,Miami Grand Prix,Miami,United States,,5
+148,10,13,1.0,57,16.0,Finished,OCO,Esteban Ocon,French,27.0,Alpine,2024,6,Miami Grand Prix,Miami,United States,,10
+149,11,9,0.0,57,14.0,Finished,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,6,Miami Grand Prix,Miami,United States,,7
+150,12,12,0.0,57,17.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,6,Miami Grand Prix,Miami,United States,,10
+151,13,6,0.0,57,1.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,6,Miami Grand Prix,Miami,United States,,4
+152,14,19,0.0,57,15.0,Finished,ZHO,Guanyu Zhou,Chinese,24.0,Kick Sauber,2024,6,Miami Grand Prix,Miami,United States,,6
+153,15,20,0.0,57,19.0,Finished,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,6,Miami Grand Prix,Miami,United States,,8
+154,16,16,0.0,57,18.0,Finished,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,6,Miami Grand Prix,Miami,United States,,6
+155,17,11,0.0,57,9.0,Finished,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,6,Miami Grand Prix,Miami,United States,,5
+156,18,14,0.0,57,2.0,Finished,ALB,Alexander Albon,Thai,24.0,Williams,2024,6,Miami Grand Prix,Miami,United States,,9
+157,19,18,0.0,57,12.0,Finished,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,6,Miami Grand Prix,Miami,United States,,7
+158,20,17,0.0,27,20.0,Retired,SAR,Logan Sargeant,American,23.0,Williams,2024,6,Miami Grand Prix,Miami,United States,,9
+159,1,1,25.0,63,9.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,1
+160,2,2,18.0,63,6.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,4
+161,3,3,15.0,63,5.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,2
+162,4,5,12.0,63,4.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,4
+163,5,4,10.0,63,7.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,2
+164,6,8,8.0,63,8.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,3
+165,7,6,7.0,63,1.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,3
+166,8,11,4.0,63,3.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,1
+167,9,13,2.0,63,10.0,Finished,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,5
+168,10,7,1.0,62,11.0,Lapped,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,8
+169,11,10,0.0,62,20.0,Lapped,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,7
+170,12,18,0.0,62,12.0,Lapped,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,7
+171,13,9,0.0,62,19.0,Lapped,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,8
+172,14,12,0.0,62,16.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,10
+173,15,17,0.0,62,13.0,Lapped,ZHO,Guanyu Zhou,Chinese,24.0,Kick Sauber,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,6
+174,16,15,0.0,62,17.0,Lapped,GAS,Pierre Gasly,French,28.0,Alpine,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,10
+175,17,19,0.0,62,14.0,Lapped,SAR,Logan Sargeant,American,23.0,Williams,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,9
+176,18,16,0.0,62,18.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,6
+177,19,20,0.0,62,2.0,Lapped,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,5
+178,20,14,0.0,51,15.0,Retired,ALB,Alexander Albon,Thai,24.0,Williams,2024,7,Emilia Romagna Grand Prix,Imola,Italy,,9
+179,1,1,25.0,78,6.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,8,Monaco Grand Prix,Monaco,Monaco,,2
+180,2,2,18.0,78,11.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,8,Monaco Grand Prix,Monaco,Monaco,,4
+181,3,3,15.0,78,5.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,8,Monaco Grand Prix,Monaco,Monaco,,2
+182,4,4,12.0,78,10.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,8,Monaco Grand Prix,Monaco,Monaco,,4
+183,5,5,10.0,78,7.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,8,Monaco Grand Prix,Monaco,Monaco,,3
+184,6,6,8.0,78,2.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,8,Monaco Grand Prix,Monaco,Monaco,,1
+185,7,7,7.0,78,1.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,8,Monaco Grand Prix,Monaco,Monaco,,3
+186,8,8,4.0,77,4.0,Lapped,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,8,Monaco Grand Prix,Monaco,Monaco,,8
+187,9,9,2.0,77,14.0,Lapped,ALB,Alexander Albon,Thai,24.0,Williams,2024,8,Monaco Grand Prix,Monaco,Monaco,,9
+188,10,10,1.0,77,9.0,Lapped,GAS,Pierre Gasly,French,28.0,Alpine,2024,8,Monaco Grand Prix,Monaco,Monaco,,10
+189,11,14,0.0,76,16.0,Lapped,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,8,Monaco Grand Prix,Monaco,Monaco,,5
+190,12,12,0.0,76,15.0,Lapped,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,8,Monaco Grand Prix,Monaco,Monaco,,8
+191,13,17,0.0,76,12.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,8,Monaco Grand Prix,Monaco,Monaco,,6
+192,14,13,0.0,76,13.0,Lapped,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,8,Monaco Grand Prix,Monaco,Monaco,,5
+193,15,15,0.0,76,8.0,Lapped,SAR,Logan Sargeant,American,23.0,Williams,2024,8,Monaco Grand Prix,Monaco,Monaco,,9
+194,16,18,0.0,76,3.0,Lapped,ZHO,Guanyu Zhou,Chinese,24.0,Kick Sauber,2024,8,Monaco Grand Prix,Monaco,Monaco,,6
+195,17,11,0.0,0,,Retired,OCO,Esteban Ocon,French,27.0,Alpine,2024,8,Monaco Grand Prix,Monaco,Monaco,,10
+196,18,16,0.0,0,,Retired,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,8,Monaco Grand Prix,Monaco,Monaco,,1
+197,19,19,0.0,0,,Retired,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,8,Monaco Grand Prix,Monaco,Monaco,,7
+198,20,20,0.0,0,,Retired,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,8,Monaco Grand Prix,Monaco,Monaco,,7
+199,1,2,25.0,70,4.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,9,Canadian Grand Prix,Montréal,Canada,,1
+200,2,3,18.0,70,3.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,9,Canadian Grand Prix,Montréal,Canada,,4
+201,3,1,15.0,70,2.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,9,Canadian Grand Prix,Montréal,Canada,,3
+202,4,7,13.0,70,1.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,9,Canadian Grand Prix,Montréal,Canada,,3
+203,5,4,10.0,70,5.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,9,Canadian Grand Prix,Montréal,Canada,,4
+204,6,6,8.0,70,6.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,9,Canadian Grand Prix,Montréal,Canada,,5
+205,7,9,6.0,70,9.0,Finished,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,9,Canadian Grand Prix,Montréal,Canada,,5
+206,8,5,4.0,70,12.0,Finished,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,9,Canadian Grand Prix,Montréal,Canada,,8
+207,9,15,2.0,70,11.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,9,Canadian Grand Prix,Montréal,Canada,,10
+208,10,18,1.0,70,10.0,Finished,OCO,Esteban Ocon,French,27.0,Alpine,2024,9,Canadian Grand Prix,Montréal,Canada,,10
+209,11,17,0.0,70,8.0,Finished,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,9,Canadian Grand Prix,Montréal,Canada,,7
+210,12,14,0.0,70,7.0,Finished,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,9,Canadian Grand Prix,Montréal,Canada,,7
+211,13,19,0.0,70,13.0,Finished,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,9,Canadian Grand Prix,Montréal,Canada,,6
+212,14,8,0.0,70,14.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,9,Canadian Grand Prix,Montréal,Canada,,8
+213,15,20,0.0,69,15.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,9,Canadian Grand Prix,Montréal,Canada,,6
+214,16,12,0.0,52,17.0,Retired,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,9,Canadian Grand Prix,Montréal,Canada,,2
+215,17,10,0.0,52,18.0,Retired,ALB,Alexander Albon,Thai,24.0,Williams,2024,9,Canadian Grand Prix,Montréal,Canada,,9
+216,18,16,0.0,51,16.0,Retired,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,9,Canadian Grand Prix,Montréal,Canada,,1
+217,19,11,0.0,40,19.0,Retired,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,9,Canadian Grand Prix,Montréal,Canada,,2
+218,20,13,0.0,23,20.0,Retired,SAR,Logan Sargeant,American,23.0,Williams,2024,9,Canadian Grand Prix,Montréal,Canada,,9
+219,1,2,25.0,66,2.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,10,Spanish Grand Prix,Barcelona,Spain,,1
+220,2,1,19.0,66,1.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,10,Spanish Grand Prix,Barcelona,Spain,,4
+221,3,3,15.0,66,4.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,10,Spanish Grand Prix,Barcelona,Spain,,3
+222,4,4,12.0,66,7.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,10,Spanish Grand Prix,Barcelona,Spain,,3
+223,5,5,10.0,66,6.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,10,Spanish Grand Prix,Barcelona,Spain,,2
+224,6,6,8.0,66,9.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,10,Spanish Grand Prix,Barcelona,Spain,,2
+225,7,9,6.0,66,5.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,10,Spanish Grand Prix,Barcelona,Spain,,4
+226,8,11,4.0,66,3.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,10,Spanish Grand Prix,Barcelona,Spain,,1
+227,9,7,2.0,66,13.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,10,Spanish Grand Prix,Barcelona,Spain,,10
+228,10,8,1.0,66,12.0,Finished,OCO,Esteban Ocon,French,27.0,Alpine,2024,10,Spanish Grand Prix,Barcelona,Spain,,10
+229,11,13,0.0,66,10.0,Finished,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,10,Spanish Grand Prix,Barcelona,Spain,,7
+230,12,10,0.0,65,8.0,Lapped,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,10,Spanish Grand Prix,Barcelona,Spain,,5
+231,13,15,0.0,65,11.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,10,Spanish Grand Prix,Barcelona,Spain,,6
+232,14,14,0.0,65,15.0,Lapped,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,10,Spanish Grand Prix,Barcelona,Spain,,5
+233,15,18,0.0,65,17.0,Lapped,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,10,Spanish Grand Prix,Barcelona,Spain,,8
+234,16,12,0.0,65,18.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,10,Spanish Grand Prix,Barcelona,Spain,,6
+235,17,16,0.0,65,19.0,Lapped,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,10,Spanish Grand Prix,Barcelona,Spain,,7
+236,18,20,0.0,65,14.0,Lapped,ALB,Alexander Albon,Thai,24.0,Williams,2024,10,Spanish Grand Prix,Barcelona,Spain,,9
+237,19,17,0.0,65,16.0,Lapped,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,10,Spanish Grand Prix,Barcelona,Spain,,8
+238,20,19,0.0,64,20.0,Lapped,SAR,Logan Sargeant,American,23.0,Williams,2024,10,Spanish Grand Prix,Barcelona,Spain,,9
+259,1,3,25.0,71,5.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,11,Austrian Grand Prix,Spielberg,Austria,,3
+260,2,7,18.0,71,4.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,11,Austrian Grand Prix,Spielberg,Austria,,4
+261,3,4,15.0,71,6.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,11,Austrian Grand Prix,Spielberg,Austria,,2
+262,4,5,12.0,71,7.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,11,Austrian Grand Prix,Spielberg,Austria,,3
+263,5,1,10.0,71,2.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,11,Austrian Grand Prix,Spielberg,Austria,,1
+264,6,9,8.0,71,14.0,Finished,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,11,Austrian Grand Prix,Spielberg,Austria,,7
+265,7,8,6.0,71,11.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,11,Austrian Grand Prix,Spielberg,Austria,,1
+266,8,12,4.0,71,12.0,Finished,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,11,Austrian Grand Prix,Spielberg,Austria,,7
+267,9,11,2.0,71,18.0,Finished,RIC,Daniel Ricciardo,Australian,34.0,RB,2024,11,Austrian Grand Prix,Spielberg,Austria,,8
+268,10,13,1.0,71,9.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,11,Austrian Grand Prix,Spielberg,Austria,,10
+269,11,6,0.0,71,8.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,11,Austrian Grand Prix,Spielberg,Austria,,2
+270,12,10,0.0,71,10.0,Finished,OCO,Esteban Ocon,French,27.0,Alpine,2024,11,Austrian Grand Prix,Spielberg,Austria,,10
+271,13,17,0.0,70,13.0,Lapped,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,11,Austrian Grand Prix,Spielberg,Austria,,5
+272,14,14,0.0,70,15.0,Lapped,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,11,Austrian Grand Prix,Spielberg,Austria,,8
+273,15,16,0.0,70,16.0,Lapped,ALB,Alexander Albon,Thai,24.0,Williams,2024,11,Austrian Grand Prix,Spielberg,Austria,,9
+274,16,18,0.0,70,19.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,11,Austrian Grand Prix,Spielberg,Austria,,6
+275,17,20,0.0,70,20.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,11,Austrian Grand Prix,Spielberg,Austria,,6
+276,18,15,0.0,70,1.0,Lapped,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,11,Austrian Grand Prix,Spielberg,Austria,,5
+277,19,19,0.0,69,17.0,Lapped,SAR,Logan Sargeant,American,23.0,Williams,2024,11,Austrian Grand Prix,Spielberg,Austria,,9
+278,20,2,0.0,64,3.0,Lapped,NOR,Lando Norris,British,24.0,McLaren,2024,11,Austrian Grand Prix,Spielberg,Austria,,4
+279,1,2,25.0,52,5.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,12,British Grand Prix,Silverstone,United Kingdom,,3
+280,2,4,18.0,52,3.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,12,British Grand Prix,Silverstone,United Kingdom,,1
+281,3,3,15.0,52,4.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,12,British Grand Prix,Silverstone,United Kingdom,,4
+282,4,5,12.0,52,2.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,12,British Grand Prix,Silverstone,United Kingdom,,4
+283,5,7,11.0,52,1.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,12,British Grand Prix,Silverstone,United Kingdom,,2
+284,6,6,8.0,52,10.0,Finished,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,12,British Grand Prix,Silverstone,United Kingdom,,7
+285,7,8,6.0,52,11.0,Finished,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,12,British Grand Prix,Silverstone,United Kingdom,,5
+286,8,10,4.0,52,7.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,12,British Grand Prix,Silverstone,United Kingdom,,5
+287,9,9,2.0,52,8.0,Finished,ALB,Alexander Albon,Thai,24.0,Williams,2024,12,British Grand Prix,Silverstone,United Kingdom,,9
+288,10,13,1.0,52,14.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,12,British Grand Prix,Silverstone,United Kingdom,,8
+289,11,12,0.0,52,12.0,Finished,SAR,Logan Sargeant,American,23.0,Williams,2024,12,British Grand Prix,Silverstone,United Kingdom,,9
+290,12,17,0.0,52,13.0,Finished,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,12,British Grand Prix,Silverstone,United Kingdom,,7
+291,13,15,0.0,51,15.0,Lapped,RIC,Daniel Ricciardo,Australian,35.0,RB,2024,12,British Grand Prix,Silverstone,United Kingdom,,8
+292,14,11,0.0,51,9.0,Lapped,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,12,British Grand Prix,Silverstone,United Kingdom,,2
+293,15,16,0.0,51,18.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,12,British Grand Prix,Silverstone,United Kingdom,,6
+294,16,18,0.0,50,16.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,12,British Grand Prix,Silverstone,United Kingdom,,10
+295,17,20,0.0,50,6.0,Lapped,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,12,British Grand Prix,Silverstone,United Kingdom,,1
+296,18,14,0.0,50,17.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,12,British Grand Prix,Silverstone,United Kingdom,,6
+297,19,1,0.0,33,19.0,Retired,RUS,George Russell,British,26.0,Mercedes,2024,12,British Grand Prix,Silverstone,United Kingdom,,3
+298,20,19,0.0,0,,Did not start,GAS,Pierre Gasly,French,28.0,Alpine,2024,12,British Grand Prix,Silverstone,United Kingdom,,10
+299,1,2,25.0,70,8.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,13,Hungarian Grand Prix,Budapest,Hungary,,4
+300,2,1,18.0,70,7.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,13,Hungarian Grand Prix,Budapest,Hungary,,4
+301,3,5,15.0,70,9.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,13,Hungarian Grand Prix,Budapest,Hungary,,3
+302,4,6,12.0,70,10.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,13,Hungarian Grand Prix,Budapest,Hungary,,2
+303,5,3,10.0,70,3.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,13,Hungarian Grand Prix,Budapest,Hungary,,1
+304,6,4,8.0,70,5.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,13,Hungarian Grand Prix,Budapest,Hungary,,2
+305,7,16,6.0,70,4.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,13,Hungarian Grand Prix,Budapest,Hungary,,1
+306,8,17,5.0,70,1.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,13,Hungarian Grand Prix,Budapest,Hungary,,3
+307,9,10,2.0,70,18.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,13,Hungarian Grand Prix,Budapest,Hungary,,8
+308,10,8,1.0,70,11.0,Finished,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,13,Hungarian Grand Prix,Budapest,Hungary,,5
+309,11,7,0.0,70,14.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,13,Hungarian Grand Prix,Budapest,Hungary,,5
+310,12,9,0.0,69,12.0,Lapped,RIC,Daniel Ricciardo,Australian,35.0,RB,2024,13,Hungarian Grand Prix,Budapest,Hungary,,8
+311,13,11,0.0,69,16.0,Lapped,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,13,Hungarian Grand Prix,Budapest,Hungary,,7
+312,14,13,0.0,69,20.0,Lapped,ALB,Alexander Albon,Thai,24.0,Williams,2024,13,Hungarian Grand Prix,Budapest,Hungary,,9
+313,15,15,0.0,69,19.0,Lapped,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,13,Hungarian Grand Prix,Budapest,Hungary,,7
+314,16,12,0.0,69,13.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,13,Hungarian Grand Prix,Budapest,Hungary,,6
+315,17,14,0.0,69,2.0,Lapped,SAR,Logan Sargeant,American,23.0,Williams,2024,13,Hungarian Grand Prix,Budapest,Hungary,,9
+316,18,19,0.0,69,6.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,13,Hungarian Grand Prix,Budapest,Hungary,,10
+317,19,18,0.0,69,17.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,13,Hungarian Grand Prix,Budapest,Hungary,,6
+318,20,20,0.0,33,15.0,Retired,GAS,Pierre Gasly,French,28.0,Alpine,2024,13,Hungarian Grand Prix,Budapest,Hungary,,10
+319,1,3,25.0,44,6.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,3
+320,2,5,18.0,44,3.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,4
+321,3,1,15.0,44,8.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,2
+322,4,11,12.0,44,4.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,1
+323,5,4,10.0,44,2.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,4
+324,6,7,8.0,44,5.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,2
+325,7,2,7.0,44,1.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,1
+326,8,8,4.0,44,17.0,Finished,ALO,Fernando Alonso,Spanish,42.0,Aston Martin,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,5
+327,9,9,2.0,44,7.0,Finished,OCO,Esteban Ocon,French,27.0,Alpine,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,10
+328,10,13,1.0,44,12.0,Finished,RIC,Daniel Ricciardo,Australian,35.0,RB,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,8
+329,11,15,0.0,44,18.0,Finished,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,5
+330,12,10,0.0,44,16.0,Finished,ALB,Alexander Albon,Thai,24.0,Williams,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,9
+331,13,12,0.0,44,11.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,10
+332,14,17,0.0,44,14.0,Finished,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,7
+333,15,14,0.0,44,9.0,Finished,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,6
+334,16,20,0.0,44,15.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,8
+335,17,18,0.0,44,13.0,Finished,SAR,Logan Sargeant,American,23.0,Williams,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,9
+336,18,16,0.0,44,19.0,Finished,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,7
+337,19,19,0.0,5,20.0,Retired,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,6
+338,20,6,0.0,44,10.0,Disqualified,RUS,George Russell,British,26.0,Mercedes,2024,14,Belgian Grand Prix,Spa-Francorchamps,Belgium,,3
+339,1,1,26.0,72,1.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,4
+340,2,2,18.0,72,9.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,1
+341,3,6,15.0,72,7.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,2
+342,4,3,12.0,72,5.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,4
+343,5,10,10.0,72,4.0,Finished,SAI,Carlos Sainz,Spanish,29.0,Ferrari,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,2
+344,6,5,8.0,72,8.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,1
+345,7,4,6.0,72,3.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,3
+346,8,14,4.0,72,2.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,3
+347,9,9,2.0,71,11.0,Lapped,GAS,Pierre Gasly,French,28.0,Alpine,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,10
+348,10,7,1.0,71,10.0,Lapped,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,5
+349,11,12,0.0,71,18.0,Lapped,HUL,Nico Hulkenberg,German,36.0,Haas F1 Team,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,7
+350,12,13,0.0,71,13.0,Lapped,RIC,Daniel Ricciardo,Australian,35.0,RB,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,8
+351,13,8,0.0,71,14.0,Lapped,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,5
+352,14,19,0.0,71,6.0,Lapped,ALB,Alexander Albon,Thai,25.0,Williams,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,9
+353,15,15,0.0,71,15.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,10
+354,16,18,0.0,71,16.0,Lapped,SAR,Logan Sargeant,American,23.0,Williams,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,9
+355,17,11,0.0,71,17.0,Lapped,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,8
+356,18,20,0.0,71,12.0,Lapped,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,7
+357,19,16,0.0,70,20.0,Lapped,BOT,Valtteri Bottas,Finnish,34.0,Kick Sauber,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,6
+358,20,17,0.0,70,19.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,15,Dutch Grand Prix,Zandvoort,Netherlands,,6
+359,1,4,25.0,53,10.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,16,Italian Grand Prix,Monza,Italy,,2
+360,2,2,18.0,53,4.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,16,Italian Grand Prix,Monza,Italy,,4
+361,3,1,16.0,53,1.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,16,Italian Grand Prix,Monza,Italy,,4
+362,4,5,12.0,53,9.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Ferrari,2024,16,Italian Grand Prix,Monza,Italy,,2
+363,5,6,10.0,53,2.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,16,Italian Grand Prix,Monza,Italy,,3
+364,6,7,8.0,53,3.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,16,Italian Grand Prix,Monza,Italy,,1
+365,7,3,6.0,53,5.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,16,Italian Grand Prix,Monza,Italy,,3
+366,8,8,4.0,53,8.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,16,Italian Grand Prix,Monza,Italy,,1
+367,9,9,2.0,53,16.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2024,16,Italian Grand Prix,Monza,Italy,,9
+368,10,13,1.0,53,12.0,Finished,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,16,Italian Grand Prix,Monza,Italy,,7
+369,11,11,0.0,53,7.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,16,Italian Grand Prix,Monza,Italy,,5
+370,13,12,0.0,53,17.0,Finished,RIC,Daniel Ricciardo,Australian,35.0,RB,2024,16,Italian Grand Prix,Monza,Italy,,8
+371,14,15,0.0,52,18.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,16,Italian Grand Prix,Monza,Italy,,10
+372,15,14,0.0,52,15.0,Lapped,GAS,Pierre Gasly,French,28.0,Alpine,2024,16,Italian Grand Prix,Monza,Italy,,10
+373,16,19,0.0,52,13.0,Lapped,BOT,Valtteri Bottas,Finnish,35.0,Kick Sauber,2024,16,Italian Grand Prix,Monza,Italy,,6
+374,17,10,0.0,52,11.0,Lapped,HUL,Nico Hulkenberg,German,37.0,Haas F1 Team,2024,16,Italian Grand Prix,Monza,Italy,,7
+375,18,20,0.0,52,19.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,16,Italian Grand Prix,Monza,Italy,,6
+376,19,17,0.0,52,6.0,Lapped,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,16,Italian Grand Prix,Monza,Italy,,5
+377,20,16,0.0,7,20.0,Retired,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,16,Italian Grand Prix,Monza,Italy,,8
+378,1,2,25.0,51,9.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,4
+379,2,1,18.0,51,10.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,2
+380,3,5,15.0,51,2.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,3
+381,4,15,13.0,51,1.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,4
+382,5,6,10.0,51,3.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,1
+383,6,7,8.0,51,8.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,5
+384,7,9,6.0,51,5.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,9
+385,9,19,2.0,51,11.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,3
+386,11,12,0.0,51,14.0,Finished,HUL,Nico Hulkenberg,German,37.0,Haas F1 Team,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,7
+387,12,18,0.0,51,15.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,10
+388,13,14,0.0,51,17.0,Finished,RIC,Daniel Ricciardo,Australian,35.0,RB,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,8
+389,14,17,0.0,51,13.0,Finished,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,6
+390,15,20,0.0,50,19.0,Lapped,OCO,Esteban Ocon,French,27.0,Alpine,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,10
+391,16,16,0.0,50,18.0,Lapped,BOT,Valtteri Bottas,Finnish,35.0,Kick Sauber,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,6
+392,17,4,0.0,49,6.0,Retired,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,1
+393,18,3,0.0,49,4.0,Retired,SAI,Carlos Sainz,Spanish,30.0,Ferrari,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,2
+394,19,13,0.0,45,16.0,Retired,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,5
+395,20,11,0.0,14,20.0,Retired,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,8
+396,1,1,25.0,62,3.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,4
+397,2,2,18.0,62,6.0,Finished,VER,Max Verstappen,Dutch,26.0,Red Bull Racing,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,1
+398,3,5,15.0,62,5.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,4
+399,4,4,12.0,62,11.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,3
+400,5,9,10.0,62,4.0,Finished,LEC,Charles Leclerc,Monégasque,26.0,Ferrari,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,2
+401,6,3,8.0,62,13.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,3
+402,7,10,6.0,62,8.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Ferrari,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,2
+403,8,7,4.0,61,18.0,Lapped,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,5
+404,9,6,2.0,61,15.0,Lapped,HUL,Nico Hulkenberg,German,37.0,Haas F1 Team,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,7
+405,10,13,1.0,61,16.0,Lapped,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,1
+406,12,8,0.0,61,7.0,Lapped,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,8
+407,13,15,0.0,61,20.0,Lapped,OCO,Esteban Ocon,French,28.0,Alpine,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,10
+408,14,17,0.0,61,19.0,Lapped,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,5
+409,15,20,0.0,61,14.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,6
+410,16,19,0.0,61,17.0,Lapped,BOT,Valtteri Bottas,Finnish,35.0,Kick Sauber,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,6
+411,17,18,0.0,61,10.0,Lapped,GAS,Pierre Gasly,French,28.0,Alpine,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,10
+412,18,16,0.0,61,1.0,Lapped,RIC,Daniel Ricciardo,Australian,35.0,RB,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,8
+413,19,14,0.0,57,2.0,Retired,MAG,Kevin Magnussen,Danish,31.0,Haas F1 Team,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,7
+414,20,11,0.0,15,9.0,Retired,ALB,Alexander Albon,Thai,25.0,Williams,2024,18,Singapore Grand Prix,Marina Bay,Singapore,,9
+433,1,4,25.0,56,6.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2024,19,United States Grand Prix,Austin,United States,,2
+434,2,3,18.0,56,5.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Ferrari,2024,19,United States Grand Prix,Austin,United States,,2
+435,3,2,15.0,56,9.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2024,19,United States Grand Prix,Austin,United States,,1
+436,4,1,12.0,56,4.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,19,United States Grand Prix,Austin,United States,,4
+437,5,5,10.0,56,7.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,19,United States Grand Prix,Austin,United States,,4
+438,6,20,8.0,56,3.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,19,United States Grand Prix,Austin,United States,,3
+439,7,9,6.0,56,13.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,19,United States Grand Prix,Austin,United States,,1
+440,8,11,4.0,56,12.0,Finished,HUL,Nico Hulkenberg,German,37.0,Haas F1 Team,2024,19,United States Grand Prix,Austin,United States,,7
+441,11,8,0.0,56,10.0,Finished,MAG,Kevin Magnussen,Danish,32.0,Haas F1 Team,2024,19,United States Grand Prix,Austin,United States,,7
+442,12,6,0.0,56,11.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,19,United States Grand Prix,Austin,United States,,10
+443,13,7,0.0,55,17.0,Lapped,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,19,United States Grand Prix,Austin,United States,,5
+444,14,10,0.0,55,15.0,Lapped,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,19,United States Grand Prix,Austin,United States,,8
+445,15,13,0.0,55,16.0,Lapped,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,19,United States Grand Prix,Austin,United States,,5
+446,16,14,0.0,55,14.0,Lapped,ALB,Alexander Albon,Thai,25.0,Williams,2024,19,United States Grand Prix,Austin,United States,,9
+447,17,16,0.0,55,19.0,Lapped,BOT,Valtteri Bottas,Finnish,35.0,Kick Sauber,2024,19,United States Grand Prix,Austin,United States,,6
+448,18,12,0.0,55,1.0,Lapped,OCO,Esteban Ocon,French,28.0,Alpine,2024,19,United States Grand Prix,Austin,United States,,10
+449,19,18,0.0,55,18.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,19,United States Grand Prix,Austin,United States,,6
+450,20,17,0.0,1,20.0,Retired,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,19,United States Grand Prix,Austin,United States,,3
+451,1,1,25.0,71,7.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Ferrari,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,2
+452,2,3,18.0,71,4.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,4
+453,3,4,16.0,71,1.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,2
+454,4,6,12.0,71,8.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,3
+455,5,5,10.0,71,11.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,3
+456,6,2,8.0,71,13.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,1
+457,7,7,6.0,71,9.0,Finished,MAG,Kevin Magnussen,Danish,32.0,Haas F1 Team,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,7
+458,8,17,4.0,71,5.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,4
+459,9,10,2.0,70,12.0,Lapped,HUL,Nico Hulkenberg,German,37.0,Haas F1 Team,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,7
+460,10,8,1.0,70,15.0,Lapped,GAS,Pierre Gasly,French,28.0,Alpine,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,10
+461,11,14,0.0,70,16.0,Lapped,STR,Lance Stroll,Canadian,25.0,Aston Martin,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,5
+462,13,0,0.0,70,10.0,Lapped,OCO,Esteban Ocon,French,28.0,Alpine,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,10
+463,14,15,0.0,70,14.0,Lapped,BOT,Valtteri Bottas,Finnish,35.0,Kick Sauber,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,6
+464,15,19,0.0,70,17.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,6
+465,17,18,0.0,70,2.0,Lapped,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,1
+466,18,13,0.0,15,18.0,Retired,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,5
+467,19,9,0.0,0,,Retired,ALB,Alexander Albon,Thai,25.0,Williams,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,9
+468,20,11,0.0,0,,Retired,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,20,Mexico City Grand Prix,Mexico City,Mexico,,8
+486,1,17,26.0,69,1.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,1
+487,2,4,18.0,69,7.0,Finished,OCO,Esteban Ocon,French,28.0,Alpine,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,10
+488,3,13,15.0,69,5.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,10
+489,4,2,12.0,69,6.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,3
+490,5,6,10.0,69,4.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,2
+491,6,1,8.0,69,2.0,Finished,NOR,Lando Norris,British,24.0,McLaren,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,4
+492,7,3,6.0,69,8.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,8
+493,8,8,4.0,69,3.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,4
+494,10,14,1.0,69,9.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,3
+495,11,12,0.0,69,11.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,1
+496,13,11,0.0,69,14.0,Finished,BOT,Valtteri Bottas,Finnish,35.0,Kick Sauber,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,6
+497,14,9,0.0,69,12.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,5
+498,15,19,0.0,69,15.0,Finished,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,6
+499,16,20,0.0,38,17.0,Retired,SAI,Carlos Sainz,Spanish,30.0,Ferrari,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,2
+500,18,7,0.0,0,,Did not start,ALB,Alexander Albon,Thai,25.0,Williams,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,9
+501,19,10,0.0,0,,Did not start,STR,Lance Stroll,Canadian,26.0,Aston Martin,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,5
+502,20,18,0.0,0,16.0,Disqualified,HUL,Nico Hulkenberg,German,37.0,Haas F1 Team,2024,21,São Paulo Grand Prix,São Paulo,Brazil,,7
+503,1,1,25.0,50,4.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,3
+504,2,10,18.0,50,2.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,3
+505,3,2,15.0,50,5.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Ferrari,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,2
+506,4,4,12.0,50,3.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,2
+507,5,5,10.0,50,6.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,1
+508,6,6,9.0,50,1.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,4
+509,7,8,6.0,50,13.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,4
+510,8,9,4.0,50,12.0,Finished,HUL,Nico Hulkenberg,German,37.0,Haas F1 Team,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,7
+511,9,7,2.0,50,16.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,8
+512,10,15,1.0,50,8.0,Finished,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,1
+513,11,16,0.0,50,10.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,5
+514,12,12,0.0,50,11.0,Finished,MAG,Kevin Magnussen,Danish,32.0,Haas F1 Team,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,7
+515,13,13,0.0,50,7.0,Finished,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,6
+516,15,18,0.0,50,18.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,5
+517,17,11,0.0,49,9.0,Lapped,OCO,Esteban Ocon,French,28.0,Alpine,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,10
+518,18,19,0.0,49,14.0,Lapped,BOT,Valtteri Bottas,Finnish,35.0,Kick Sauber,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,6
+519,19,17,0.0,25,19.0,Retired,ALB,Alexander Albon,Thai,25.0,Williams,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,9
+520,20,3,0.0,15,20.0,Retired,GAS,Pierre Gasly,French,28.0,Alpine,2024,22,Las Vegas Grand Prix,Las Vegas,United States,,10
+539,1,2,25.0,57,2.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2024,23,Qatar Grand Prix,Lusail,Qatar,,1
+540,2,5,18.0,57,4.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2024,23,Qatar Grand Prix,Lusail,Qatar,,2
+541,3,4,15.0,57,3.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,23,Qatar Grand Prix,Lusail,Qatar,,4
+542,4,1,12.0,57,5.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,23,Qatar Grand Prix,Lusail,Qatar,,3
+543,5,11,10.0,57,8.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,23,Qatar Grand Prix,Lusail,Qatar,,10
+544,6,7,8.0,57,6.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Ferrari,2024,23,Qatar Grand Prix,Lusail,Qatar,,2
+545,7,8,6.0,57,7.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,23,Qatar Grand Prix,Lusail,Qatar,,5
+546,8,12,4.0,57,10.0,Finished,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,23,Qatar Grand Prix,Lusail,Qatar,,6
+547,9,10,2.0,57,11.0,Finished,MAG,Kevin Magnussen,Danish,32.0,Haas F1 Team,2024,23,Qatar Grand Prix,Lusail,Qatar,,7
+548,10,3,2.0,57,1.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2024,23,Qatar Grand Prix,Lusail,Qatar,,4
+549,11,13,0.0,57,13.0,Finished,BOT,Valtteri Bottas,Finnish,35.0,Kick Sauber,2024,23,Qatar Grand Prix,Lusail,Qatar,,6
+550,12,6,0.0,57,9.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,23,Qatar Grand Prix,Lusail,Qatar,,3
+551,13,14,0.0,57,17.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,23,Qatar Grand Prix,Lusail,Qatar,,8
+552,15,16,0.0,56,14.0,Lapped,ALB,Alexander Albon,Thai,25.0,Williams,2024,23,Qatar Grand Prix,Lusail,Qatar,,9
+553,16,18,0.0,39,15.0,Retired,HUL,Nico Hulkenberg,German,37.0,Haas F1 Team,2024,23,Qatar Grand Prix,Lusail,Qatar,,7
+554,17,9,0.0,38,12.0,Retired,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,23,Qatar Grand Prix,Lusail,Qatar,,1
+555,18,15,0.0,8,18.0,Retired,STR,Lance Stroll,Canadian,26.0,Aston Martin,2024,23,Qatar Grand Prix,Lusail,Qatar,,5
+556,20,20,0.0,0,,Retired,OCO,Esteban Ocon,French,28.0,Alpine,2024,23,Qatar Grand Prix,Lusail,Qatar,,10
+557,1,1,25.0,58,3.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,4
+558,2,3,18.0,58,6.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Ferrari,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,2
+559,3,19,15.0,58,9.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,2
+560,4,16,12.0,58,2.0,Finished,HAM,Lewis Hamilton,British,39.0,Mercedes,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,3
+561,5,6,10.0,58,10.0,Finished,RUS,George Russell,British,26.0,Mercedes,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,3
+562,6,4,8.0,58,5.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,1
+563,7,5,6.0,58,16.0,Finished,GAS,Pierre Gasly,French,28.0,Alpine,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,10
+564,8,7,4.0,58,14.0,Finished,HUL,Nico Hulkenberg,German,37.0,Haas F1 Team,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,7
+565,9,8,2.0,58,7.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,5
+566,10,2,1.0,58,4.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,4
+567,11,18,0.0,57,18.0,Lapped,ALB,Alexander Albon,Thai,25.0,Williams,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,9
+568,12,11,0.0,57,15.0,Lapped,TSU,Yuki Tsunoda,Japanese,24.0,RB,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,8
+569,13,15,0.0,57,8.0,Lapped,ZHO,Guanyu Zhou,Chinese,25.0,Kick Sauber,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,6
+570,14,13,0.0,57,11.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,5
+571,16,14,0.0,57,1.0,Lapped,MAG,Kevin Magnussen,Danish,32.0,Haas F1 Team,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,7
+572,18,9,0.0,30,19.0,Retired,BOT,Valtteri Bottas,Finnish,35.0,Kick Sauber,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,6
+573,20,10,0.0,0,,Retired,PER,Sergio Perez,Mexican,34.0,Red Bull Racing,2024,24,Abu Dhabi Grand Prix,Yas Island,United Arab Emirates,,1
+574,1,1,25.0,57,1.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,1,Australian Grand Prix,Melbourne,Australia,,4
+575,2,3,18.0,57,3.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,1,Australian Grand Prix,Melbourne,Australia,,1
+576,3,4,15.0,57,11.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,1,Australian Grand Prix,Melbourne,Australia,,3
+577,4,16,12.0,57,9.0,Finished,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,1,Australian Grand Prix,Melbourne,Australia,,3
+578,5,6,10.0,57,8.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2025,1,Australian Grand Prix,Melbourne,Australia,,9
+579,6,13,8.0,57,14.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,1,Australian Grand Prix,Melbourne,Australia,,5
+580,7,17,6.0,57,12.0,Finished,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,1,Australian Grand Prix,Melbourne,Australia,,6
+581,8,7,4.0,57,13.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,1,Australian Grand Prix,Melbourne,Australia,,2
+582,9,2,2.0,57,4.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2025,1,Australian Grand Prix,Melbourne,Australia,,4
+583,10,8,1.0,57,7.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,1,Australian Grand Prix,Melbourne,Australia,,2
+584,11,9,0.0,57,10.0,Finished,GAS,Pierre Gasly,French,29.0,Alpine,2025,1,Australian Grand Prix,Melbourne,Australia,,10
+585,12,5,0.0,57,6.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,Racing Bulls,2025,1,Australian Grand Prix,Melbourne,Australia,,11
+586,13,19,0.0,57,15.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,1,Australian Grand Prix,Melbourne,Australia,,7
+587,14,20,0.0,57,16.0,Finished,BEA,Oliver Bearman,British,19.0,Haas F1 Team,2025,1,Australian Grand Prix,Melbourne,Australia,,7
+588,15,18,0.0,46,2.0,Retired,LAW,Liam Lawson,New Zealander,23.0,Red Bull Racing,2025,1,Australian Grand Prix,Melbourne,Australia,,1
+589,16,15,0.0,45,5.0,Retired,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,1,Australian Grand Prix,Melbourne,Australia,,6
+590,17,12,0.0,32,17.0,Retired,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,1,Australian Grand Prix,Melbourne,Australia,,5
+591,18,10,0.0,0,,Retired,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,1,Australian Grand Prix,Melbourne,Australia,,9
+592,19,14,0.0,0,,Retired,DOO,Jack Doohan,Australian,22.0,Alpine,2025,1,Australian Grand Prix,Melbourne,Australia,,10
+593,20,11,0.0,0,,Retired,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,1,Australian Grand Prix,Melbourne,Australia,,11
+614,1,1,25.0,56,4.0,Finished,PIA,Oscar Piastri,Australian,23.0,McLaren,2025,2,Chinese Grand Prix,Shanghai,China,,4
+615,2,3,18.0,56,2.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,2,Chinese Grand Prix,Shanghai,China,,4
+616,3,2,15.0,56,6.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,2,Chinese Grand Prix,Shanghai,China,,3
+617,4,4,12.0,56,3.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,2,Chinese Grand Prix,Shanghai,China,,1
+618,5,11,10.0,56,5.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,2,Chinese Grand Prix,Shanghai,China,,7
+619,6,8,8.0,56,12.0,Finished,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,2,Chinese Grand Prix,Shanghai,China,,3
+620,7,10,6.0,56,14.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2025,2,Chinese Grand Prix,Shanghai,China,,9
+621,8,17,4.0,56,15.0,Finished,BEA,Oliver Bearman,British,19.0,Haas F1 Team,2025,2,Chinese Grand Prix,Shanghai,China,,7
+622,9,14,2.0,56,11.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,2,Chinese Grand Prix,Shanghai,China,,5
+623,10,15,1.0,56,18.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,2,Chinese Grand Prix,Shanghai,China,,9
+624,11,7,0.0,56,7.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,2,Chinese Grand Prix,Shanghai,China,,11
+625,12,20,0.0,56,10.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Red Bull Racing,2025,2,Chinese Grand Prix,Shanghai,China,,1
+626,13,18,0.0,56,16.0,Finished,DOO,Jack Doohan,Australian,22.0,Alpine,2025,2,Chinese Grand Prix,Shanghai,China,,10
+627,14,19,0.0,55,9.0,Lapped,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,2,Chinese Grand Prix,Shanghai,China,,6
+628,15,12,0.0,55,19.0,Lapped,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,2,Chinese Grand Prix,Shanghai,China,,6
+629,16,9,0.0,55,8.0,Lapped,TSU,Yuki Tsunoda,Japanese,24.0,Racing Bulls,2025,2,Chinese Grand Prix,Shanghai,China,,11
+630,17,13,0.0,4,20.0,Retired,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,2,Chinese Grand Prix,Shanghai,China,,5
+631,18,6,0.0,0,13.0,Disqualified,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,2,Chinese Grand Prix,Shanghai,China,,2
+632,19,5,0.0,0,1.0,Disqualified,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,2,Chinese Grand Prix,Shanghai,China,,2
+633,20,16,0.0,0,17.0,Disqualified,GAS,Pierre Gasly,French,29.0,Alpine,2025,2,Chinese Grand Prix,Shanghai,China,,10
+634,1,1,25.0,53,3.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,3,Japanese Grand Prix,Suzuka,Japan,,1
+635,2,2,18.0,53,5.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,3,Japanese Grand Prix,Suzuka,Japan,,4
+636,3,3,15.0,53,2.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,3,Japanese Grand Prix,Suzuka,Japan,,4
+637,4,4,12.0,53,10.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,3,Japanese Grand Prix,Suzuka,Japan,,2
+638,5,5,10.0,53,8.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,3,Japanese Grand Prix,Suzuka,Japan,,3
+639,6,6,8.0,53,1.0,Finished,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,3,Japanese Grand Prix,Suzuka,Japan,,3
+640,7,8,6.0,53,9.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,3,Japanese Grand Prix,Suzuka,Japan,,2
+641,8,7,4.0,53,7.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,3,Japanese Grand Prix,Suzuka,Japan,,11
+642,9,9,2.0,53,6.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2025,3,Japanese Grand Prix,Suzuka,Japan,,9
+643,10,10,1.0,53,15.0,Finished,BEA,Oliver Bearman,British,19.0,Haas F1 Team,2025,3,Japanese Grand Prix,Suzuka,Japan,,7
+644,11,12,0.0,53,11.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,3,Japanese Grand Prix,Suzuka,Japan,,5
+645,12,14,0.0,53,13.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,Red Bull Racing,2025,3,Japanese Grand Prix,Suzuka,Japan,,11
+646,13,11,0.0,53,12.0,Finished,GAS,Pierre Gasly,French,29.0,Alpine,2025,3,Japanese Grand Prix,Suzuka,Japan,,10
+647,14,15,0.0,53,4.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,3,Japanese Grand Prix,Suzuka,Japan,,9
+648,15,19,0.0,53,20.0,Finished,DOO,Jack Doohan,Australian,22.0,Alpine,2025,3,Japanese Grand Prix,Suzuka,Japan,,10
+649,16,16,0.0,53,19.0,Finished,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,3,Japanese Grand Prix,Suzuka,Japan,,6
+650,17,13,0.0,53,17.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,3,Japanese Grand Prix,Suzuka,Japan,,1
+651,18,18,0.0,53,14.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,3,Japanese Grand Prix,Suzuka,Japan,,7
+652,19,17,0.0,53,16.0,Finished,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,3,Japanese Grand Prix,Suzuka,Japan,,6
+653,20,20,0.0,52,18.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,3,Japanese Grand Prix,Suzuka,Japan,,5
+654,1,1,25.0,57,1.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,4
+655,2,3,18.0,57,2.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,3
+656,3,6,15.0,57,3.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,4
+657,4,2,12.0,57,4.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,2
+658,5,9,10.0,57,6.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,2
+659,6,7,8.0,57,5.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,1
+660,7,4,6.0,57,7.0,Finished,GAS,Pierre Gasly,French,29.0,Alpine,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,10
+661,8,14,4.0,57,12.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,7
+662,9,10,2.0,57,14.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,Red Bull Racing,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,11
+663,10,20,1.0,57,15.0,Finished,BEA,Oliver Bearman,British,19.0,Haas F1 Team,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,7
+664,11,5,0.0,57,9.0,Finished,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,3
+665,12,15,0.0,57,13.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,9
+666,13,12,0.0,57,10.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,11
+667,14,11,0.0,57,8.0,Finished,DOO,Jack Doohan,Australian,22.0,Alpine,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,10
+668,15,13,0.0,57,18.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,5
+669,16,17,0.0,57,17.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,1
+670,17,19,0.0,57,20.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,5
+671,18,18,0.0,57,19.0,Finished,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,6
+672,19,8,0.0,45,11.0,Retired,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,9
+673,20,16,0.0,0,16.0,Disqualified,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,4,Bahrain Grand Prix,Sakhir,Bahrain,,6
+674,1,2,25.0,50,3.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,4
+675,2,1,18.0,50,4.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,1
+676,3,4,15.0,50,2.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,2
+677,4,10,12.0,50,1.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,4
+678,5,3,10.0,50,9.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,3
+679,6,5,8.0,50,5.0,Finished,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,3
+680,7,7,6.0,50,7.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,2
+681,8,6,4.0,50,6.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,9
+682,9,11,2.0,50,16.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,9
+683,10,14,1.0,50,14.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,11
+684,11,13,0.0,50,11.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,5
+685,12,12,0.0,50,10.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,1
+686,13,15,0.0,50,13.0,Finished,BEA,Oliver Bearman,British,19.0,Haas F1 Team,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,7
+687,14,19,0.0,50,17.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,7
+688,15,18,0.0,49,15.0,Lapped,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,6
+689,16,16,0.0,49,8.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,5
+690,17,17,0.0,49,12.0,Lapped,DOO,Jack Doohan,Australian,22.0,Alpine,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,10
+691,18,20,0.0,49,18.0,Lapped,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,6
+692,19,8,0.0,1,19.0,Retired,TSU,Yuki Tsunoda,Japanese,24.0,Red Bull Racing,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,11
+693,20,9,0.0,0,,Retired,GAS,Pierre Gasly,French,29.0,Alpine,2025,5,Saudi Arabian Grand Prix,Jeddah,Saudi Arabia,,10
+714,1,4,25.0,57,2.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,6,Miami Grand Prix,Miami Gardens,United States,,4
+715,2,2,18.0,57,1.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,6,Miami Grand Prix,Miami Gardens,United States,,4
+716,3,5,15.0,57,3.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,6,Miami Grand Prix,Miami Gardens,United States,,3
+717,4,1,12.0,57,5.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,6,Miami Grand Prix,Miami Gardens,United States,,1
+718,5,7,10.0,57,6.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2025,6,Miami Grand Prix,Miami Gardens,United States,,9
+719,6,3,8.0,57,9.0,Finished,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,6,Miami Grand Prix,Miami Gardens,United States,,3
+720,7,8,6.0,57,4.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,6,Miami Grand Prix,Miami Gardens,United States,,2
+721,8,12,4.0,57,7.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,6,Miami Grand Prix,Miami Gardens,United States,,2
+722,9,6,2.0,57,8.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,6,Miami Grand Prix,Miami Gardens,United States,,9
+723,10,10,1.0,57,10.0,Finished,TSU,Yuki Tsunoda,Japanese,24.0,Red Bull Racing,2025,6,Miami Grand Prix,Miami Gardens,United States,,11
+724,11,11,0.0,57,11.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,6,Miami Grand Prix,Miami Gardens,United States,,11
+725,12,9,0.0,57,13.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,6,Miami Grand Prix,Miami Gardens,United States,,7
+726,13,20,0.0,57,14.0,Finished,GAS,Pierre Gasly,French,29.0,Alpine,2025,6,Miami Grand Prix,Miami Gardens,United States,,10
+727,14,16,0.0,56,12.0,Lapped,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,6,Miami Grand Prix,Miami Gardens,United States,,6
+728,15,17,0.0,56,15.0,Lapped,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,6,Miami Grand Prix,Miami Gardens,United States,,5
+729,16,18,0.0,56,16.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,6,Miami Grand Prix,Miami Gardens,United States,,5
+730,17,15,0.0,36,17.0,Retired,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,6,Miami Grand Prix,Miami Gardens,United States,,1
+731,18,13,0.0,30,18.0,Retired,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,6,Miami Grand Prix,Miami Gardens,United States,,6
+732,19,19,0.0,27,19.0,Retired,BEA,Oliver Bearman,British,19.0,Haas F1 Team,2025,6,Miami Grand Prix,Miami Gardens,United States,,7
+733,20,14,0.0,0,,Retired,DOO,Jack Doohan,Australian,22.0,Alpine,2025,6,Miami Grand Prix,Miami Gardens,United States,,10
+734,1,2,25.0,63,1.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,1
+735,2,4,18.0,63,4.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,4
+736,3,1,15.0,63,5.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,4
+737,4,12,12.0,63,2.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,2
+738,5,7,10.0,63,3.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,9
+739,6,11,8.0,63,6.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,2
+740,7,3,6.0,63,9.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,3
+741,8,6,4.0,63,10.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,9
+742,9,9,2.0,63,7.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,11
+743,10,20,1.0,63,12.0,Finished,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,11
+744,11,5,0.0,63,11.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,5
+745,12,17,0.0,63,15.0,Finished,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,6
+746,13,10,0.0,63,14.0,Finished,GAS,Pierre Gasly,French,29.0,Alpine,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,10
+747,14,15,0.0,63,16.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,1
+748,15,8,0.0,63,17.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,5
+749,17,19,0.0,63,8.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,7
+750,18,14,0.0,63,19.0,Finished,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,6
+751,19,13,0.0,44,18.0,Retired,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,3
+752,20,18,0.0,27,20.0,Retired,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,7,Emilia Romagna Grand Prix,Imola,Italy,,7
+753,1,1,25.0,78,1.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,8,Monaco Grand Prix,Monaco,Monaco,,4
+754,2,2,18.0,78,6.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,8,Monaco Grand Prix,Monaco,Monaco,,2
+755,3,3,15.0,78,4.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,8,Monaco Grand Prix,Monaco,Monaco,,4
+756,4,4,12.0,78,8.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,8,Monaco Grand Prix,Monaco,Monaco,,1
+757,5,7,10.0,78,7.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,8,Monaco Grand Prix,Monaco,Monaco,,2
+758,6,5,8.0,77,19.0,Lapped,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,8,Monaco Grand Prix,Monaco,Monaco,,11
+759,7,8,6.0,77,14.0,Lapped,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,8,Monaco Grand Prix,Monaco,Monaco,,7
+760,8,9,4.0,77,17.0,Lapped,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,8,Monaco Grand Prix,Monaco,Monaco,,1
+761,9,10,2.0,76,9.0,Lapped,ALB,Alexander Albon,Thai,25.0,Williams,2025,8,Monaco Grand Prix,Monaco,Monaco,,9
+762,10,11,1.0,76,5.0,Lapped,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,8,Monaco Grand Prix,Monaco,Monaco,,9
+763,11,14,0.0,76,2.0,Lapped,RUS,George Russell,British,27.0,Mercedes,2025,8,Monaco Grand Prix,Monaco,Monaco,,3
+764,12,20,0.0,76,10.0,Lapped,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,8,Monaco Grand Prix,Monaco,Monaco,,7
+765,14,16,0.0,76,12.0,Lapped,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,8,Monaco Grand Prix,Monaco,Monaco,,6
+766,15,19,0.0,76,11.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,8,Monaco Grand Prix,Monaco,Monaco,,5
+767,16,13,0.0,76,15.0,Lapped,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,8,Monaco Grand Prix,Monaco,Monaco,,6
+768,17,12,0.0,76,13.0,Lapped,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,8,Monaco Grand Prix,Monaco,Monaco,,11
+769,18,15,0.0,75,3.0,Lapped,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,8,Monaco Grand Prix,Monaco,Monaco,,3
+770,19,6,0.0,36,18.0,Retired,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,8,Monaco Grand Prix,Monaco,Monaco,,5
+771,20,17,0.0,7,20.0,Retired,GAS,Pierre Gasly,French,29.0,Alpine,2025,8,Monaco Grand Prix,Monaco,Monaco,,10
+772,1,1,25.0,66,1.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,9,Spanish Grand Prix,Barcelona,Spain,,4
+773,2,2,18.0,66,2.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,9,Spanish Grand Prix,Barcelona,Spain,,4
+774,3,7,15.0,66,5.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,9,Spanish Grand Prix,Barcelona,Spain,,2
+775,4,4,12.0,66,4.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,9,Spanish Grand Prix,Barcelona,Spain,,3
+776,5,15,10.0,66,6.0,Finished,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,9,Spanish Grand Prix,Barcelona,Spain,,6
+777,6,5,8.0,66,7.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,9,Spanish Grand Prix,Barcelona,Spain,,2
+778,7,9,6.0,66,8.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,9,Spanish Grand Prix,Barcelona,Spain,,11
+779,8,8,4.0,66,9.0,Finished,GAS,Pierre Gasly,French,29.0,Alpine,2025,9,Spanish Grand Prix,Barcelona,Spain,,10
+780,9,10,2.0,66,11.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,9,Spanish Grand Prix,Barcelona,Spain,,5
+781,10,3,1.0,66,3.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,9,Spanish Grand Prix,Barcelona,Spain,,1
+782,11,13,0.0,66,18.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,9,Spanish Grand Prix,Barcelona,Spain,,1
+783,12,12,0.0,66,13.0,Finished,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,9,Spanish Grand Prix,Barcelona,Spain,,6
+784,13,19,0.0,66,10.0,Finished,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,9,Spanish Grand Prix,Barcelona,Spain,,11
+785,14,17,0.0,66,17.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,9,Spanish Grand Prix,Barcelona,Spain,,9
+786,16,16,0.0,66,15.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,9,Spanish Grand Prix,Barcelona,Spain,,7
+787,17,14,0.0,66,16.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,9,Spanish Grand Prix,Barcelona,Spain,,7
+788,18,6,0.0,53,12.0,Retired,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,9,Spanish Grand Prix,Barcelona,Spain,,3
+789,19,11,0.0,27,19.0,Retired,ALB,Alexander Albon,Thai,25.0,Williams,2025,9,Spanish Grand Prix,Barcelona,Spain,,9
+790,1,1,25.0,70,1.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,10,Canadian Grand Prix,Montréal,Canada,,3
+791,2,2,18.0,70,5.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,10,Canadian Grand Prix,Montréal,Canada,,1
+792,3,4,15.0,70,7.0,Finished,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,10,Canadian Grand Prix,Montréal,Canada,,3
+793,4,3,12.0,70,3.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,10,Canadian Grand Prix,Montréal,Canada,,4
+794,5,8,10.0,70,4.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,10,Canadian Grand Prix,Montréal,Canada,,2
+795,6,5,8.0,70,9.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,10,Canadian Grand Prix,Montréal,Canada,,2
+796,7,6,6.0,70,12.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,10,Canadian Grand Prix,Montréal,Canada,,5
+797,8,11,4.0,70,14.0,Finished,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,10,Canadian Grand Prix,Montréal,Canada,,6
+798,9,14,2.0,69,8.0,Lapped,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,10,Canadian Grand Prix,Montréal,Canada,,7
+799,10,16,1.0,69,6.0,Lapped,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,10,Canadian Grand Prix,Montréal,Canada,,9
+800,11,13,0.0,69,15.0,Lapped,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,10,Canadian Grand Prix,Montréal,Canada,,7
+801,12,18,0.0,69,13.0,Lapped,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,10,Canadian Grand Prix,Montréal,Canada,,11
+802,14,15,0.0,69,16.0,Lapped,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,10,Canadian Grand Prix,Montréal,Canada,,6
+803,15,20,0.0,69,11.0,Lapped,GAS,Pierre Gasly,French,29.0,Alpine,2025,10,Canadian Grand Prix,Montréal,Canada,,10
+804,16,12,0.0,69,19.0,Lapped,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,10,Canadian Grand Prix,Montréal,Canada,,11
+805,17,17,0.0,69,10.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,10,Canadian Grand Prix,Montréal,Canada,,5
+806,18,7,0.0,66,2.0,Retired,NOR,Lando Norris,British,25.0,McLaren,2025,10,Canadian Grand Prix,Montréal,Canada,,4
+807,19,19,0.0,53,20.0,Retired,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,10,Canadian Grand Prix,Montréal,Canada,,1
+808,20,9,0.0,46,18.0,Retired,ALB,Alexander Albon,Thai,25.0,Williams,2025,10,Canadian Grand Prix,Montréal,Canada,,9
+809,1,1,25.0,70,2.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,11,Austrian Grand Prix,Spielberg,Austria,,4
+810,2,3,18.0,70,1.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,11,Austrian Grand Prix,Spielberg,Austria,,4
+811,3,2,15.0,70,4.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,11,Austrian Grand Prix,Spielberg,Austria,,2
+812,4,4,12.0,70,3.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,11,Austrian Grand Prix,Spielberg,Austria,,2
+813,5,5,10.0,70,7.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,11,Austrian Grand Prix,Spielberg,Austria,,3
+814,6,6,8.0,70,14.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,11,Austrian Grand Prix,Spielberg,Austria,,1
+815,7,11,6.0,69,12.0,Lapped,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,11,Austrian Grand Prix,Spielberg,Austria,,5
+816,8,8,4.0,69,6.0,Lapped,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,11,Austrian Grand Prix,Spielberg,Austria,,6
+817,9,20,2.0,69,8.0,Lapped,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,11,Austrian Grand Prix,Spielberg,Austria,,6
+818,10,17,1.0,69,9.0,Lapped,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,11,Austrian Grand Prix,Spielberg,Austria,,7
+819,11,15,0.0,69,13.0,Lapped,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,11,Austrian Grand Prix,Spielberg,Austria,,7
+820,12,13,0.0,69,16.0,Lapped,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,11,Austrian Grand Prix,Spielberg,Austria,,11
+821,13,10,0.0,69,15.0,Lapped,GAS,Pierre Gasly,French,29.0,Alpine,2025,11,Austrian Grand Prix,Spielberg,Austria,,10
+822,14,16,0.0,69,5.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,11,Austrian Grand Prix,Spielberg,Austria,,5
+823,16,18,0.0,68,11.0,Lapped,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,11,Austrian Grand Prix,Spielberg,Austria,,11
+824,17,12,0.0,15,17.0,Retired,ALB,Alexander Albon,Thai,25.0,Williams,2025,11,Austrian Grand Prix,Spielberg,Austria,,9
+825,18,7,0.0,0,,Retired,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,11,Austrian Grand Prix,Spielberg,Austria,,1
+826,19,9,0.0,0,,Retired,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,11,Austrian Grand Prix,Spielberg,Austria,,3
+827,20,19,0.0,0,,Did not start,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,11,Austrian Grand Prix,Spielberg,Austria,,9
+828,1,3,25.0,52,2.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,12,British Grand Prix,Silverstone,United Kingdom,,4
+829,2,2,18.0,52,1.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,12,British Grand Prix,Silverstone,United Kingdom,,4
+830,3,19,15.0,52,14.0,Finished,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,12,British Grand Prix,Silverstone,United Kingdom,,6
+831,4,5,12.0,52,3.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,12,British Grand Prix,Silverstone,United Kingdom,,2
+832,5,1,10.0,52,5.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,12,British Grand Prix,Silverstone,United Kingdom,,1
+833,6,8,8.0,52,8.0,Finished,GAS,Pierre Gasly,French,29.0,Alpine,2025,12,British Grand Prix,Silverstone,United Kingdom,,10
+834,7,17,6.0,52,15.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,12,British Grand Prix,Silverstone,United Kingdom,,5
+835,8,13,4.0,52,4.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2025,12,British Grand Prix,Silverstone,United Kingdom,,9
+836,9,7,2.0,52,6.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,12,British Grand Prix,Silverstone,United Kingdom,,5
+837,10,4,1.0,52,11.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,12,British Grand Prix,Silverstone,United Kingdom,,3
+838,11,18,0.0,52,13.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,12,British Grand Prix,Silverstone,United Kingdom,,7
+839,12,9,0.0,52,7.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,12,British Grand Prix,Silverstone,United Kingdom,,9
+840,13,14,0.0,52,9.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,12,British Grand Prix,Silverstone,United Kingdom,,7
+841,14,6,0.0,52,10.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,12,British Grand Prix,Silverstone,United Kingdom,,2
+842,15,11,0.0,51,12.0,Lapped,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,12,British Grand Prix,Silverstone,United Kingdom,,11
+843,16,10,0.0,23,16.0,Retired,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,12,British Grand Prix,Silverstone,United Kingdom,,3
+844,17,12,0.0,17,17.0,Retired,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,12,British Grand Prix,Silverstone,United Kingdom,,11
+845,18,16,0.0,3,18.0,Retired,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,12,British Grand Prix,Silverstone,United Kingdom,,6
+846,19,15,0.0,0,,Retired,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,12,British Grand Prix,Silverstone,United Kingdom,,1
+866,1,2,25.0,44,4.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,4
+867,2,1,18.0,44,3.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,4
+868,3,3,15.0,44,9.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,2
+869,4,4,12.0,44,7.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,1
+870,5,6,10.0,44,11.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,3
+871,6,5,8.0,44,15.0,Finished,ALB,Alexander Albon,Thai,25.0,Williams,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,9
+872,7,18,6.0,44,10.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,2
+873,8,9,4.0,44,12.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,1
+874,9,10,2.0,44,16.0,Finished,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,6
+875,10,13,1.0,44,17.0,Finished,GAS,Pierre Gasly,French,29.0,Alpine,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,10
+876,11,12,0.0,44,13.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,7
+877,12,14,0.0,44,2.0,Finished,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,6
+878,13,7,0.0,44,19.0,Finished,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,11
+879,14,16,0.0,44,18.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,5
+880,15,11,0.0,44,14.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,7
+881,16,19,0.0,44,1.0,Finished,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,3
+882,17,20,0.0,44,5.0,Finished,ALO,Fernando Alonso,Spanish,43.0,Aston Martin,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,5
+883,18,17,0.0,44,6.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,9
+884,20,8,0.0,43,20.0,Lapped,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,13,Belgian Grand Prix,Spa-Francorchamps,Belgium,,11
+885,1,3,25.0,70,5.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,14,Hungarian Grand Prix,Budapest,Hungary,,4
+886,2,2,18.0,70,2.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,14,Hungarian Grand Prix,Budapest,Hungary,,4
+887,3,4,15.0,70,1.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,14,Hungarian Grand Prix,Budapest,Hungary,,3
+888,4,1,12.0,70,9.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,14,Hungarian Grand Prix,Budapest,Hungary,,2
+889,5,5,10.0,70,8.0,Finished,ALO,Fernando Alonso,Spanish,44.0,Aston Martin,2025,14,Hungarian Grand Prix,Budapest,Hungary,,5
+890,6,7,8.0,70,11.0,Finished,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,14,Hungarian Grand Prix,Budapest,Hungary,,6
+891,7,6,6.0,70,12.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,14,Hungarian Grand Prix,Budapest,Hungary,,5
+892,8,9,4.0,70,10.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,14,Hungarian Grand Prix,Budapest,Hungary,,1
+893,9,8,2.0,70,3.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,14,Hungarian Grand Prix,Budapest,Hungary,,1
+894,10,15,1.0,69,13.0,Lapped,ANT,Andrea Kimi Antonelli,Italian,18.0,Mercedes,2025,14,Hungarian Grand Prix,Budapest,Hungary,,3
+895,11,10,0.0,69,15.0,Lapped,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,14,Hungarian Grand Prix,Budapest,Hungary,,11
+896,12,12,0.0,69,7.0,Lapped,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,14,Hungarian Grand Prix,Budapest,Hungary,,2
+897,13,18,0.0,69,6.0,Lapped,HUL,Nico Hulkenberg,German,37.0,Kick Sauber,2025,14,Hungarian Grand Prix,Budapest,Hungary,,6
+898,14,13,0.0,69,4.0,Lapped,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,14,Hungarian Grand Prix,Budapest,Hungary,,9
+899,15,19,0.0,69,14.0,Lapped,ALB,Alexander Albon,Thai,25.0,Williams,2025,14,Hungarian Grand Prix,Budapest,Hungary,,9
+900,16,17,0.0,69,19.0,Lapped,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,14,Hungarian Grand Prix,Budapest,Hungary,,7
+901,17,20,0.0,69,17.0,Lapped,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,14,Hungarian Grand Prix,Budapest,Hungary,,11
+902,19,16,0.0,69,18.0,Lapped,GAS,Pierre Gasly,French,29.0,Alpine,2025,14,Hungarian Grand Prix,Budapest,Hungary,,10
+903,20,11,0.0,48,20.0,Retired,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,14,Hungarian Grand Prix,Budapest,Hungary,,7
+904,1,1,25.0,72,1.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,4
+905,2,3,18.0,72,3.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,1
+906,3,4,15.0,72,5.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,11
+907,4,5,12.0,72,9.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,3
+908,5,15,10.0,72,7.0,Finished,ALB,Alexander Albon,Thai,26.0,Williams,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,9
+909,6,20,8.0,72,13.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,7
+910,7,19,6.0,72,11.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,5
+911,8,10,4.0,72,8.0,Finished,ALO,Fernando Alonso,Spanish,44.0,Aston Martin,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,5
+912,9,12,2.0,72,16.0,Finished,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,11
+913,10,18,1.0,72,14.0,Finished,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,7
+914,12,8,0.0,72,12.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,1
+915,13,9,0.0,72,10.0,Finished,SAI,Carlos Sainz,Spanish,30.0,Williams,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,9
+916,14,17,0.0,72,18.0,Finished,HUL,Nico Hulkenberg,German,38.0,Kick Sauber,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,6
+917,15,13,0.0,72,15.0,Finished,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,6
+918,16,11,0.0,72,6.0,Finished,ANT,Andrea Kimi Antonelli,Italian,19.0,Mercedes,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,3
+919,17,14,0.0,72,19.0,Finished,GAS,Pierre Gasly,French,29.0,Alpine,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,10
+920,18,2,0.0,64,2.0,Retired,NOR,Lando Norris,British,25.0,McLaren,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,4
+921,19,6,0.0,52,17.0,Retired,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,2
+922,20,7,0.0,22,20.0,Retired,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,15,Dutch Grand Prix,Zandvoort,Netherlands,,2
+923,1,1,25.0,53,2.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,16,Italian Grand Prix,Monza,Italy,,1
+924,2,2,18.0,53,1.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,16,Italian Grand Prix,Monza,Italy,,4
+925,3,3,15.0,53,3.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,16,Italian Grand Prix,Monza,Italy,,4
+926,4,4,12.0,53,4.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,16,Italian Grand Prix,Monza,Italy,,2
+927,5,5,10.0,53,8.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,16,Italian Grand Prix,Monza,Italy,,3
+928,6,10,8.0,53,6.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,16,Italian Grand Prix,Monza,Italy,,2
+929,7,14,6.0,53,5.0,Finished,ALB,Alexander Albon,Thai,26.0,Williams,2025,16,Italian Grand Prix,Monza,Italy,,9
+930,8,7,4.0,53,12.0,Finished,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,16,Italian Grand Prix,Monza,Italy,,6
+931,9,6,2.0,53,10.0,Finished,ANT,Andrea Kimi Antonelli,Italian,19.0,Mercedes,2025,16,Italian Grand Prix,Monza,Italy,,3
+932,10,19,1.0,53,11.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,16,Italian Grand Prix,Monza,Italy,,11
+933,11,13,0.0,53,7.0,Finished,SAI,Carlos Sainz,Spanish,31.0,Williams,2025,16,Italian Grand Prix,Monza,Italy,,9
+934,12,11,0.0,53,9.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,16,Italian Grand Prix,Monza,Italy,,7
+935,13,9,0.0,53,16.0,Finished,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,16,Italian Grand Prix,Monza,Italy,,11
+936,14,18,0.0,53,17.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,16,Italian Grand Prix,Monza,Italy,,1
+937,15,15,0.0,52,18.0,Lapped,OCO,Esteban Ocon,French,28.0,Haas F1 Team,2025,16,Italian Grand Prix,Monza,Italy,,7
+938,16,20,0.0,52,14.0,Lapped,GAS,Pierre Gasly,French,29.0,Alpine,2025,16,Italian Grand Prix,Monza,Italy,,10
+939,18,16,0.0,52,13.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,16,Italian Grand Prix,Monza,Italy,,5
+940,19,8,0.0,24,19.0,Retired,ALO,Fernando Alonso,Spanish,44.0,Aston Martin,2025,16,Italian Grand Prix,Monza,Italy,,5
+941,20,12,0.0,0,,Did not start,HUL,Nico Hulkenberg,German,38.0,Kick Sauber,2025,16,Italian Grand Prix,Monza,Italy,,6
+942,1,1,25.0,51,1.0,Finished,VER,Max Verstappen,Dutch,27.0,Red Bull Racing,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,1
+943,2,5,18.0,51,2.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,3
+944,3,2,15.0,51,4.0,Finished,SAI,Carlos Sainz,Spanish,31.0,Williams,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,9
+945,4,4,12.0,51,6.0,Finished,ANT,Andrea Kimi Antonelli,Italian,19.0,Mercedes,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,3
+946,5,3,10.0,51,13.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,1
+947,6,6,8.0,51,12.0,Finished,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,11
+948,7,7,6.0,51,8.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,4
+949,8,12,4.0,51,5.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,2
+950,9,10,2.0,51,9.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,2
+951,10,8,1.0,51,3.0,Finished,HAD,Isack Hadjar,French,20.0,Racing Bulls,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,11
+952,11,13,0.0,51,14.0,Finished,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,6
+953,12,15,0.0,51,10.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,7
+954,13,19,0.0,51,7.0,Finished,ALB,Alexander Albon,Thai,26.0,Williams,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,9
+955,14,20,0.0,51,17.0,Finished,OCO,Esteban Ocon,French,29.0,Haas F1 Team,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,7
+956,15,11,0.0,51,15.0,Finished,ALO,Fernando Alonso,Spanish,44.0,Aston Martin,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,5
+957,16,17,0.0,51,11.0,Finished,HUL,Nico Hulkenberg,German,38.0,Kick Sauber,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,6
+958,17,14,0.0,51,16.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,5
+959,18,18,0.0,50,18.0,Lapped,GAS,Pierre Gasly,French,29.0,Alpine,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,10
+960,20,9,0.0,0,,Retired,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,17,Azerbaijan Grand Prix,Baku,Azerbaijan,,4
+961,1,1,25.0,62,11.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,3
+962,2,2,18.0,62,10.0,Finished,VER,Max Verstappen,Dutch,28.0,Red Bull Racing,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,1
+963,3,5,15.0,62,7.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,4
+964,4,3,12.0,62,6.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,4
+965,5,4,10.0,62,4.0,Finished,ANT,Andrea Kimi Antonelli,Italian,19.0,Mercedes,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,3
+966,6,7,8.0,62,14.0,Finished,LEC,Charles Leclerc,Monégasque,27.0,Ferrari,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,2
+967,7,10,6.0,62,13.0,Finished,ALO,Fernando Alonso,Spanish,44.0,Aston Martin,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,5
+968,8,6,4.0,62,1.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,2
+969,9,9,2.0,62,15.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,7
+970,10,18,1.0,61,3.0,Lapped,SAI,Carlos Sainz,Spanish,31.0,Williams,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,9
+971,11,8,0.0,61,18.0,Lapped,HAD,Isack Hadjar,French,21.0,Racing Bulls,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,11
+972,12,13,0.0,61,17.0,Lapped,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,11
+973,13,15,0.0,61,12.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,5
+974,14,20,0.0,61,9.0,Lapped,ALB,Alexander Albon,Thai,26.0,Williams,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,9
+975,15,12,0.0,61,8.0,Lapped,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,1
+976,17,14,0.0,61,19.0,Lapped,BOR,Gabriel Bortoleto,Brazilian,20.0,Kick Sauber,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,6
+977,18,17,0.0,61,16.0,Lapped,OCO,Esteban Ocon,French,29.0,Haas F1 Team,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,7
+978,19,19,0.0,61,2.0,Lapped,GAS,Pierre Gasly,French,29.0,Alpine,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,10
+979,20,11,0.0,61,5.0,Lapped,HUL,Nico Hulkenberg,German,38.0,Kick Sauber,2025,18,Singapore Grand Prix,Marina Bay,Singapore,,6
+999,1,1,25.0,56,3.0,Finished,VER,Max Verstappen,Dutch,28.0,Red Bull Racing,2025,19,United States Grand Prix,Austin,United States,,1
+1000,2,2,18.0,56,2.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,19,United States Grand Prix,Austin,United States,,4
+1001,3,3,15.0,56,5.0,Finished,LEC,Charles Leclerc,Monégasque,28.0,Ferrari,2025,19,United States Grand Prix,Austin,United States,,2
+1002,4,5,12.0,56,8.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,19,United States Grand Prix,Austin,United States,,2
+1003,5,6,10.0,56,10.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,19,United States Grand Prix,Austin,United States,,4
+1004,6,4,8.0,56,4.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,19,United States Grand Prix,Austin,United States,,3
+1005,7,13,6.0,56,13.0,Finished,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,19,United States Grand Prix,Austin,United States,,11
+1006,8,11,4.0,56,9.0,Finished,HUL,Nico Hulkenberg,German,38.0,Kick Sauber,2025,19,United States Grand Prix,Austin,United States,,6
+1007,9,8,2.0,56,16.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,19,United States Grand Prix,Austin,United States,,7
+1008,10,10,1.0,56,12.0,Finished,ALO,Fernando Alonso,Spanish,44.0,Aston Martin,2025,19,United States Grand Prix,Austin,United States,,5
+1009,11,12,0.0,56,14.0,Finished,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,19,United States Grand Prix,Austin,United States,,1
+1010,12,19,0.0,56,15.0,Finished,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,19,United States Grand Prix,Austin,United States,,5
+1011,13,7,0.0,56,1.0,Finished,ANT,Andrea Kimi Antonelli,Italian,19.0,Mercedes,2025,19,United States Grand Prix,Austin,United States,,3
+1012,14,18,0.0,56,7.0,Finished,ALB,Alexander Albon,Thai,26.0,Williams,2025,19,United States Grand Prix,Austin,United States,,9
+1013,15,17,0.0,56,18.0,Finished,OCO,Esteban Ocon,French,29.0,Haas F1 Team,2025,19,United States Grand Prix,Austin,United States,,7
+1014,16,20,0.0,56,11.0,Finished,HAD,Isack Hadjar,French,21.0,Racing Bulls,2025,19,United States Grand Prix,Austin,United States,,11
+1015,18,16,0.0,55,6.0,Lapped,BOR,Gabriel Bortoleto,Brazilian,21.0,Kick Sauber,2025,19,United States Grand Prix,Austin,United States,,6
+1016,19,14,0.0,55,19.0,Lapped,GAS,Pierre Gasly,French,29.0,Alpine,2025,19,United States Grand Prix,Austin,United States,,10
+1017,20,9,0.0,5,20.0,Retired,SAI,Carlos Sainz,Spanish,31.0,Williams,2025,19,United States Grand Prix,Austin,United States,,9
+1018,1,1,25.0,71,8.0,Finished,NOR,Lando Norris,British,25.0,McLaren,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,4
+1019,2,2,18.0,71,14.0,Finished,LEC,Charles Leclerc,Monégasque,28.0,Ferrari,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,2
+1020,3,5,15.0,71,10.0,Finished,VER,Max Verstappen,Dutch,28.0,Red Bull Racing,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,1
+1021,4,9,12.0,71,7.0,Finished,BEA,Oliver Bearman,British,20.0,Haas F1 Team,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,7
+1022,5,7,10.0,71,3.0,Finished,PIA,Oscar Piastri,Australian,24.0,McLaren,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,4
+1023,6,6,8.0,71,9.0,Finished,ANT,Andrea Kimi Antonelli,Italian,19.0,Mercedes,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,3
+1024,7,4,6.0,71,1.0,Finished,RUS,George Russell,British,27.0,Mercedes,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,3
+1025,8,3,4.0,71,6.0,Finished,HAM,Lewis Hamilton,British,40.0,Ferrari,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,2
+1026,9,11,2.0,71,17.0,Finished,OCO,Esteban Ocon,French,29.0,Haas F1 Team,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,7
+1027,10,16,1.0,71,11.0,Finished,BOR,Gabriel Bortoleto,Brazilian,21.0,Kick Sauber,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,6
+1028,11,10,0.0,71,13.0,Finished,TSU,Yuki Tsunoda,Japanese,25.0,Red Bull Racing,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,11
+1029,12,17,0.0,70,4.0,Lapped,ALB,Alexander Albon,Thai,26.0,Williams,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,9
+1030,13,8,0.0,70,16.0,Lapped,HAD,Isack Hadjar,French,21.0,Racing Bulls,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,11
+1031,14,19,0.0,70,5.0,Lapped,STR,Lance Stroll,Canadian,26.0,Aston Martin,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,5
+1032,15,18,0.0,70,18.0,Lapped,GAS,Pierre Gasly,French,29.0,Alpine,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,10
+1033,17,12,0.0,67,2.0,Retired,SAI,Carlos Sainz,Spanish,31.0,Williams,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,9
+1034,18,14,0.0,34,15.0,Retired,ALO,Fernando Alonso,Spanish,44.0,Aston Martin,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,5
+1035,19,13,0.0,25,19.0,Retired,HUL,Nico Hulkenberg,German,38.0,Kick Sauber,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,6
+1036,20,15,0.0,5,20.0,Retired,LAW,Liam Lawson,New Zealander,23.0,Racing Bulls,2025,20,Mexico City Grand Prix,Mexico City,Mexico,,1
