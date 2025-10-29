@@ -5,6 +5,8 @@ from typing import List
 
 from backend.app.models.database import get_db
 from backend.app.models.driver import Driver
+from backend.app.models.team import Team
+from backend.app.models.driver_season import DriverSeason
 from backend.app.schemas.driver import DriverResponse,DriverCreate,DriverUpdate
 
 router = APIRouter()
@@ -22,16 +24,41 @@ async def get_all_drivers(active_only : bool = True, db: AsyncSession = Depends(
     return drivers    
 
 
-@router.get("/{driver_id}",response_model=DriverResponse)
-async def get_driver(driver_id : int, db: AsyncSession = Depends(get_db)):
-
+@router.get("/{driver_id}", response_model=DriverResponse)
+async def get_driver(
+    driver_id: int,
+    include_history: bool = False,  # ✨ Optional parameter
+    db: AsyncSession = Depends(get_db)
+):
+    """Get specific driver by ID"""
     result = await db.execute(
         select(Driver).where(Driver.id == driver_id)
     )
     driver = result.scalar_one_or_none()
-
+    
     if not driver:
-        raise HTTPException(status_code=404,detail = "Driver not found")
+        raise HTTPException(status_code=404, detail="Driver not found")
+    
+    # ✨ Optional: Include team history
+    if include_history:
+        history_result = await db.execute(
+            select(DriverSeason, Team)
+            .join(Team, DriverSeason.team_id == Team.id)
+            .where(DriverSeason.driver_id == driver_id)
+            .order_by(DriverSeason.season)
+        )
+        
+        team_history = []
+        for ds, team in history_result:
+            team_history.append({
+                "season": ds.season,
+                "team": team.name
+            })
+        
+        # Add to response (requires schema update)
+        driver_dict = driver.__dict__
+        driver_dict['team_history'] = team_history
+        return driver_dict
     
     return driver
 

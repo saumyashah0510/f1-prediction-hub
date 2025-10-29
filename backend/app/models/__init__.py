@@ -19,4 +19,5 @@ __all__ = [
     "ConstructorStanding",
     "Prediction",
     "DriverPrediction",
+    "DriverSeason",
 ]

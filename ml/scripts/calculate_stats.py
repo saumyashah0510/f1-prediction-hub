@@ -1,9 +1,6 @@
 import sys
 import os
 import asyncio
-from sqlalchemy import and_, select, func
-
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from backend.app.models.database import AsyncSessionLocal
 from backend.app.models.driver import Driver
@@ -11,6 +8,7 @@ from backend.app.models.team import Team
 from backend.app.models.race import Race
 from backend.app.models.result import RaceResult
 from backend.app.models.standing import DriverStanding, ConstructorStanding
+from sqlalchemy import select, func
 
 
 class F1StatsCalculator:
@@ -19,9 +17,6 @@ class F1StatsCalculator:
     def __init__(self):
         pass
 
-    # -------------------------------------------------------------------
-    # DRIVER STATISTICS
-    # -------------------------------------------------------------------
     async def calculate_driver_stats(self, season=None):
         """Calculate career or seasonal statistics for drivers"""
         print(f"\n📊 Calculating driver statistics...")
@@ -42,7 +37,7 @@ class F1StatsCalculator:
                 if not results:
                     continue
 
-                # Include both main and sprint race results
+                # Separate sprint and race wins
                 total_points = sum(r.points for r in results)
                 race_wins = sum(1 for r in results if r.position == 1 and not r.is_sprint)
                 sprint_wins = sum(1 for r in results if r.position == 1 and r.is_sprint)
@@ -52,19 +47,16 @@ class F1StatsCalculator:
 
                 driver.total_points = total_points
                 driver.race_wins = race_wins
-                driver.sprint_wins = sprint_wins if hasattr(driver, "sprint_wins") else sprint_wins
                 driver.podiums = podiums
                 driver.pole_positions = pole_positions
                 driver.fastest_laps = fastest_laps
 
-                print(f"   ✅ {driver.code}: {total_points} pts, {race_wins} race wins, {sprint_wins} sprint wins")
+                season_text = f"({season})" if season else "(career)"
+                print(f"   ✅ {driver.code}: {total_points} pts, {race_wins} wins, {sprint_wins} sprint wins {season_text}")
 
             await db.commit()
             print(f"✅ Updated {len(drivers)} drivers")
 
-    # -------------------------------------------------------------------
-    # TEAM STATISTICS
-    # -------------------------------------------------------------------
     async def calculate_team_stats(self, season=None):
         """Calculate career or seasonal statistics for teams"""
         print(f"\n🏁 Calculating team statistics...")
@@ -87,41 +79,43 @@ class F1StatsCalculator:
 
                 total_points = sum(r.points for r in results)
                 race_wins = sum(1 for r in results if r.position == 1 and not r.is_sprint)
-                sprint_wins = sum(1 for r in results if r.position == 1 and r.is_sprint)
                 pole_positions = sum(1 for r in results if r.grid_position == 1)
                 fastest_laps = sum(1 for r in results if r.fastest_lap_rank == 1)
 
                 team.total_points = total_points
                 team.race_wins = race_wins
-                team.sprint_wins = sprint_wins if hasattr(team, "sprint_wins") else sprint_wins
                 team.pole_positions = pole_positions
                 team.fastest_laps = fastest_laps
 
-                print(f"   ✅ {team.name}: {total_points} pts, {race_wins} race wins, {sprint_wins} sprint wins")
+                season_text = f"({season})" if season else "(career)"
+                print(f"   ✅ {team.name}: {total_points} pts, {race_wins} wins {season_text}")
 
             await db.commit()
             print(f"✅ Updated {len(teams)} teams")
 
-    # -------------------------------------------------------------------
-    # DRIVER STANDINGS
-    # -------------------------------------------------------------------
     async def generate_driver_standings(self, season):
         """Generate driver championship standings for a season"""
         print(f"\n🏆 Generating driver standings for {season}...")
 
         async with AsyncSessionLocal() as db:
             # Delete existing standings for this season
-            existing = await db.execute(select(DriverStanding).where(DriverStanding.season == season))
+            existing = await db.execute(
+                select(DriverStanding).where(DriverStanding.season == season)
+            )
             for standing in existing.scalars():
                 await db.delete(standing)
 
-            # Include both sprint + race points
+            # Sum points from both sprint and race (is_sprint True/False)
             query = (
                 select(
                     RaceResult.driver_id,
                     func.sum(RaceResult.points).label("total_points"),
-                    func.count(func.nullif(and_(RaceResult.position == 1, RaceResult.is_sprint == False), False)).label("race_wins"),
-                    func.count(func.nullif(and_(RaceResult.position == 1, RaceResult.is_sprint == True), False)).label("sprint_wins"),
+                    func.count(
+                        func.nullif(
+                            (RaceResult.position == 1) & (RaceResult.is_sprint == False), 
+                            False
+                        )
+                    ).label("race_wins"),
                 )
                 .join(Race, RaceResult.race_id == Race.id)
                 .where(Race.season == season)
@@ -132,31 +126,33 @@ class F1StatsCalculator:
             result = await db.execute(query)
             standings_data = result.all()
 
-            for position, (driver_id, points, race_wins, sprint_wins) in enumerate(standings_data, 1):
+            for position, (driver_id, points, wins) in enumerate(standings_data, 1):
                 standing = DriverStanding(
                     season=season,
                     driver_id=driver_id,
                     position=position,
                     points=float(points or 0),
-                    wins=int(race_wins or 0),
+                    wins=int(wins or 0),
                 )
                 db.add(standing)
 
-                driver_result = await db.execute(select(Driver).where(Driver.id == driver_id))
+                driver_result = await db.execute(
+                    select(Driver).where(Driver.id == driver_id)
+                )
                 driver = driver_result.scalar_one()
-                print(f"   P{position}: {driver.code} - {points} pts ({race_wins} race wins, {sprint_wins} sprint wins)")
+                print(f"   P{position}: {driver.code} - {points} pts")
 
             await db.commit()
             print(f"✅ Generated standings for {len(standings_data)} drivers")
 
-    # -------------------------------------------------------------------
-    # CONSTRUCTOR STANDINGS
-    # -------------------------------------------------------------------
     async def generate_constructor_standings(self, season):
+        """Generate constructor championship standings for a season"""
         print(f"\n🏁 Generating constructor standings for {season}...")
 
         async with AsyncSessionLocal() as db:
-            existing = await db.execute(select(ConstructorStanding).where(ConstructorStanding.season == season))
+            existing = await db.execute(
+                select(ConstructorStanding).where(ConstructorStanding.season == season)
+            )
             for standing in existing.scalars():
                 await db.delete(standing)
 
@@ -164,8 +160,12 @@ class F1StatsCalculator:
                 select(
                     RaceResult.team_id,
                     func.sum(RaceResult.points).label("total_points"),
-                    func.count(func.nullif(and_(RaceResult.position == 1, RaceResult.is_sprint == False), False)).label("race_wins"),
-                    func.count(func.nullif(and_(RaceResult.position == 1, RaceResult.is_sprint == True), False)).label("sprint_wins"),
+                    func.count(
+                        func.nullif(
+                            (RaceResult.position == 1) & (RaceResult.is_sprint == False),
+                            False
+                        )
+                    ).label("race_wins"),
                 )
                 .join(Race, RaceResult.race_id == Race.id)
                 .where(Race.season == season)
@@ -176,30 +176,26 @@ class F1StatsCalculator:
             result = await db.execute(query)
             standings_data = result.all()
 
-            for position, (team_id, points, race_wins, sprint_wins) in enumerate(standings_data, 1):
+            for position, (team_id, points, wins) in enumerate(standings_data, 1):
                 standing = ConstructorStanding(
                     season=season,
                     team_id=team_id,
                     position=position,
                     points=float(points or 0),
-                    wins=int(race_wins or 0),
+                    wins=int(wins or 0),
                 )
                 db.add(standing)
 
-                team_result = await db.execute(select(Team).where(Team.id == team_id))
+                team_result = await db.execute(
+                    select(Team).where(Team.id == team_id)
+                )
                 team = team_result.scalar_one()
-                print(f"   P{position}: {team.name} - {points} pts ({race_wins} race wins, {sprint_wins} sprint wins)")
+                print(f"   P{position}: {team.name} - {points} pts")
 
             await db.commit()
             print(f"✅ Generated standings for {len(standings_data)} teams")
 
 
-# -------------------------------------------------------------------
-# MAIN SCRIPT
-# -------------------------------------------------------------------
-# -------------------------------------------------------------------
-# MAIN SCRIPT
-# -------------------------------------------------------------------
 async def main():
     """Main calculation workflow"""
     print("=" * 70)
@@ -214,7 +210,7 @@ async def main():
     print("2. Calculate stats for ALL data (career totals)")
     print("3. Generate standings for 2024 season only")
     print("4. Full calculation (stats + standings for 2024)")
-    print("5. Full calculation for both 2024 and 2025 seasons")  # NEW OPTION
+    print("5. Full calculation for both 2024 and 2025 seasons")
 
     choice = input("\nEnter choice (1-5): ").strip()
 
@@ -257,8 +253,11 @@ async def main():
     print("\n" + "=" * 70)
     print("✅ CALCULATIONS COMPLETE!")
     print("=" * 70)
+    print("\n💡 Next steps:")
+    print("   - Check /api/v1/drivers/ to see updated stats")
+    print("   - Check /api/v1/standings/drivers?season=2024")
+    print("   - Check /api/v1/standings/constructors?season=2024")
 
 
 if __name__ == "__main__":
     asyncio.run(main())
-

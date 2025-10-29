@@ -54,17 +54,17 @@ class F1DataFetcher:
         
 
     def get_sprint_results(self, year, race_round):
-
+    
         try:
-            sprint = fastf1.get_session(year, race_round, 'S')  # 'S' = Sprint
+            sprint = fastf1.get_session(year, race_round, 'S')
             sprint.load()
-
+            
             return {
+                'event': sprint.event,
                 'results': sprint.results,
                 'session': sprint
             }
         except Exception as e:
-            print(f"Error fetching sprint {year} R{race_round}: {e}")
             return None
     
 
