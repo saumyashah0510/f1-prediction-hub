@@ -28,7 +28,6 @@
     "points_to_leader",
     "driver_id",
     "driver_number",
-    "driver_nationality",
     "driver_age",
     "driver_championships",
     "driver_circuit_weighted_pos",
