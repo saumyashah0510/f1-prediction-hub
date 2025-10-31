@@ -5,6 +5,7 @@ from backend.app.models.race import Race
 from backend.app.models.result import RaceResult, QualifyingResult
 from backend.app.models.standing import DriverStanding, ConstructorStanding
 from backend.app.models.prediction import Prediction, DriverPrediction
+from backend.app.models.driver_season import DriverSeason
 
 __all__ = [
     "Base",
