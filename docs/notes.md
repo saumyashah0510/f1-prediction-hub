@@ -73,3 +73,9 @@ npm run dev
 4) Test standings with actual championship data
 5) Build ML models for predictions
 6) Generate 2025 race predictions
+
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
