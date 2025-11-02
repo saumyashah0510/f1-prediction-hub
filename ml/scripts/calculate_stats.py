@@ -8,7 +8,7 @@ from backend.app.models.team import Team
 from backend.app.models.race import Race
 from backend.app.models.result import RaceResult
 from backend.app.models.standing import DriverStanding, ConstructorStanding
-from sqlalchemy import select, func
+from sqlalchemy import select, func, delete
 
 
 class F1StatsCalculator:
@@ -98,12 +98,10 @@ class F1StatsCalculator:
         print(f"\n🏆 Generating driver standings for {season}...")
 
         async with AsyncSessionLocal() as db:
-            # Delete existing standings for this season
-            existing = await db.execute(
-                select(DriverStanding).where(DriverStanding.season == season)
+            # Delete existing standings for this season using proper delete() function
+            await db.execute(
+                delete(DriverStanding).where(DriverStanding.season == season)
             )
-            for standing in existing.scalars():
-                await db.delete(standing)
 
             # Sum points from both sprint and race (is_sprint True/False)
             query = (
@@ -126,6 +124,11 @@ class F1StatsCalculator:
             result = await db.execute(query)
             standings_data = result.all()
 
+            if not standings_data:
+                print(f"   ⚠️  No race data found for {season}")
+                await db.commit()
+                return
+
             for position, (driver_id, points, wins) in enumerate(standings_data, 1):
                 standing = DriverStanding(
                     season=season,
@@ -139,8 +142,9 @@ class F1StatsCalculator:
                 driver_result = await db.execute(
                     select(Driver).where(Driver.id == driver_id)
                 )
-                driver = driver_result.scalar_one()
-                print(f"   P{position}: {driver.code} - {points} pts")
+                driver = driver_result.scalar_one_or_none()
+                if driver:
+                    print(f"   P{position}: {driver.code} - {points} pts")
 
             await db.commit()
             print(f"✅ Generated standings for {len(standings_data)} drivers")
@@ -150,11 +154,10 @@ class F1StatsCalculator:
         print(f"\n🏁 Generating constructor standings for {season}...")
 
         async with AsyncSessionLocal() as db:
-            existing = await db.execute(
-                select(ConstructorStanding).where(ConstructorStanding.season == season)
+            # Delete existing standings for this season using proper delete() function
+            await db.execute(
+                delete(ConstructorStanding).where(ConstructorStanding.season == season)
             )
-            for standing in existing.scalars():
-                await db.delete(standing)
 
             query = (
                 select(
@@ -176,6 +179,11 @@ class F1StatsCalculator:
             result = await db.execute(query)
             standings_data = result.all()
 
+            if not standings_data:
+                print(f"   ⚠️  No race data found for {season}")
+                await db.commit()
+                return
+
             for position, (team_id, points, wins) in enumerate(standings_data, 1):
                 standing = ConstructorStanding(
                     season=season,
@@ -189,8 +197,9 @@ class F1StatsCalculator:
                 team_result = await db.execute(
                     select(Team).where(Team.id == team_id)
                 )
-                team = team_result.scalar_one()
-                print(f"   P{position}: {team.name} - {points} pts")
+                team = team_result.scalar_one_or_none()
+                if team:
+                    print(f"   P{position}: {team.name} - {points} pts")
 
             await db.commit()
             print(f"✅ Generated standings for {len(standings_data)} teams")
@@ -199,38 +208,46 @@ class F1StatsCalculator:
 async def main():
     """Main calculation workflow"""
     print("=" * 70)
-    print("📊 F1 STATISTICS CALCULATOR")
+    print("📊 F1 STATISTICS CALCULATOR (2022-2025)")
     print("=" * 70)
 
     calculator = F1StatsCalculator()
 
     print("\n📋 What would you like to calculate?")
     print("=" * 70)
-    print("1. Calculate stats for 2024 season only")
-    print("2. Calculate stats for ALL data (career totals)")
-    print("3. Generate standings for 2024 season only")
-    print("4. Full calculation (stats + standings for 2024)")
-    print("5. Full calculation for both 2024 and 2025 seasons")
+    print("1. Full calculation for 2022 season")
+    print("2. Full calculation for 2023 season")
+    print("3. Full calculation for 2024 season")
+    print("4. Full calculation for 2025 season")
+    print("5. Full calculation for 2024 and 2025")
+    print("6. Full calculation for ALL years (2022-2025)")
+    print("7. Calculate career stats (all data)")
 
-    choice = input("\nEnter choice (1-5): ").strip()
+    choice = input("\nEnter choice (1-7): ").strip()
 
     if choice == "1":
-        await calculator.calculate_driver_stats(season=2024)
-        await calculator.calculate_team_stats(season=2024)
+        await calculator.calculate_driver_stats(season=2022)
+        await calculator.calculate_team_stats(season=2022)
+        await calculator.generate_driver_standings(2022)
+        await calculator.generate_constructor_standings(2022)
 
     elif choice == "2":
-        await calculator.calculate_driver_stats()
-        await calculator.calculate_team_stats()
+        await calculator.calculate_driver_stats(season=2023)
+        await calculator.calculate_team_stats(season=2023)
+        await calculator.generate_driver_standings(2023)
+        await calculator.generate_constructor_standings(2023)
 
     elif choice == "3":
+        await calculator.calculate_driver_stats(season=2024)
+        await calculator.calculate_team_stats(season=2024)
         await calculator.generate_driver_standings(2024)
         await calculator.generate_constructor_standings(2024)
 
     elif choice == "4":
-        await calculator.calculate_driver_stats(season=2024)
-        await calculator.calculate_team_stats(season=2024)
-        await calculator.generate_driver_standings(2024)
-        await calculator.generate_constructor_standings(2024)
+        await calculator.calculate_driver_stats(season=2025)
+        await calculator.calculate_team_stats(season=2025)
+        await calculator.generate_driver_standings(2025)
+        await calculator.generate_constructor_standings(2025)
 
     elif choice == "5":
         # Full calculation for both 2024 and 2025
@@ -244,10 +261,28 @@ async def main():
             await calculator.generate_driver_standings(year)
             await calculator.generate_constructor_standings(year)
 
-        print("\n✅ Completed calculations for both 2024 and 2025!")
+        print("\n✅ Completed calculations for 2024 and 2025!")
+
+    elif choice == "6":
+        # Full calculation for ALL years (2022-2025)
+        for year in [2022, 2023, 2024, 2025]:
+            print("\n" + "=" * 70)
+            print(f"📅 PROCESSING {year} SEASON DATA")
+            print("=" * 70)
+
+            await calculator.calculate_driver_stats(season=year)
+            await calculator.calculate_team_stats(season=year)
+            await calculator.generate_driver_standings(year)
+            await calculator.generate_constructor_standings(year)
+
+        print("\n✅ Completed calculations for ALL seasons (2022-2025)!")
+
+    elif choice == "7":
+        await calculator.calculate_driver_stats()
+        await calculator.calculate_team_stats()
 
     else:
-        print("\n❌ Invalid choice. Please select 1–5.")
+        print("\n❌ Invalid choice. Please select 1-7.")
         return
 
     print("\n" + "=" * 70)
@@ -255,8 +290,8 @@ async def main():
     print("=" * 70)
     print("\n💡 Next steps:")
     print("   - Check /api/v1/drivers/ to see updated stats")
-    print("   - Check /api/v1/standings/drivers?season=2024")
-    print("   - Check /api/v1/standings/constructors?season=2024")
+    print("   - Check /api/v1/standings/drivers?season=YEAR")
+    print("   - Check /api/v1/standings/constructors?season=YEAR")
 
 
 if __name__ == "__main__":
