@@ -34,6 +34,7 @@ class F1DatabasePopulator:
             from sqlalchemy import select
 
             team_details = {
+                # 2024/2025 Teams
                 'Red Bull Racing': {
                     'full_name': 'Oracle Red Bull Racing',
                     'nationality': 'Austrian',
@@ -92,6 +93,19 @@ class F1DatabasePopulator:
                     'full_name': 'MoneyGram Haas F1 Team',
                     'nationality': 'American',
                     'base': 'Kannapolis, United States',
+                    'engine': 'Ferrari'
+                },
+                # 2022/2023 Teams
+                'AlphaTauri': {
+                    'full_name': 'Scuderia AlphaTauri',
+                    'nationality': 'Italian',
+                    'base': 'Faenza, Italy',
+                    'engine': 'Honda RBPT'
+                },
+                'Alfa Romeo': {
+                    'full_name': 'Alfa Romeo F1 Team Stake',
+                    'nationality': 'Swiss',
+                    'base': 'Hinwil, Switzerland',
                     'engine': 'Ferrari'
                 }
             }
@@ -174,8 +188,51 @@ class F1DatabasePopulator:
                     first_name = name_parts[0] if name_parts else "Unknown"
                     last_name = " ".join(name_parts[1:]) if len(name_parts) > 1 else "Unknown"
 
+                    # Handle driver number with duplicate check
+                    driver_num_to_add = None
+                    try:
+                        driver_num_to_add = int(driver_data['number'])
+                        existing_num_check = await db.execute(
+                            select(Driver).where(Driver.driver_number == driver_num_to_add)
+                        )
+                        
+                        if existing_num_check.scalar_one_or_none() is not None:
+                            print(f"   ⚠️  Warning: Driver number {driver_num_to_add} for {driver_code} already exists.")
+                            # Assign a temporary high number
+                            temp_number = 100 + driver_num_to_add
+                            temp_check = await db.execute(
+                                select(Driver).where(Driver.driver_number == temp_number)
+                            )
+                            if temp_check.scalar_one_or_none() is not None:
+                                # Find next available number starting from 100
+                                for i in range(100, 200):
+                                    check = await db.execute(
+                                        select(Driver).where(Driver.driver_number == i)
+                                    )
+                                    if check.scalar_one_or_none() is None:
+                                        driver_num_to_add = i
+                                        break
+                            else:
+                                driver_num_to_add = temp_number
+                            print(f"   ℹ️  Assigning temporary number {driver_num_to_add} to {driver_code}")
+                    except (ValueError, TypeError):
+                        print(f"   ⚠️  Invalid driver number for {driver_code}, will use default: 999")
+                        driver_num_to_add = 999
+                        default_check = await db.execute(
+                            select(Driver).where(Driver.driver_number == driver_num_to_add)
+                        )
+                        if default_check.scalar_one_or_none() is not None:
+                            # Find next available number
+                            for i in range(900, 999):
+                                check = await db.execute(
+                                    select(Driver).where(Driver.driver_number == i)
+                                )
+                                if check.scalar_one_or_none() is None:
+                                    driver_num_to_add = i
+                                    break
+
                     driver = Driver(
-                        driver_number=int(driver_data['number']),
+                        driver_number=driver_num_to_add,
                         code=driver_code,
                         first_name=first_name,
                         last_name=last_name,
@@ -187,7 +244,7 @@ class F1DatabasePopulator:
                     await db.flush()
 
                     self.driver_mapping[driver_code] = driver.id
-                    print(f"   ✅ {driver_code}: {driver_data['full_name']} (ID: {driver.id})")
+                    print(f"   ✅ {driver_code}: {driver_data['full_name']} (ID: {driver.id}, #: {driver_num_to_add})")
 
             await db.commit()
             print(f"✅ Drivers processed for {year}")
@@ -209,7 +266,7 @@ class F1DatabasePopulator:
                 team_id = self.team_mapping.get(team_name)
 
                 if not driver_id or not team_id:
-                    print(f"   ⚠️  Missing mapping for {driver_code}")
+                    print(f"   ⚠️  Missing mapping for {driver_code} or {team_name}")
                     continue
 
                 # Check if already exists
@@ -340,60 +397,86 @@ class F1DatabasePopulator:
             fastest_ranks_dict = {}
 
             try:
-                laps = session.laps
+                # Load laps data if not already loaded
+                if not hasattr(session, 'laps') or session.laps is None:
+                    try:
+                        session.load(laps=True, telemetry=False, weather=False, messages=False)
+                    except Exception as load_error:
+                        print(f"   ℹ️  Could not load lap data: {load_error}")
+                        laps = None
+                else:
+                    laps = session.laps
+                
+                if laps is not None and len(laps) > 0:
+                    # Get fastest lap per driver
+                    for driver_code in laps['Driver'].unique():
+                        driver_laps = laps[laps['Driver'] == driver_code]
+                        valid_laps = driver_laps[
+                            (driver_laps['LapTime'].notna()) &
+                            (driver_laps['PitOutTime'].isna())
+                        ]
 
-                # Get fastest lap per driver
-                for driver_code in laps['Driver'].unique():
-                    driver_laps = laps[laps['Driver'] == driver_code]
-                    valid_laps = driver_laps[
-                        (driver_laps['LapTime'].notna()) &
-                        (driver_laps['PitOutTime'].isna())
-                    ]
+                        if len(valid_laps) > 0:
+                            fastest = valid_laps['LapTime'].min()
+                            fastest_laps_dict[driver_code] = fastest
 
-                    if len(valid_laps) > 0:
-                        fastest = valid_laps['LapTime'].min()
-                        fastest_laps_dict[driver_code] = fastest
+                    # Rank fastest laps
+                    sorted_laps = sorted(fastest_laps_dict.items(), key=lambda x: x[1])
+                    for rank, (driver_code, _) in enumerate(sorted_laps, 1):
+                        fastest_ranks_dict[driver_code] = rank
 
-                # Rank fastest laps
-                sorted_laps = sorted(fastest_laps_dict.items(), key=lambda x: x[1])
-                for rank, (driver_code, _) in enumerate(sorted_laps, 1):
-                    fastest_ranks_dict[driver_code] = rank
-
-                print(f"   ✅ Extracted {len(fastest_laps_dict)} fastest laps")
+                    print(f"   ✅ Extracted {len(fastest_laps_dict)} fastest laps")
+                else:
+                    print(f"   ℹ️  No lap data available for this race")
 
             except Exception as e:
                 print(f"   ⚠️  Could not extract fastest laps: {e}")
 
             # Process each driver result
             print(f"   Processing {len(results_df)} drivers...")
+            processed_count = 0
+            skipped_count = 0
 
             for idx, driver_result in results_df.iterrows():
                 driver_id = self.driver_mapping.get(driver_result['Abbreviation'])
                 team_id = self.team_mapping.get(driver_result['TeamName'])
 
                 if not driver_id or not team_id:
-                    print(f"   ⚠️  Skipping {driver_result['Abbreviation']} - missing mapping")
+                    print(f"   ⚠️  Skipping {driver_result['Abbreviation']} - missing mapping (driver_id: {driver_id}, team_id: {team_id})")
+                    skipped_count += 1
                     continue
 
-                # Position
+                # Safe position conversion
                 position = None
                 if 'Position' in driver_result and pd.notna(driver_result['Position']):
-                    position = int(driver_result['Position'])
+                    try:
+                        position = int(driver_result['Position'])
+                    except (ValueError, TypeError):
+                        print(f"   ⚠️  Invalid position for {driver_result['Abbreviation']}: {driver_result['Position']}")
 
-                # Grid Position
+                # Safe grid position conversion
                 grid_position = None
                 if 'GridPosition' in driver_result and pd.notna(driver_result['GridPosition']):
-                    grid_position = int(driver_result['GridPosition'])
+                    try:
+                        grid_position = int(driver_result['GridPosition'])
+                    except (ValueError, TypeError):
+                        print(f"   ⚠️  Invalid grid position for {driver_result['Abbreviation']}: {driver_result['GridPosition']}")
 
-                # Points
+                # Safe points conversion
                 points = 0.0
                 if 'Points' in driver_result and pd.notna(driver_result['Points']):
-                    points = float(driver_result['Points'])
+                    try:
+                        points = float(driver_result['Points'])
+                    except (ValueError, TypeError):
+                        points = 0.0
 
-                # Laps Completed
+                # Safe laps conversion
                 laps_completed = 0
                 if 'Laps' in driver_result and pd.notna(driver_result['Laps']):
-                    laps_completed = int(driver_result['Laps'])
+                    try:
+                        laps_completed = int(driver_result['Laps'])
+                    except (ValueError, TypeError):
+                        laps_completed = 0
 
                 # Race Time
                 race_time = None
@@ -458,18 +541,25 @@ class F1DatabasePopulator:
                 )
 
                 db.add(race_result)
+                processed_count += 1
 
             await db.commit()
 
-            # Show summary
-            winner = results_df.iloc[0]
-            print(f"✅ Results added - Winner: {winner['Abbreviation']} ({winner['TeamName']})")
-
-            if fastest_laps_dict:
-                fastest_driver = min(fastest_laps_dict.items(), key=lambda x: x[1])
-                print(f"   🏎️  Fastest Lap: {fastest_driver[0]}")
-
-            print(f"   📊 Captured: Position, Grid, Points, Laps, Time, Fastest Lap, Status")
+            # Summary
+            print(f"   📊 Summary: {processed_count} drivers processed, {skipped_count} skipped")
+            
+            # Check if results_df has data before accessing
+            if len(results_df) > 0 and processed_count > 0:
+                winner = results_df.iloc[0]
+                print(f"✅ Results added - Winner: {winner['Abbreviation']} ({winner['TeamName']})")
+                if fastest_laps_dict:
+                    fastest_driver = min(fastest_laps_dict.items(), key=lambda x: x[1])
+                    print(f"   🏎️  Fastest Lap: {fastest_driver[0]}")
+            elif processed_count == 0:
+                print(f"❌ No results were added - all drivers were skipped!")
+                print(f"   💡 Hint: Make sure you ran option 1 to populate teams and drivers first")
+            else:
+                print(f"⚠️  No results data available for this race")
 
 
     async def populate_sprint_results(self, year, race_round):
@@ -521,9 +611,27 @@ class F1DatabasePopulator:
                     print(f"   ⚠️  Missing mapping for {row['Abbreviation']}")
                     continue
 
-                position = int(row['Position']) if 'Position' in row and pd.notna(row['Position']) else None
-                points = float(row['Points']) if 'Points' in row and pd.notna(row['Points']) else 0.0
-                laps = int(row['Laps']) if 'Laps' in row and pd.notna(row['Laps']) else 0
+                # Safe conversions
+                position = None
+                if 'Position' in row and pd.notna(row['Position']):
+                    try:
+                        position = int(row['Position'])
+                    except (ValueError, TypeError):
+                        position = None
+
+                points = 0.0
+                if 'Points' in row and pd.notna(row['Points']):
+                    try:
+                        points = float(row['Points'])
+                    except (ValueError, TypeError):
+                        points = 0.0
+
+                laps = 0
+                if 'Laps' in row and pd.notna(row['Laps']):
+                    try:
+                        laps = int(row['Laps'])
+                    except (ValueError, TypeError):
+                        laps = 0
                 
                 # Time handling
                 time_str = None
@@ -599,11 +707,19 @@ class F1DatabasePopulator:
                 if not driver_id or not team_id:
                     continue
 
+                # Safe position conversion
+                quali_position = None
+                if 'Position' in driver_quali and driver_quali['Position'] > 0:
+                    try:
+                        quali_position = int(driver_quali['Position'])
+                    except (ValueError, TypeError):
+                        quali_position = None
+
                 quali_result = QualifyingResult(
                     race_id=race.id,
                     driver_id=driver_id,
                     team_id=team_id,
-                    position=int(driver_quali['Position']) if driver_quali['Position'] > 0 else None,
+                    position=quali_position,
                     q1_time=str(driver_quali['Q1']) if driver_quali['Q1'] else None,
                     q2_time=str(driver_quali['Q2']) if driver_quali['Q2'] else None,
                     q3_time=str(driver_quali['Q3']) if driver_quali['Q3'] else None
@@ -624,18 +740,17 @@ async def main():
     populator = F1DatabasePopulator()
 
     # Step 1: Populate teams and drivers (from 2024 data)
+    print("\n📋 Step 1: Populating metadata (teams, drivers, races)...")
     await populator.populate_teams(2024)
     await populator.populate_drivers(2024)
-    await populator.populate_driver_seasons(2024)  # ✨ NEW
-
-    # Step 2: Populate 2024 races (full season)
+    await populator.populate_driver_seasons(2024)
     await populator.populate_races(2024)
 
-    # Step 3: Ask user what to populate
+    # Step 2: Ask user what to populate
     print("\n" + "=" * 70)
     print("📊 What would you like to populate?")
     print("=" * 70)
-    print("1. Single race (test)")
+    print("1. Single race (test - 2024 Bahrain)")
     print("2. Full 2024 season")
     print("3. 2025 completed races")
     print("4. Everything (2024 + 2025)")
@@ -657,17 +772,17 @@ async def main():
 
         if confirm == "yes":
             for race_round in range(1, 25):
-                print(f"\n🏁 ROUND {race_round} ============================")
+                print(f"\n🏁 ROUND {race_round}/24 ============================")
                 await populator.populate_qualifying_results(2024, race_round)
                 await populator.populate_sprint_results(2024, race_round)
                 await populator.populate_race_results(2024, race_round)
 
     elif choice == "3":
         # 2025 completed races
-        # First update teams/drivers for 2025
+        print("\n📅 Updating for 2025 season...")
         await populator.populate_teams(2025)
-        await populator.populate_drivers(2025)  # ✨ Updates existing drivers
-        await populator.populate_driver_seasons(2025)  # ✨ Records 2025 teams
+        await populator.populate_drivers(2025)
+        await populator.populate_driver_seasons(2025)
         await populator.populate_races(2025)
 
         completed, upcoming = populator.fetcher.get_completed_and_upcoming_races(2025)
@@ -675,7 +790,7 @@ async def main():
 
         for race in completed:
             round_num = race['round']
-            print(f"\n🏁 ROUND {round_num} ============================")
+            print(f"\n🏁 2025 ROUND {round_num} ============================")
             await populator.populate_qualifying_results(2025, round_num)
             await populator.populate_sprint_results(2025, round_num)
             await populator.populate_race_results(2025, round_num)
@@ -688,8 +803,11 @@ async def main():
 
         if confirm == "yes":
             # ---- 2024 ----
+            print("\n" + "=" * 70)
+            print("📅 PROCESSING 2024 SEASON")
+            print("=" * 70)
             for race_round in range(1, 25):
-                print(f"\n🏁 2024 ROUND {race_round} ============================")
+                print(f"\n🏁 2024 ROUND {race_round}/24 ============================")
                 await populator.populate_qualifying_results(2024, race_round)
                 await populator.populate_sprint_results(2024, race_round)
                 await populator.populate_race_results(2024, race_round)
@@ -700,8 +818,8 @@ async def main():
             print("=" * 70)
             
             await populator.populate_teams(2025)
-            await populator.populate_drivers(2025)  # ✨ Updates drivers
-            await populator.populate_driver_seasons(2025)  # ✨ Records 2025 teams
+            await populator.populate_drivers(2025)
+            await populator.populate_driver_seasons(2025)
             await populator.populate_races(2025)
             
             completed, _ = populator.fetcher.get_completed_and_upcoming_races(2025)
@@ -719,4 +837,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())        
+    asyncio.run(main())

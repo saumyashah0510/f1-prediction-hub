@@ -12,8 +12,7 @@ class F1DataFetcher:
         self.cache_enabled = True
 
 
-    def get_season_schedule(self,year):
-
+    def get_season_schedule(self, year):
         try:
             schedule = fastf1.get_event_schedule(year)
             return schedule
@@ -22,31 +21,30 @@ class F1DataFetcher:
             return None
 
 
-    def get_race_results(self,year,race_round):        
-
+    def get_race_results(self, year, race_round):        
         try:
-            race = fastf1.get_session(year,race_round,'R')
+            race = fastf1.get_session(year, race_round, 'R')
+            # Just call load() - let FastAPI decide what to load
             race.load()
 
             return {
-                'event' : race.event,
-                'results' : race.results,
-                'session' : race
+                'event': race.event,
+                'results': race.results,
+                'session': race
             }
         except Exception as e:
             print(f"Error fetching race {year} R{race_round}: {e}")
             return None
         
 
-    def get_qualifying_results(self,year,race_round):        
-
+    def get_qualifying_results(self, year, race_round):        
         try:
-            qualifying = fastf1.get_session(year,race_round,'Q')
+            qualifying = fastf1.get_session(year, race_round, 'Q')
             qualifying.load()
 
             return {
-                'results' : qualifying.results,
-                'session' : qualifying
+                'results': qualifying.results,
+                'session': qualifying
             }
         except Exception as e:
             print(f"Error fetching qualifying {year} R{race_round}: {e}")
@@ -54,7 +52,6 @@ class F1DataFetcher:
         
 
     def get_sprint_results(self, year, race_round):
-    
         try:
             sprint = fastf1.get_session(year, race_round, 'S')
             sprint.load()
@@ -68,8 +65,7 @@ class F1DataFetcher:
             return None
     
 
-    def get_completed_and_upcoming_races(self,year):
-
+    def get_completed_and_upcoming_races(self, year):
         try:
             schedule = fastf1.get_event_schedule(year)
             today = pd.Timestamp.now()
@@ -77,15 +73,15 @@ class F1DataFetcher:
             completed = []
             upcoming = []
 
-            for idx,event in schedule.iterrows():
+            for idx, event in schedule.iterrows():
                 event_date = pd.Timestamp(event['EventDate'])
 
                 race_info = {
-                    'round' : event['RoundNumber'],
-                    'name' : event['EventName'],
-                    'date' : event['EventDate'],
-                    'location' : event['Location'],
-                    'country' : event['Country']
+                    'round': event['RoundNumber'],
+                    'name': event['EventName'],
+                    'date': event['EventDate'],
+                    'location': event['Location'],
+                    'country': event['Country']
                 }    
 
                 if event_date < today:
@@ -93,26 +89,25 @@ class F1DataFetcher:
                 else:
                     upcoming.append(race_info)  
 
-            return completed,upcoming   
+            return completed, upcoming   
         except Exception as e:
             print(f"Error checking {year} races: {e}")
-            return [],[]         
+            return [], []         
 
 
-    def get_all_drivers(self,year,race_round=1):
-
+    def get_all_drivers(self, year, race_round=1):
         try:
-            race = fastf1.get_session(year,race_round,'R')
+            race = fastf1.get_session(year, race_round, 'R')
             race.load()
 
             drivers = []
 
-            for idx,driver in race.results.iterrows():
+            for idx, driver in race.results.iterrows():
                 drivers.append({
-                    'abbreviation' : driver['Abbreviation'],
-                    'full_name' : driver['FullName'],
-                    'team' : driver['TeamName'],
-                    'number' : driver['DriverNumber']
+                    'abbreviation': driver['Abbreviation'],
+                    'full_name': driver['FullName'],
+                    'team': driver['TeamName'],
+                    'number': driver['DriverNumber']
                 })
             return drivers
         except Exception as e:
@@ -120,21 +115,20 @@ class F1DataFetcher:
             return []
 
 
-    def get_all_teams(self,year,race_round=1):
-
+    def get_all_teams(self, year, race_round=1):
         try:
-            race = fastf1.get_session(year,race_round,'R')
+            race = fastf1.get_session(year, race_round, 'R')
             race.load()
 
-            teams = race.results[['TeamName','TeamColor']].drop_duplicates()
+            teams = race.results[['TeamName', 'TeamColor']].drop_duplicates()
             team_list = []
 
-            for idx,team in teams.iterrows():
+            for idx, team in teams.iterrows():
                 team_list.append({
-                    'name' : team['TeamName'],
-                    'color' : f"#{team['TeamColor']}" if pd.notna(team['TeamColor']) else None
+                    'name': team['TeamName'],
+                    'color': f"#{team['TeamColor']}" if pd.notna(team['TeamColor']) else None
                 })
             return team_list
         except Exception as e:
             print(f"Error fetching teams: {e}")
-            return []    
+            return []
