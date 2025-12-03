@@ -16,7 +16,8 @@ export const f1Service = {
   // Races
   getNextRace: () => api.get('/races/upcoming'),
   getAllRaces: (season = 2025) => api.get(`/races/?season=${season}`),
-  getRaceResults: (raceId) => api.get(`/races/${raceId}/results`), // ✨ NEW
+  getRaceResults: (raceId) => api.get(`/races/${raceId}/results`),
+  getRacePredictions: (raceId) => api.get(`/races/${raceId}/predictions`), // ✨ NEW
   
   // Standings
   getDriverStandings: (season = 2025) => api.get(`/standings/drivers?season=${season}`),

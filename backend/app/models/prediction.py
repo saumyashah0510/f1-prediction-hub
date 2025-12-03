@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Float, ForeignKey, DateTime, Text,String
+from sqlalchemy import Column, Integer, Float, ForeignKey, DateTime, Text, String
 from datetime import datetime
 from backend.app.models.database import Base
 
@@ -28,8 +28,18 @@ class DriverPrediction(Base):
     prediction_id = Column(Integer, ForeignKey("predictions.id"), nullable=False)
     driver_id = Column(Integer, ForeignKey("drivers.id"), nullable=False)
     
+    # The Core Regression Prediction
     predicted_position = Column(Integer)
-    probability = Column(Float)  
+    
+    # ✨ NEW: Granular Probabilities from LightGBM
+    prob_win = Column(Float, default=0.0)
+    prob_podium = Column(Float, default=0.0)
+    prob_top5 = Column(Float, default=0.0)
+    prob_points = Column(Float, default=0.0)
+    
+    # Legacy/Generic field (optional, can store win prob here too)
+    probability = Column(Float, default=0.0)  
+    
     predicted_points = Column(Float, nullable=True)
     
     def __repr__(self):

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { f1Service } from '../services/api';
 import { getCircuitMap } from '../utils/circuitMaps';
+import { getCircuitDetails, formatLapTime } from '../utils/formatters'; // Import new helpers
 import { Calendar, MapPin, Flag, Timer, ChevronRight, X, Filter, ChevronDown, Trophy } from 'lucide-react';
 
 const Races = () => {
@@ -177,14 +178,20 @@ const Races = () => {
                                 />
                             </div>
                             
+                            {/* Circuit Details (Filled using Helper) */}
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="bg-[#1F1F27] p-3 rounded border border-[#38383F]">
                                     <span className="block text-gray-500 text-xs uppercase font-bold">Laps</span>
-                                    <span className="text-xl text-white font-mono font-bold">{selectedRace.laps || "N/A"}</span>
+                                    <span className="text-xl text-white font-mono font-bold">
+                                        {/* Use DB laps if available, else use fallback from helper */}
+                                        {selectedRace.laps || getCircuitDetails(selectedRace.country).laps}
+                                    </span>
                                 </div>
                                 <div className="bg-[#1F1F27] p-3 rounded border border-[#38383F]">
                                     <span className="block text-gray-500 text-xs uppercase font-bold">Length</span>
-                                    <span className="text-xl text-white font-mono font-bold">{selectedRace.circuit_length || "N/A"} km</span>
+                                    <span className="text-xl text-white font-mono font-bold">
+                                        {selectedRace.circuit_length || getCircuitDetails(selectedRace.country).length} km
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +220,7 @@ const Races = () => {
                                                     <span className={`font-mono font-bold w-6 ${pos.position === 1 ? 'text-yellow-500' : pos.position === 2 ? 'text-gray-400' : pos.position === 3 ? 'text-orange-700' : 'text-gray-600'}`}>{pos.position}</span>
                                                     <span className="font-bold text-white text-sm">{pos.driver_name}</span>
                                                 </div>
-                                                <span className="text-xs font-mono text-gray-400">{pos.time}</span>
+                                                <span className="text-xs font-mono text-gray-400">{formatLapTime(pos.time)}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -227,7 +234,10 @@ const Races = () => {
                                                     <span className="text-[10px] font-bold uppercase">Fastest Lap</span>
                                                 </div>
                                                 <div className="text-sm font-bold text-white leading-tight">{raceDetails.fastest_lap.driver_name}</div>
-                                                <div className="text-[10px] font-mono text-gray-500">{raceDetails.fastest_lap.time}</div>
+                                                <div className="text-[10px] font-mono text-gray-500">
+                                                    {/* Apply Formatter */}
+                                                    {formatLapTime(raceDetails.fastest_lap.time)}
+                                                </div>
                                             </div>
                                         )}
                                         {raceDetails.pole_position && (
@@ -237,7 +247,10 @@ const Races = () => {
                                                     <span className="text-[10px] font-bold uppercase">Pole Position</span>
                                                 </div>
                                                 <div className="text-sm font-bold text-white leading-tight">{raceDetails.pole_position.driver_name}</div>
-                                                <div className="text-[10px] font-mono text-gray-500">{raceDetails.pole_position.q3}</div>
+                                                <div className="text-[10px] font-mono text-gray-500">
+                                                    {/* Apply Formatter */}
+                                                    {formatLapTime(raceDetails.pole_position.q3 || raceDetails.pole_position.q1)}
+                                                </div>
                                             </div>
                                         )}
                                     </div>

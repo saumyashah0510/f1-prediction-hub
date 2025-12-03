@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, and_
 from typing import List
 
 from backend.app.models.database import get_db
@@ -8,10 +8,14 @@ from backend.app.models.race import Race
 from backend.app.models.result import RaceResult, QualifyingResult
 from backend.app.models.driver import Driver
 from backend.app.models.team import Team
+from backend.app.models.prediction import Prediction, DriverPrediction # ✨ NEW
 from backend.app.schemas.race import RaceResponse, RaceCreate, RaceUpdate
 from backend.app.schemas.result import RaceWeekendResponse, RaceResultResponse, QualifyingResultResponse
+from backend.app.schemas.prediction import PredictionRow # ✨ NEW
 
 router = APIRouter()
+
+# ... (Previous endpoints like get_all_races, get_race, get_race_results remain unchanged) ...
 
 @router.get("/", response_model=List[RaceResponse])
 async def get_all_races(season: int = 2025, db: AsyncSession = Depends(get_db)):
@@ -28,7 +32,13 @@ async def get_next_race(season: int = 2025, db: AsyncSession = Depends(get_db)):
     )
     race = result.scalar_one_or_none()
     if not race:
-        # Fallback to next season if current is done, or return 404
+        # Fallback to next season if current is done
+        result = await db.execute(
+             select(Race).where(Race.season == season + 1).order_by(Race.round_number).limit(1)
+        )
+        race = result.scalar_one_or_none()
+        
+    if not race:
         raise HTTPException(status_code=404, detail="No upcoming races found")
     return race
 
@@ -40,10 +50,9 @@ async def get_race(race_id: int, db: AsyncSession = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Race not found")
     return race
 
-# ✨ NEW ENDPOINT: Get Full Results for a specific race
 @router.get("/{race_id}/results", response_model=RaceWeekendResponse)
 async def get_race_results(race_id: int, db: AsyncSession = Depends(get_db)):
-    # 1. Fetch Race Results (Top 10 + Fastest Lap)
+    # 1. Fetch Race Results
     race_query = (
         select(RaceResult, Driver, Team)
         .join(Driver, RaceResult.driver_id == Driver.id)
@@ -63,16 +72,23 @@ async def get_race_results(race_id: int, db: AsyncSession = Depends(get_db)):
             driver_code=driver.code,
             team_name=team.name,
             points=res.points,
-            time=res.race_time,
+            time=res.race_time, 
             status=res.status
         )
         formatted_race_results.append(entry)
         
-        # Check for fastest lap (rank 1)
         if res.fastest_lap_rank == 1:
-            fastest_lap_entry = entry
+            fastest_lap_entry = RaceResultResponse(
+                position=res.position if res.position else 0,
+                driver_name=f"{driver.first_name} {driver.last_name}",
+                driver_code=driver.code,
+                team_name=team.name,
+                points=1.0, 
+                time=res.fastest_lap, 
+                status=res.status
+            )
 
-    # 2. Fetch Qualifying Results (Top 3 for Pole/Podium context)
+    # 2. Fetch Qualifying Results
     quali_query = (
         select(QualifyingResult, Driver, Team)
         .join(Driver, QualifyingResult.driver_id == Driver.id)
@@ -105,6 +121,52 @@ async def get_race_results(race_id: int, db: AsyncSession = Depends(get_db)):
         fastest_lap=fastest_lap_entry,
         pole_position=pole_entry
     )
+
+# ✨ NEW: Get Predictions for a Race
+@router.get("/{race_id}/predictions", response_model=List[PredictionRow])
+async def get_race_predictions(race_id: int, db: AsyncSession = Depends(get_db)):
+    
+    # 1. Get the latest prediction ID for this race
+    pred_q = select(Prediction).where(Prediction.race_id == race_id).order_by(Prediction.created_at.desc()).limit(1)
+    pred_res = await db.execute(pred_q)
+    prediction = pred_res.scalar_one_or_none()
+    
+    if not prediction:
+        return []
+
+    # 2. Get Driver Predictions + Driver Info + Team Info + Actual Result (if exists)
+    # This is a complex join to get everything in one go
+    query = (
+        select(DriverPrediction, Driver, Team, RaceResult.position)
+        .join(Driver, DriverPrediction.driver_id == Driver.id)
+        .join(Team, Driver.team_id == Team.id) # Note: Using current team for simplicity
+        .outerjoin(
+            RaceResult, 
+            (RaceResult.race_id == race_id) & 
+            (RaceResult.driver_id == Driver.id) & 
+            (RaceResult.is_sprint == False)
+        )
+        .where(DriverPrediction.prediction_id == prediction.id)
+        .order_by(DriverPrediction.predicted_position)
+    )
+    
+    rows = await db.execute(query)
+    results = []
+    
+    for dp, driver, team, actual_pos in rows:
+        results.append(PredictionRow(
+            driver_name=f"{driver.first_name} {driver.last_name}",
+            driver_code=driver.code,
+            team_name=team.name,
+            predicted_position=dp.predicted_position,
+            actual_position=actual_pos, # Can be None if race not happened
+            prob_win=dp.prob_win,
+            prob_podium=dp.prob_podium,
+            prob_top5=dp.prob_top5,
+            prob_points=dp.prob_points
+        ))
+        
+    return results
 
 @router.post("/", response_model=RaceResponse, status_code=status.HTTP_201_CREATED)
 async def create_race(race: RaceCreate, db: AsyncSession = Depends(get_db)):
