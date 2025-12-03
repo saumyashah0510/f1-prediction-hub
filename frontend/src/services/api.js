@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/api/v1';
+// ✅ Use environment variable with fallback to production URL
+const API_URL = import.meta.env.VITE_API_URL || 'https://f1-prediction-hub.onrender.com/api/v1';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -12,7 +13,7 @@ const api = axios.create({
 export const f1Service = {
   // Drivers
   getDrivers: () => api.get('/drivers/'),
-  getDriverByCode: (code) => api.get(`/drivers/code/${code}`), // ✨ NEW Endpoint
+  getDriverByCode: (code) => api.get(`/drivers/code/${code}`),
   
   // Races
   getNextRace: () => api.get('/races/upcoming'),

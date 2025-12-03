@@ -9,11 +9,19 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str
 
-    BACKEND_CORS_ORIGINS: list = ["http://localhost:5173", "http://localhost:3000"]
+    # ✅ Update with your actual Vercel URL
+    BACKEND_CORS_ORIGINS: list = [
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "https://*.vercel.app",  # Allows all Vercel preview deployments
+        "https://f1-prediction-hub-one.vercel.app/",  # Your production Vercel URL
+        # Add your custom domain if you have one:
+        # "https://yourdomain.com"
+    ]
+    
     API_V1_PREFIX: str = "/api/v1"
 
     class Config:
-        # 👇 Explicitly tell Pydantic where your .env file is
         env_file = str(Path(__file__).resolve().parent.parent / ".env")
         env_file_encoding = "utf-8"
         case_sensitive = True
