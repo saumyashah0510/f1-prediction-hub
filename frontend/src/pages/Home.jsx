@@ -2,11 +2,101 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { f1Service } from '../services/api';
 import { getTeamColor } from '../utils/f1Colors';
-import { Activity, BarChart2, Zap, MapPin, Users, Brain, Flag, Trophy } from 'lucide-react';
+import { Activity, BarChart2, Zap, MapPin, Users, Brain, Flag, Trophy, History, ChevronRight, Terminal } from 'lucide-react';
+
+// --- DATA: Iconic Moments ---
+// ⚠️ ACTION REQUIRED: Save images to /public/images/moments/
+const MOMENTS = [
+  { id: 1, title: "Senna's Masterclass", year: "1988", circuit: "Monaco", color: "#FF1801", image: "/images/moments/senna_monaco_88.jpg" },
+  { id: 2, title: "Schumacher's Rain Mastery", year: "1996", circuit: "Spain", color: "#E8002D", image: "/images/moments/schumacher_spain_96.jpg" },
+  { id: 3, title: "Is That Glock?", year: "2008", circuit: "Brazil", color: "#27F4D2", image: "/images/moments/hamilton_brazil_08.jpg" },
+  { id: 4, title: "Button's Last-Lap Win", year: "2011", circuit: "Canada", color: "#FF8000", image: "/images/moments/button_canada_11.jpg" },
+  { id: 5, title: "Max vs Lewis Final Lap", year: "2021", circuit: "Abu Dhabi", color: "#3671C6", image: "/images/moments/verstappen_abudhabi_21.jpg" },
+  { id: 6, title: "Lauda's Heroic Return", year: "1976", circuit: "Italy", color: "#E8002D", image: "/images/moments/lauda_monza_76.jpg" },
+  { id: 7, title: "Verstappen's Wet Masterclass", year: "2016", circuit: "Brazil", color: "#3671C6", image: "/images/moments/verstappen_brazil_16.jpg" },
+  { id: 8, title: "Vettel's First Win", year: "2008", circuit: "Italy", color: "#52E252", image: "/images/moments/vettel_monza_08.jpg" },
+  { id: 9, title: "Ricciardo's Redemption", year: "2018", circuit: "Monaco", color: "#3671C6", image: "/images/moments/ricciardo_monaco_18.jpg" },
+  { id: 10, title: "Gasly's Monza Miracle", year: "2020", circuit: "Italy", color: "#2B4562", image: "/images/moments/gasly_monza_20.jpg" },
+  { id: 11, title: "Kimi's Last Ferrari Win", year: "2018", circuit: "USA", color: "#E8002D", image: "/images/moments/raikkonen_usa_18.jpg" },
+  { id: 12, title: "Max Wins from P17", year: "2024", circuit: "Brazil", color: "#3671C6", image: "/images/moments/verstappen_brazil_24.jpg" },
+];
+
+// --- COMPONENTS ---
+
+const IconicMomentsMarquee = () => {
+  const handleImageError = (e) => {
+    e.target.src = "https://www.transparenttextures.com/patterns/carbon-fibre.png";
+    e.target.style.opacity = "0.1";
+  };
+
+  return (
+    <div className="py-12 bg-[#0A0A0C] border-y border-[#38383F] overflow-hidden relative group">
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C] via-transparent to-[#0A0A0C] z-10 pointer-events-none"></div>
+      
+      <div className="absolute left-0 top-0 bottom-0 w-16 z-20 flex items-center justify-center bg-[#0A0A0C]/80 backdrop-blur-sm border-r border-[#38383F]">
+        <span className="text-gray-500 font-bold uppercase tracking-[0.3em] text-xs -rotate-90 whitespace-nowrap">
+          The Archives
+        </span>
+      </div>
+
+      {/* Triple the list to ensure seamless looping on all screens */}
+      <div className="flex animate-marquee hover:[animation-play-state:paused] ml-16 items-center w-max">
+        {[...MOMENTS, ...MOMENTS, ...MOMENTS, ...MOMENTS].map((moment, idx) => (
+          <div 
+            key={`${moment.id}-${idx}`} 
+            className="flex-shrink-0 w-96 h-64 mx-4 bg-[#15151E] border border-[#38383F] rounded-2xl relative overflow-hidden group/card cursor-default transition-transform hover:scale-[1.02] duration-300"
+          >
+            <div className="absolute inset-0">
+                <img 
+                    src={moment.image} 
+                    alt={moment.title} 
+                    onError={handleImageError}
+                    className="w-full h-full object-cover opacity-40 group-hover/card:opacity-70 transition-opacity duration-500 grayscale group-hover/card:grayscale-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+            </div>
+            
+            <div className="absolute bottom-0 left-0 w-full p-6">
+              <div className="flex items-center space-x-2 mb-2">
+                  <span className="px-2 py-1 rounded bg-white/10 backdrop-blur text-[10px] font-bold uppercase text-white tracking-wider border border-white/10">
+                      {moment.year}
+                  </span>
+                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{moment.circuit}</span>
+              </div>
+              <h3 className="text-2xl font-black italic text-white leading-tight uppercase mb-1">
+                {moment.title}
+              </h3>
+              <div className="h-1 w-12 mt-3 rounded-full" style={{ backgroundColor: moment.color }}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const SystemStatusBar = () => (
+  <div className="bg-[#0f0f13] border-b border-[#38383F] py-2 px-4 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-gray-500">
+    <div className="flex items-center space-x-6">
+        <div className="flex items-center text-green-500">
+            <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse mr-2"></div>
+            System Online
+        </div>
+        <div className="hidden md:block">Latency: 24ms</div>
+        <div className="hidden md:block">Database: PostgreSQL 16</div>
+    </div>
+    <div className="flex items-center space-x-2">
+        <Terminal size={12} />
+        <span>v1.2.0-stable</span>
+    </div>
+  </div>
+);
 
 const StatCard = ({ title, value, subtext, icon: Icon, color }) => (
-  <div className="bg-[#1F1F27] border border-[#38383F] p-6 rounded-lg hover:border-[#FF1801] transition-colors group">
-    <div className="flex justify-between items-start mb-4">
+  <div className="bg-[#1F1F27] border border-[#38383F] p-6 rounded-lg hover:border-[#FF1801] transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
+    <div className="absolute -right-6 -top-6 bg-white/5 w-24 h-24 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
+    
+    <div className="flex justify-between items-start mb-4 relative z-10">
       <div>
         <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">{title}</p>
         <h3 className="text-3xl font-black text-white italic">{value}</h3>
@@ -15,7 +105,7 @@ const StatCard = ({ title, value, subtext, icon: Icon, color }) => (
         <Icon size={24} />
       </div>
     </div>
-    <p className="text-sm text-gray-500">{subtext}</p>
+    <p className="text-sm text-gray-500 relative z-10">{subtext}</p>
   </div>
 );
 
@@ -24,12 +114,10 @@ const Home = () => {
   const [topDrivers, setTopDrivers] = useState([]);
   const [loading, setLoading] = useState(true);
   
-  // Hardcoded for now, but in a real app you'd fetch "previous race results"
-  // You can extend your API to add /races/last-completed
   const [lastWinner, setLastWinner] = useState({
     name: "Max Verstappen",
     team: "Red Bull Racing",
-    time: "1:31:44.742",
+    time: "1:56:48.894", 
     image: "/images/drivers/VER.png" 
   });
 
@@ -40,6 +128,11 @@ const Home = () => {
           f1Service.getNextRace(),
           f1Service.getDriverStandings(2025)
         ]);
+
+        if (raceRes.data) {
+            raceRes.data.circuit_map_url = "https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Brazil_Circuit.png.transform/7col/image.png";
+        }
+
         setNextRace(raceRes.data);
         setTopDrivers(standingsRes.data.slice(0, 5)); 
       } catch (error) {
@@ -58,41 +151,60 @@ const Home = () => {
   );
 
   return (
-    <div className="animate-fade-in">
-      {/* Hero Section */}
-      <div className="relative bg-[#15151E] border-b border-[#38383F] py-20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
-           <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
-             <path d="M0 100 L100 0 L100 100 Z" fill="#FF1801" />
-           </svg>
-        </div>
+    <div className="animate-fade-in bg-[#101014]">
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 120s linear infinite; /* Adjusted speed for longer list */
+        }
+      `}</style>
 
+      <SystemStatusBar />
+
+      <div className="relative bg-[#15151E] border-b border-[#38383F] py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-10" 
+             style={{ 
+               backgroundImage: 'linear-gradient(45deg, #1F1F27 25%, transparent 25%, transparent 50%, #1F1F27 50%, #1F1F27 75%, transparent 75%, transparent)', 
+               backgroundSize: '40px 40px' 
+             }}>
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <span className="inline-block py-1 px-3 rounded-full bg-red-500/10 text-red-500 text-xs font-bold uppercase tracking-widest mb-4 border border-red-500/20">
-              Season 2025 Live
-            </span>
-            <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter text-white mb-6 leading-tight">
-              DATA DRIVEN <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1801] to-orange-500">
-                VICTORY
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-gray-300 mb-6 backdrop-blur-sm">
+              <span className="w-2 h-2 bg-[#FF1801] rounded-full animate-pulse"></span>
+              <span>2025 Season Live Data</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-8xl font-black italic tracking-tighter text-white mb-6 leading-[0.9]">
+              PREDICT <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF1801] to-orange-600">
+                THE UNPREDICTABLE
               </span>
             </h1>
-            <p className="text-gray-400 text-lg mb-8 max-w-2xl">
-              Advanced ML models predicting Formula 1 outcomes with high precision. 
-              Powered by XGBoost Regression and LightGBM Classification.
+            
+            <p className="text-gray-400 text-lg md:text-xl mb-8 max-w-2xl leading-relaxed">
+              Experience the next generation of F1 analytics. 
+              Powered by <span className="text-white font-bold border-b-2 border-[#FF1801]">XGBoost</span> & 
+              <span className="text-white font-bold border-b-2 border-blue-500 ml-1">LightGBM</span> models.
             </p>
-            <div className="flex gap-4">
-              <Link to="/predictions" className="bg-[#FF1801] hover:bg-red-600 text-white px-8 py-3 rounded font-bold uppercase tracking-wide transition-all transform hover:-translate-y-1">
-                View Forecasts
+            
+            <div className="flex flex-wrap gap-4">
+              <Link to="/predictions" className="bg-[#FF1801] hover:bg-red-600 text-white px-8 py-4 rounded font-black uppercase tracking-widest transition-all transform hover:-translate-y-1 shadow-[0_10px_20px_rgba(255,24,1,0.2)] flex items-center">
+                <Zap className="mr-2" /> View Forecasts
               </Link>
-              <Link to="/models" className="border border-[#38383F] hover:border-white text-white px-8 py-3 rounded font-bold uppercase tracking-wide transition-all">
-                Model Stats
+              <Link to="/models" className="bg-[#1F1F27] border border-[#38383F] hover:border-white text-white px-8 py-4 rounded font-black uppercase tracking-widest transition-all hover:bg-[#2A2A35] flex items-center">
+                <Brain className="mr-2" /> Model Stats
               </Link>
             </div>
           </div>
         </div>
       </div>
+
+      <IconicMomentsMarquee />
 
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -104,16 +216,15 @@ const Home = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
-          {/* Next Race Card - UPDATED */}
-          <div className="lg:col-span-2 bg-[#1F1F27] border border-[#38383F] rounded-xl overflow-hidden shadow-2xl group flex flex-col md:flex-row">
-            
-            {/* Left Side: Info */}
+          <div className="lg:col-span-2 bg-[#1F1F27] border border-[#38383F] rounded-xl overflow-hidden shadow-2xl group flex flex-col md:flex-row relative">
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none"></div>
+
             <div className="p-8 flex-1 relative z-10 flex flex-col justify-center">
               <div className="flex items-center space-x-2 text-[#FF1801] mb-2">
                 <Flag size={18} />
                 <span className="text-xs font-bold uppercase tracking-widest">Next Grand Prix</span>
               </div>
-              <h2 className="text-4xl font-black text-white italic uppercase mb-2 leading-none">
+              <h2 className="text-4xl md:text-5xl font-black text-white italic uppercase mb-2 leading-none">
                 {nextRace?.race_name || "Season Finished"}
               </h2>
               <div className="flex items-center text-gray-400 text-sm mb-8">
@@ -121,32 +232,28 @@ const Home = () => {
                 <span className="font-medium">{nextRace?.circuit_name}</span>
               </div>
 
-              {/* Last Winner Section */}
-              <div className="bg-[#15151E] p-4 rounded-lg border-l-4 border-[#FF1801]">
-                <p className="text-xs text-gray-500 uppercase font-bold mb-1">Previous Winner (2024)</p>
+              <div className="bg-[#15151E] p-4 rounded-lg border-l-4 border-[#FF1801] shadow-lg">
+                <p className="text-[10px] text-gray-500 uppercase font-bold mb-2 tracking-widest">Reigning Winner (2024)</p>
                 <div className="flex items-center">
-                   {/* Placeholder for Winner Image */}
-                   <div className="w-10 h-10 rounded-full bg-gray-700 mr-3 overflow-hidden">
+                   <div className="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden border-2 border-[#3671C6] shadow-md">
                       <img src={lastWinner.image} alt={lastWinner.name} className="w-full h-full object-cover" onError={(e) => e.target.style.display = 'none'} />
                    </div>
                    <div>
-                      <p className="font-bold text-white text-lg leading-none">{lastWinner.name}</p>
-                      <p className="text-xs text-gray-400" style={{ color: getTeamColor(lastWinner.team) }}>{lastWinner.team}</p>
+                      <p className="font-bold text-white text-xl leading-none">{lastWinner.name}</p>
+                      <p className="text-xs text-gray-400 mt-1 font-mono" style={{ color: getTeamColor(lastWinner.team) }}>{lastWinner.team}</p>
                    </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Side: Circuit Map */}
             <div className="relative w-full md:w-1/2 bg-[#1A1A20] flex items-center justify-center p-6 border-t md:border-t-0 md:border-l border-[#38383F]">
-                {/* Fallback pattern if no map */}
                 <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#FF1801 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
                 
                 {nextRace?.circuit_map_url ? (
                   <img 
                     src={nextRace.circuit_map_url} 
                     alt="Circuit Map" 
-                    className="w-full h-auto max-h-64 object-contain invert drop-shadow-[0_0_10px_rgba(255,255,255,0.2)] transform group-hover:scale-105 transition-transform duration-500" 
+                    className="w-full h-auto max-h-64 object-contain invert drop-shadow-[0_0_15px_rgba(255,255,255,0.15)] transform group-hover:scale-105 transition-transform duration-700" 
                   />
                 ) : (
                   <div className="text-center text-gray-600">
@@ -155,16 +262,14 @@ const Home = () => {
                   </div>
                 )}
                 
-                {/* Circuit Info Overlay */}
                 <div className="absolute bottom-4 right-4 text-right">
                    <p className="text-[10px] text-gray-500 uppercase font-bold">Laps</p>
-                   <p className="text-xl font-mono font-bold text-white leading-none">{nextRace?.laps || "58"}</p>
+                   <p className="text-2xl font-mono font-black text-white leading-none tracking-tighter">{nextRace?.laps || "71"}</p>
                 </div>
             </div>
           </div>
 
-          {/* Leaderboard Preview */}
-          <div className="bg-[#1F1F27] border border-[#38383F] rounded-xl overflow-hidden flex flex-col">
+          <div className="bg-[#1F1F27] border border-[#38383F] rounded-xl overflow-hidden flex flex-col shadow-xl">
             <div className="p-4 border-b border-[#38383F] flex justify-between items-center bg-[#15151E]">
               <div className="flex items-center gap-2">
                 <Trophy size={16} className="text-[#FF1801]" />
@@ -174,18 +279,17 @@ const Home = () => {
             </div>
             <div className="divide-y divide-[#2A2A35] flex-grow">
               {topDrivers.map((driver) => (
-                <div key={driver.driver_id} className="flex items-center p-4 hover:bg-[#2A2A35] transition-colors group">
-                  <span className={`font-mono font-bold w-6 text-center ${driver.position === 1 ? 'text-[#FF1801] text-lg' : 'text-gray-500'}`}>
+                <div key={driver.driver_id} className="flex items-center p-4 hover:bg-[#2A2A35] transition-colors group cursor-default">
+                  <span className={`font-mono font-bold w-6 text-center ${driver.position === 1 ? 'text-white text-lg' : 'text-gray-500'}`}>
                     {driver.position}
                   </span>
-                  {/* Team Stripe */}
                   <div 
-                    className="w-1 h-8 mx-3 rounded-full" 
+                    className="w-1 h-8 mx-3 rounded-full transition-all group-hover:h-10" 
                     style={{ backgroundColor: getTeamColor(driver.team_name) }}
                   ></div>
                   <div className="flex-1">
                     <div className="text-sm font-bold text-white group-hover:text-[#FF1801] transition-colors">{driver.driver_name}</div>
-                    <div className="text-xs text-gray-400">{driver.team_name}</div>
+                    <div className="text-xs text-gray-400 font-mono">{driver.team_name}</div>
                   </div>
                   <div className="text-right">
                     <div className="font-mono font-bold text-white text-sm">{driver.points}</div>
