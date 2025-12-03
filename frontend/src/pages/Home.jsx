@@ -2,31 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { f1Service } from '../services/api';
 import { getTeamColor } from '../utils/f1Colors';
-import { Activity, BarChart2, Zap, MapPin, Users, Brain, Flag, Trophy, History, ChevronRight, Terminal } from 'lucide-react';
-
-// --- DATA: Iconic Moments ---
-// ⚠️ ACTION REQUIRED: Save images to /public/images/moments/
-const MOMENTS = [
-  { id: 1, title: "Senna's Masterclass", year: "1988", circuit: "Monaco", color: "#FF1801", image: "/images/moments/senna_monaco_88.jpg" },
-  { id: 2, title: "Schumacher's Rain Mastery", year: "1996", circuit: "Spain", color: "#E8002D", image: "/images/moments/schumacher_spain_96.jpg" },
-  { id: 3, title: "Is That Glock?", year: "2008", circuit: "Brazil", color: "#27F4D2", image: "/images/moments/hamilton_brazil_08.jpg" },
-  { id: 4, title: "Button's Last-Lap Win", year: "2011", circuit: "Canada", color: "#FF8000", image: "/images/moments/button_canada_11.jpg" },
-  { id: 5, title: "Max vs Lewis Final Lap", year: "2021", circuit: "Abu Dhabi", color: "#3671C6", image: "/images/moments/verstappen_abudhabi_21.jpg" },
-  { id: 6, title: "Lauda's Heroic Return", year: "1976", circuit: "Italy", color: "#E8002D", image: "/images/moments/lauda_monza_76.jpg" },
-  { id: 7, title: "Verstappen's Wet Masterclass", year: "2016", circuit: "Brazil", color: "#3671C6", image: "/images/moments/verstappen_brazil_16.jpg" },
-  { id: 8, title: "Vettel's First Win", year: "2008", circuit: "Italy", color: "#52E252", image: "/images/moments/vettel_monza_08.jpg" },
-  { id: 9, title: "Ricciardo's Redemption", year: "2018", circuit: "Monaco", color: "#3671C6", image: "/images/moments/ricciardo_monaco_18.jpg" },
-  { id: 10, title: "Gasly's Monza Miracle", year: "2020", circuit: "Italy", color: "#2B4562", image: "/images/moments/gasly_monza_20.jpg" },
-  { id: 11, title: "Kimi's Last Ferrari Win", year: "2018", circuit: "USA", color: "#E8002D", image: "/images/moments/raikkonen_usa_18.jpg" },
-  { id: 12, title: "Max Wins from P17", year: "2024", circuit: "Brazil", color: "#3671C6", image: "/images/moments/verstappen_brazil_24.jpg" },
-];
+import { MOMENTS } from '../utils/momentsData'; // Import centralized data
+import { Activity, BarChart2, Zap, MapPin, Users, Brain, Flag, Trophy, Terminal } from 'lucide-react';
 
 // --- COMPONENTS ---
 
 const IconicMomentsMarquee = () => {
   const handleImageError = (e) => {
     e.target.src = "https://www.transparenttextures.com/patterns/carbon-fibre.png";
-    e.target.style.opacity = "0.1";
+    e.target.style.opacity = "0.2"; 
   };
 
   return (
@@ -39,36 +23,36 @@ const IconicMomentsMarquee = () => {
         </span>
       </div>
 
-      {/* Triple the list to ensure seamless looping on all screens */}
       <div className="flex animate-marquee hover:[animation-play-state:paused] ml-16 items-center w-max">
         {[...MOMENTS, ...MOMENTS, ...MOMENTS, ...MOMENTS].map((moment, idx) => (
-          <div 
+          <Link 
+            to={`/moment/${moment.id}`}
             key={`${moment.id}-${idx}`} 
-            className="flex-shrink-0 w-96 h-64 mx-4 bg-[#15151E] border border-[#38383F] rounded-2xl relative overflow-hidden group/card cursor-default transition-transform hover:scale-[1.02] duration-300"
+            className="flex-shrink-0 w-96 h-64 mx-4 bg-[#15151E] border border-[#38383F] rounded-2xl relative overflow-hidden group/card cursor-pointer transition-transform hover:scale-[1.02] duration-300 shadow-xl"
           >
             <div className="absolute inset-0">
                 <img 
                     src={moment.image} 
                     alt={moment.title} 
                     onError={handleImageError}
-                    className="w-full h-full object-cover opacity-40 group-hover/card:opacity-70 transition-opacity duration-500 grayscale group-hover/card:grayscale-0"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
             </div>
             
-            <div className="absolute bottom-0 left-0 w-full p-6">
+            <div className="absolute bottom-0 left-0 w-full p-6 z-10">
               <div className="flex items-center space-x-2 mb-2">
-                  <span className="px-2 py-1 rounded bg-white/10 backdrop-blur text-[10px] font-bold uppercase text-white tracking-wider border border-white/10">
+                  <span className="px-2 py-1 rounded bg-black/60 backdrop-blur text-[10px] font-bold uppercase text-white tracking-wider border border-white/20">
                       {moment.year}
                   </span>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{moment.circuit}</span>
+                  <span className="text-xs font-bold text-gray-300 uppercase tracking-wider drop-shadow-md">{moment.circuit}</span>
               </div>
-              <h3 className="text-2xl font-black italic text-white leading-tight uppercase mb-1">
+              <h3 className="text-2xl font-black italic text-white leading-tight uppercase mb-1 drop-shadow-lg">
                 {moment.title}
               </h3>
-              <div className="h-1 w-12 mt-3 rounded-full" style={{ backgroundColor: moment.color }}></div>
+              <div className="h-1 w-12 mt-3 rounded-full shadow-sm transition-all group-hover/card:w-24" style={{ backgroundColor: moment.color }}></div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
@@ -158,7 +142,7 @@ const Home = () => {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 120s linear infinite; /* Adjusted speed for longer list */
+          animation: marquee 120s linear infinite;
         }
       `}</style>
 
@@ -216,6 +200,7 @@ const Home = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
+          {/* Next Race Card */}
           <div className="lg:col-span-2 bg-[#1F1F27] border border-[#38383F] rounded-xl overflow-hidden shadow-2xl group flex flex-col md:flex-row relative">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none"></div>
 
@@ -269,6 +254,7 @@ const Home = () => {
             </div>
           </div>
 
+          {/* Leaderboard Preview */}
           <div className="bg-[#1F1F27] border border-[#38383F] rounded-xl overflow-hidden flex flex-col shadow-xl">
             <div className="p-4 border-b border-[#38383F] flex justify-between items-center bg-[#15151E]">
               <div className="flex items-center gap-2">
