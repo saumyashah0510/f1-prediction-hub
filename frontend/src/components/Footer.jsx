@@ -13,8 +13,8 @@ const Footer = () => (
           </p>
         </div>
         <div className="flex space-x-6">
-          <a href="#" className="text-gray-400 hover:text-white transition-colors">GitHub</a>
-          <a href="#" className="text-gray-400 hover:text-white transition-colors">API Docs</a>
+          <a href="https://github.com/saumyashah0510" className="text-gray-400 hover:text-white transition-colors">GitHub</a>
+          <a href="https://docs.fastf1.dev/" className="text-gray-400 hover:text-white transition-colors">API Docs</a>
           <a href="#" className="text-gray-400 hover:text-white transition-colors">About</a>
         </div>
       </div>
