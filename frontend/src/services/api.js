@@ -12,12 +12,13 @@ const api = axios.create({
 export const f1Service = {
   // Drivers
   getDrivers: () => api.get('/drivers/'),
+  getDriverByCode: (code) => api.get(`/drivers/code/${code}`), // ✨ NEW Endpoint
   
   // Races
   getNextRace: () => api.get('/races/upcoming'),
   getAllRaces: (season = 2025) => api.get(`/races/?season=${season}`),
   getRaceResults: (raceId) => api.get(`/races/${raceId}/results`),
-  getRacePredictions: (raceId) => api.get(`/races/${raceId}/predictions`), // ✨ NEW
+  getRacePredictions: (raceId) => api.get(`/races/${raceId}/predictions`),
   
   // Standings
   getDriverStandings: (season = 2025) => api.get(`/standings/drivers?season=${season}`),

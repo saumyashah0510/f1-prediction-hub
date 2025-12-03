@@ -1,6 +1,9 @@
 export const getTeamColor = (teamName) => {
-  // Normalize strings to handle slight variations
-  const name = teamName?.toLowerCase() || '';
+  // 1. Defensive Check: If teamName is null/undefined, return default immediately
+  if (!teamName) return '#38383F'; // Default Gray
+
+  // 2. Ensure it's a string before lowercasing
+  const name = String(teamName).toLowerCase();
   
   if (name.includes('red bull')) return '#3671C6';
   if (name.includes('ferrari')) return '#E8002D';
@@ -10,7 +13,7 @@ export const getTeamColor = (teamName) => {
   if (name.includes('alpine')) return '#FF87BC';
   if (name.includes('williams')) return '#64C4FF';
   if (name.includes('rb') || name.includes('alpha')) return '#6692FF';
-  if (name.includes('sauber') || name.includes('alfa')) return '#52E252';
+  if (name.includes('sauber') || name.includes('alfa') || name.includes('kick')) return '#52E252';
   if (name.includes('haas')) return '#B6BABD';
   
   return '#38383F'; // Default Gray

@@ -17,7 +17,6 @@ const Predictions = () => {
         const res = await f1Service.getAllRaces(selectedSeason);
         setRaces(res.data);
         if (res.data.length > 0) {
-            // Default to first upcoming or last race
             setSelectedRace(res.data[0]);
         }
       } catch (error) {
@@ -46,14 +45,14 @@ const Predictions = () => {
     fetchPreds();
   }, [selectedRace]);
 
-  // --- SUB-COMPONENTS ---
+  // SUB COMPONENTS ---------------------------------------------------
 
   const ProbabilityBar = ({ label, value, color }) => (
     <div className="flex items-center text-xs mt-1">
         <span className="w-16 text-gray-500 font-bold uppercase">{label}</span>
         <div className="flex-1 h-2 bg-[#2A2A35] rounded-full overflow-hidden mx-2">
             <div 
-                className="h-full rounded-full transition-all duration-1000" 
+                className="h-full rounded-full transition-all duration-1000"
                 style={{ width: `${value * 100}%`, backgroundColor: color }}
             ></div>
         </div>
@@ -64,66 +63,63 @@ const Predictions = () => {
   const PredictionRow = ({ item, index }) => {
     const isComparison = item.actual_position !== null;
     const diff = isComparison ? item.actual_position - item.predicted_position : 0;
-    const isAccurate = Math.abs(diff) <= 2; // AI is "Correct" if within 2 spots
+    const isAccurate = Math.abs(diff) <= 3;
     const teamColor = getTeamColor(item.team_name);
 
     return (
-        <div className="group bg-[#1F1F27] border border-[#38383F] p-4 rounded-xl hover:border-gray-500 transition-all flex flex-col md:flex-row items-center gap-4 mb-3 relative overflow-hidden">
-            {/* Team Strip */}
-            <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: teamColor }}></div>
+      <div className="group bg-[#1F1F27] border border-[#38383F] p-4 rounded-xl hover:border-gray-500 transition-all flex flex-col md:flex-row items-center gap-4 mb-3 relative overflow-hidden">
+        <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: teamColor }}></div>
 
-            {/* Rank */}
-            <div className="flex flex-col items-center justify-center w-12 border-r border-[#38383F] pr-4">
-                <span className="text-[10px] text-gray-500 uppercase font-bold">Pred</span>
-                <span className="text-2xl font-black text-white italic">P{item.predicted_position}</span>
-            </div>
-
-            {/* Driver Info */}
-            <div className="flex-1 flex items-center gap-4">
-                <img 
-                    src={`/images/drivers/${item.driver_code}.png`} 
-                    className="w-12 h-12 rounded-full border-2 object-cover bg-[#2A2A35]"
-                    style={{ borderColor: teamColor }}
-                    onError={(e) => e.target.src = "https://media.formula1.com/image/upload/v1678240723/fom-website/2023/Drivers/placeholder.jpg.transform/2col/image.jpg"}
-                />
-                <div>
-                    <h3 className="font-bold text-white text-lg leading-none">{item.driver_name}</h3>
-                    <p className="text-xs text-gray-400 uppercase mt-1">{item.team_name}</p>
-                </div>
-            </div>
-
-            {/* Comparison Logic (If Past Race) */}
-            {isComparison ? (
-                <div className="flex items-center gap-6 px-4 py-2 bg-[#15151E] rounded-lg border border-[#38383F]">
-                    <div className="text-center">
-                        <span className="block text-[10px] text-gray-500 uppercase">Actual</span>
-                        <span className={`text-xl font-bold ${item.actual_position === 1 ? 'text-yellow-500' : 'text-white'}`}>
-                            P{item.actual_position}
-                        </span>
-                    </div>
-                    <div className="text-center w-16">
-                        <span className="block text-[10px] text-gray-500 uppercase">Diff</span>
-                        <span className={`font-mono font-bold ${diff === 0 ? 'text-green-500' : diff > 0 ? 'text-red-500' : 'text-blue-500'}`}>
-                            {diff === 0 ? "=" : diff > 0 ? `-${diff}` : `+${Math.abs(diff)}`}
-                        </span>
-                    </div>
-                    {isAccurate ? (
-                        <CheckCircle className="text-green-500" size={24} />
-                    ) : (
-                        <AlertCircle className="text-orange-500" size={24} />
-                    )}
-                </div>
-            ) : (
-                /* Probabilities (If Future Race) */
-                <div className="w-full md:w-1/3">
-                    <ProbabilityBar label="Win" value={item.prob_win} color="#FFD700" />
-                    <ProbabilityBar label="Podium" value={item.prob_podium} color="#C0C0C0" />
-                    <ProbabilityBar label="Points" value={item.prob_points} color="#22C55E" />
-                </div>
-            )}
+        <div className="flex flex-col items-center justify-center w-12 border-r border-[#38383F] pr-4">
+          <span className="text-[10px] text-gray-500 uppercase font-bold">Pred</span>
+          <span className="text-2xl font-black text-white italic">P{item.predicted_position}</span>
         </div>
+
+        <div className="flex-1 flex items-center gap-4">
+          <img 
+            src={`/images/drivers/${item.driver_code}.png`} 
+            className="w-12 h-12 rounded-full border-2 object-cover bg-[#2A2A35]"
+            style={{ borderColor: teamColor }}
+            onError={(e) => e.target.src = "https://media.formula1.com/image/upload/v1678240723/fom-website/2023/Drivers/placeholder.jpg.transform/2col/image.jpg"}
+          />
+          <div>
+            <h3 className="font-bold text-white text-lg leading-none">{item.driver_name}</h3>
+            <p className="text-xs text-gray-400 uppercase mt-1">{item.team_name}</p>
+          </div>
+        </div>
+
+        {isComparison ? (
+          <div className="flex items-center gap-6 px-4 py-2 bg-[#15151E] rounded-lg border border-[#38383F]">
+            <div className="text-center">
+              <span className="block text-[10px] text-gray-500 uppercase">Actual</span>
+              <span className={`text-xl font-bold ${item.actual_position === 1 ? 'text-yellow-500' : 'text-white'}`}>
+                P{item.actual_position}
+              </span>
+            </div>
+            <div className="text-center w-16">
+              <span className="block text-[10px] text-gray-500 uppercase">Diff</span>
+              <span className={`font-mono font-bold ${diff === 0 ? 'text-green-500' : diff > 0 ? 'text-red-500' : 'text-blue-500'}`}>
+                {diff === 0 ? "=" : diff > 0 ? `-${diff}` : `+${Math.abs(diff)}`}
+              </span>
+            </div>
+            {isAccurate ? (
+              <CheckCircle className="text-green-500" size={24} />
+            ) : (
+              <AlertCircle className="text-orange-500" size={24} />
+            )}
+          </div>
+        ) : (
+          <div className="w-full md:w-1/3">
+            <ProbabilityBar label="Win" value={item.prob_win} color="#FFD700" />
+            <ProbabilityBar label="Podium" value={item.prob_podium} color="#C0C0C0" />
+            <ProbabilityBar label="Points" value={item.prob_points} color="#22C55E" />
+          </div>
+        )}
+      </div>
     );
   };
+
+  // MAIN RENDER ------------------------------------------------------
 
   return (
     <div className="min-h-screen bg-[#101014] animate-fade-in pb-20">
@@ -141,6 +137,7 @@ const Predictions = () => {
 
             {/* Controls */}
             <div className="flex flex-wrap gap-4">
+                
                 {/* Season Select */}
                 <div className="relative">
                     <select 
@@ -148,7 +145,7 @@ const Predictions = () => {
                         onChange={(e) => setSelectedSeason(parseInt(e.target.value))}
                         className="appearance-none bg-[#1F1F27] text-white font-bold pl-4 pr-10 py-3 rounded-xl border border-[#38383F] focus:border-[#FF1801] focus:outline-none cursor-pointer"
                     >
-                        <option value={2026}>2026 Season (Future)</option>
+                        {/* REMOVED 2026 */}
                         <option value={2025}>2025 Season (Live)</option>
                         <option value={2024}>2024 Season (History)</option>
                     </select>
@@ -188,7 +185,6 @@ const Predictions = () => {
             <div className="max-w-5xl mx-auto">
                 {predictions.length > 0 ? (
                     <>
-                        {/* Info Banner */}
                         <div className="flex items-center justify-between mb-6 px-2">
                             <div className="flex items-center space-x-2 text-gray-400 text-sm">
                                 <Calendar size={14} />
@@ -201,7 +197,6 @@ const Predictions = () => {
                             </span>
                         </div>
 
-                        {/* List */}
                         <div className="space-y-2">
                             {predictions.map((pred, idx) => (
                                 <PredictionRow key={idx} item={pred} index={idx} />

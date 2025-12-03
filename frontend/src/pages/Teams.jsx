@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom'; // Added Link
 import { f1Service } from '../services/api';
 import { getTeamColor } from '../utils/f1Colors';
 import { Users, Filter, ChevronRight, ChevronLeft } from 'lucide-react';
@@ -9,7 +10,6 @@ const Teams = () => {
   const [selectedSeason, setSelectedSeason] = useState(2025);
   const scrollContainerRef = useRef(null);
 
-  // Fetch Drivers grouped by team for the selected season
   useEffect(() => {
     const fetchTeamData = async () => {
       setLoading(true);
@@ -43,8 +43,8 @@ const Teams = () => {
   }, [selectedSeason]);
 
   const getDriverImage = (code) => `/images/drivers/${code}.png`;
-  
   const getCarImage = (teamName) => `/images/cars/${teamName.replace(/\s+/g, '')}.png`;
+  const getTeamLogo = (teamName) => `/images/teams/${teamName.replace(/\s+/g, '')}.png`;
 
   const handleImageError = (e) => {
     e.target.src = "https://media.formula1.com/image/upload/v1678240723/fom-website/2023/Drivers/placeholder.jpg.transform/2col/image.jpg";
@@ -74,7 +74,7 @@ const Teams = () => {
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-[url('https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/texture/noise_texture_dark.png')] opacity-20 pointer-events-none"></div>
 
-      {/* Header & Filter (Fixed at Top) */}
+      {/* Header & Filter */}
       <div className="container mx-auto px-4 py-8 z-20 relative flex flex-col md:flex-row justify-between items-center">
         <div>
           <h2 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter mb-2 text-white drop-shadow-lg">
@@ -104,7 +104,7 @@ const Teams = () => {
       ) : (
         <div className="flex-1 relative flex items-center">
             
-            {/* Scroll Buttons (Desktop) */}
+            {/* Scroll Buttons */}
             <button 
                 onClick={() => scroll('left')} 
                 className="hidden md:flex absolute left-4 z-30 bg-black/50 hover:bg-[#FF1801] text-white p-3 rounded-full backdrop-blur transition-all"
@@ -118,7 +118,7 @@ const Teams = () => {
                 <ChevronRight size={32} />
             </button>
 
-            {/* Horizontal Scroll Container */}
+            {/* Horizontal Container */}
             <div 
                 ref={scrollContainerRef}
                 className="flex overflow-x-auto snap-x snap-mandatory w-full h-[70vh] items-center px-4 md:px-12 gap-6 pb-8 scrollbar-hide"
@@ -130,15 +130,24 @@ const Teams = () => {
                         className="snap-center shrink-0 w-[90vw] md:w-[70vw] lg:w-[60vw] h-full relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group"
                         style={{ background: `linear-gradient(135deg, #15151E 0%, ${team.color}20 100%)` }}
                     >
-                        {/* 1. Team Branding & Rank */}
+                        {/* 1. Team Branding */}
                         <div className="absolute top-0 left-0 w-full p-8 z-20 flex justify-between items-start pointer-events-none">
-                            <div>
-                                <h2 className="text-4xl md:text-6xl font-black italic text-white uppercase leading-none drop-shadow-md">
-                                    {team.name}
-                                </h2>
-                                <div className="mt-2 inline-flex items-center space-x-2">
-                                    <div className="h-1 w-12" style={{ backgroundColor: team.color }}></div>
-                                    <span className="text-xl font-mono font-bold text-gray-300">{team.totalPoints} PTS</span>
+                            <div className="flex flex-col items-start gap-4">
+                                <img 
+                                    src={getTeamLogo(team.name)} 
+                                    alt={team.name}
+                                    className="h-16 md:h-20 w-auto object-contain drop-shadow-md mb-2"
+                                    onError={(e) => e.target.style.display = 'none'}
+                                />
+                                
+                                <div>
+                                    <h2 className="text-4xl md:text-6xl font-black italic text-white uppercase leading-none drop-shadow-md">
+                                        {team.name}
+                                    </h2>
+                                    <div className="mt-2 inline-flex items-center space-x-2">
+                                        <div className="h-1 w-12" style={{ backgroundColor: team.color }}></div>
+                                        <span className="text-xl font-mono font-bold text-gray-300">{team.totalPoints} PTS</span>
+                                    </div>
                                 </div>
                             </div>
                             <div className="text-8xl font-black text-white/5 font-mono select-none">
@@ -146,18 +155,17 @@ const Teams = () => {
                             </div>
                         </div>
 
-                        {/* 2. Car Background Image - UPDATED: No weird movement on hover */}
+                        {/* 2. Car Image */}
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl z-10 pointer-events-none">
                              <img 
                                 src={getCarImage(team.name)} 
                                 onError={handleCarImageError}
                                 alt={`${team.name} Car`}
-                                // CHANGED: Removed the -translate-y-[52%] on hover. Now it just subtly scales up.
                                 className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-transform duration-700 ease-out group-hover:scale-105"
                              />
                         </div>
 
-                        {/* 3. Team Color Glow - UPDATED: Intensifies on hover */}
+                        {/* 3. Glow */}
                         <div 
                             className="absolute -bottom-1/2 -right-1/2 w-full h-full rounded-full blur-[150px] opacity-20 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
                             style={{ backgroundColor: team.color }}
@@ -166,11 +174,12 @@ const Teams = () => {
                         {/* 4. Drivers Sidebar */}
                         <div className="absolute bottom-0 right-0 w-full md:w-1/3 h-1/3 md:h-full bg-gradient-to-t md:bg-gradient-to-l from-black/90 via-black/60 to-transparent z-20 p-6 flex flex-row md:flex-col justify-end md:justify-center gap-4">
                             {team.drivers.map((driver) => (
-                                <div 
+                                // ✨ UPDATED: Wrapped in Link
+                                <Link 
+                                    to={`/driver/${driver.driver_code}`}
                                     key={driver.driver_id} 
-                                    className="flex-1 bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-xl flex items-center gap-4 hover:bg-white/10 transition-colors cursor-default group/driver"
+                                    className="flex-1 bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-xl flex items-center gap-4 hover:bg-white/10 transition-colors cursor-pointer group/driver pointer-events-auto"
                                 >
-                                    {/* Driver Headshot */}
                                     <div 
                                         className="w-14 h-14 rounded-full overflow-hidden border-2 shadow-lg shrink-0"
                                         style={{ borderColor: team.color }}
@@ -183,7 +192,6 @@ const Teams = () => {
                                         />
                                     </div>
                                     
-                                    {/* Info */}
                                     <div className="min-w-0">
                                         <div className="flex items-baseline gap-2">
                                             <h3 className="font-bold text-white text-lg truncate leading-none">{driver.driver_name}</h3>
@@ -196,7 +204,7 @@ const Teams = () => {
                                             )}
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
 

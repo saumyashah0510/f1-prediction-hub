@@ -9,7 +9,8 @@ import Standings from './pages/Standings';
 import Predictions from './pages/Predictions';
 import Teams from './pages/Teams';
 import MomentDetail from './pages/MomentDetail';
-import Races from './pages/Races'; // New Import
+import Races from './pages/Races';
+import DriverDetail from './pages/DriverDetail'; // ✨ NEW Import
 
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
             <Route path="/moment/:id" element={<MomentDetail />} />
             <Route path="/models" element={<Models />} />
             <Route path="/models/:id" element={<ModelDetail />} />
-            <Route path="/races" element={<Races />} /> {/* New Route */}
+            <Route path="/races" element={<Races />} />
             <Route path="/standings" element={<Standings />} />
             <Route path="/teams" element={<Teams />} />
+            <Route path="/driver/:code" element={<DriverDetail />} /> {/* ✨ NEW Route */}
             <Route path="/predictions" element={<Predictions />} />
           </Routes>
         </main>
