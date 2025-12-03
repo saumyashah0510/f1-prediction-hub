@@ -1,0 +1,30 @@
+"id","driver_number","code","first_name","last_name","nationality","date_of_birth","team_id","image_url","helmet_image_url","total_points","championships","race_wins","podiums","pole_positions","fastest_laps","is_active"
+1,1,"VER","Max","Verstappen",NULL,NULL,1,NULL,NULL,"1728",0,48,63,33,19,1
+2,11,"PER","Sergio","Perez",NULL,NULL,1,NULL,NULL,"711",0,4,24,3,6,1
+3,55,"SAI","Carlos","Sainz",NULL,NULL,9,NULL,NULL,"748",0,4,22,6,3,1
+4,16,"LEC","Charles","Leclerc",NULL,NULL,2,NULL,NULL,"1044",0,6,37,17,6,1
+5,63,"RUS","George","Russell",NULL,NULL,3,NULL,NULL,"931",0,5,22,8,10,1
+6,4,"NOR","Lando","Norris",NULL,NULL,4,NULL,NULL,"1040",0,10,37,13,14,1
+7,44,"HAM","Lewis","Hamilton",NULL,NULL,2,NULL,NULL,"829",0,2,20,1,10,1
+8,81,"PIA","Oscar","Piastri",NULL,NULL,4,NULL,NULL,"745",0,9,24,5,8,1
+9,14,"ALO","Fernando","Alonso",NULL,NULL,5,NULL,NULL,"380",0,0,8,0,3,1
+10,18,"STR","Lance","Stroll",NULL,NULL,5,NULL,NULL,"141",0,0,0,0,0,1
+11,24,"ZHO","Guanyu","Zhou",NULL,NULL,6,NULL,NULL,"15",0,0,0,0,2,1
+12,20,"MAG","Kevin","Magnussen",NULL,NULL,7,NULL,NULL,"44",0,0,0,0,1,1
+13,3,"RIC","Daniel","Ricciardo",NULL,NULL,8,NULL,NULL,"55",0,0,0,0,1,1
+14,22,"TSU","Yuki","Tsunoda",NULL,NULL,11,NULL,NULL,"87",0,0,0,0,1,1
+15,23,"ALB","Alexander","Albon",NULL,NULL,9,NULL,NULL,"116",0,0,0,0,0,1
+16,27,"HUL","Nico","Hulkenberg",NULL,NULL,6,NULL,NULL,"88",0,0,1,0,0,1
+17,31,"OCO","Esteban","Ocon",NULL,NULL,7,NULL,NULL,"201",0,0,2,0,1,1
+18,10,"GAS","Pierre","Gasly",NULL,NULL,10,NULL,NULL,"142",0,0,2,0,0,1
+19,77,"BOT","Valtteri","Bottas",NULL,NULL,6,NULL,NULL,"59",0,0,0,0,0,1
+20,2,"SAR","Logan","Sargeant",NULL,NULL,9,NULL,NULL,"1",0,0,0,0,0,1
+21,12,"ANT","Andrea","Kimi Antonelli",NULL,NULL,3,NULL,NULL,"97",0,0,1,0,3,1
+22,87,"BEA","Oliver","Bearman",NULL,NULL,7,NULL,NULL,"32",0,0,0,0,0,1
+23,30,"LAW","Liam","Lawson",NULL,NULL,1,NULL,NULL,"30",0,0,0,0,0,1
+24,5,"BOR","Gabriel","Bortoleto",NULL,NULL,6,NULL,NULL,"19",0,0,0,0,0,1
+25,7,"DOO","Jack","Doohan",NULL,NULL,10,NULL,NULL,"0",0,0,0,0,0,1
+26,6,"HAD","Isack","Hadjar",NULL,NULL,11,NULL,NULL,"39",0,0,1,0,0,1
+27,47,"MSC","Mick","Schumacher",NULL,NULL,7,NULL,NULL,"12",0,0,0,0,0,0
+28,106,"LAT","Nicholas","Latifi",NULL,NULL,9,NULL,NULL,"2",0,0,0,0,0,0
+29,21,"DEV","Nyck","De Vries",NULL,NULL,13,NULL,NULL,"0",0,0,0,0,0,0

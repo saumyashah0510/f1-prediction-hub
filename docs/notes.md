@@ -16,7 +16,7 @@
 
 ```bash
 venv\Scripts\activate
-uvicorn app.main:app --reload
+C:\Users\OMEN\OneDrive\Desktop\f1-prediction-hub>python -m uvicorn backend.app.main:app --reload
 ```
 
 ### 2) Machine Learning(ml_venv)
