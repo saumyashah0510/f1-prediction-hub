@@ -4,11 +4,12 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Models from './pages/Models';
-import ModelDetail from './pages/ModelDetail'; // New Import
+import ModelDetail from './pages/ModelDetail';
 import Standings from './pages/Standings';
 import Predictions from './pages/Predictions';
 import Teams from './pages/Teams';
 import MomentDetail from './pages/MomentDetail';
+import Races from './pages/Races'; // New Import
 
 function App() {
   return (
@@ -19,11 +20,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/moment/:id" element={<MomentDetail />} />
-            
-            {/* Model Routes */}
             <Route path="/models" element={<Models />} />
-            <Route path="/models/:id" element={<ModelDetail />} /> {/* New Route */}
-            
+            <Route path="/models/:id" element={<ModelDetail />} />
+            <Route path="/races" element={<Races />} /> {/* New Route */}
             <Route path="/standings" element={<Standings />} />
             <Route path="/teams" element={<Teams />} />
             <Route path="/predictions" element={<Predictions />} />

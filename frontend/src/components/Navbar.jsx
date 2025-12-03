@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Trophy, Zap, Brain, Flag, Users } from 'lucide-react';
+import { Trophy, Zap, Brain, Flag, Users, Calendar } from 'lucide-react';
 
 const Navbar = () => {
   const location = useLocation();
@@ -28,6 +28,11 @@ const Navbar = () => {
               <span className="hidden md:inline">Home</span>
             </Link>
             
+            <Link to="/races" className={`flex items-center space-x-1 px-3 py-2 rounded-md transition-all text-sm uppercase tracking-wider font-medium ${isActive('/races')}`}>
+              <Calendar size={16} />
+              <span className="hidden md:inline">Races</span>
+            </Link>
+
             <Link to="/standings" className={`flex items-center space-x-1 px-3 py-2 rounded-md transition-all text-sm uppercase tracking-wider font-medium ${isActive('/standings')}`}>
               <Trophy size={16} />
               <span className="hidden md:inline">Standings</span>
