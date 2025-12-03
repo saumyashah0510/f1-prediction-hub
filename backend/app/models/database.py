@@ -1,98 +1,106 @@
-# backend/app/models/database.py  (or backend/app/db/database.py)
+# backend/app/models/database.py
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
 from urllib.parse import urlparse, urlunparse, parse_qs, urlencode
 import os
 
-# read from settings if you have it, otherwise from env
+# Read from settings or environment
 from backend.app.core.config import settings
+
 _raw_db = os.environ.get("DATABASE_URL") or getattr(settings, "DATABASE_URL", None)
 
 if not _raw_db:
     raise RuntimeError("DATABASE_URL is missing")
 
 def mask_db(url: str) -> str:
+    """Mask credentials in database URL for logging"""
     try:
+        if "@" not in url:
+            return "****"
         parts = url.split("@")
         head = parts[0]
-        head_proto, creds = head.split("://", 1)
-        return head_proto + "://****:****@" + parts[1]
+        if "://" in head:
+            head_proto, creds = head.split("://", 1)
+            return f"{head_proto}://****:****@{parts[1]}"
+        return "****"
     except Exception:
         return "****"
 
 # Parse and normalize
 parsed = urlparse(_raw_db)
 
-# Ensure scheme -> asyncpg style
-scheme = parsed.scheme
-if scheme == "postgres":
-    scheme = "postgresql+asyncpg"
-elif scheme == "postgresql":
-    # if already 'postgresql+asyncpg' keep it, else convert
-    if not parsed.scheme.startswith("postgresql+asyncpg"):
-        scheme = "postgresql+asyncpg"
-else:
-    # leave other schemes intact (but we expect postgres*)
-    if not parsed.scheme.startswith("postgresql+asyncpg"):
-        scheme = parsed.scheme
+# Validate required URL components
+if not parsed.netloc:
+    raise ValueError(f"Invalid DATABASE_URL: missing host/netloc in '{mask_db(_raw_db)}'")
 
-# Query params cleanup
+# Convert scheme to asyncpg
+scheme = parsed.scheme
+if scheme in ("postgres", "postgresql"):
+    scheme = "postgresql+asyncpg"
+elif not scheme.startswith("postgresql+asyncpg"):
+    scheme = "postgresql+asyncpg"
+
+# Parse query parameters
 qs = parse_qs(parsed.query, keep_blank_values=True)
 
-# Remove unsupported params
-for bad in ["channel_binding", "application_name", "fallback_application_name"]:
-    if bad in qs:
-        qs.pop(bad, None)
+# Remove unsupported/problematic parameters
+unsupported_params = [
+    "channel_binding", 
+    "application_name", 
+    "fallback_application_name",
+    "sslmode"  # Remove sslmode entirely - we'll use ssl parameter instead
+]
 
-# Handle sslmode -> convert to ssl=true if value is acceptable
-# Acceptable sslmode values for libpq: disable, allow, prefer, require, verify-ca, verify-full
-sslmode = None
-if "sslmode" in qs:
-    sslmode_val = qs.pop("sslmode", [None])[0]
-    if sslmode_val and sslmode_val.lower() in {"disable", "allow", "prefer", "require", "verify-ca", "verify-full"}:
-        # if sslmode == 'disable' -> do not set ssl param
-        if sslmode_val.lower() != "disable":
-            qs["ssl"] = ["true"]
-        # else disable -> do nothing (no ssl param)
-    else:
-        # malformed value — map to ssl=true as fallback
-        qs["ssl"] = ["true"]
+for param in unsupported_params:
+    qs.pop(param, None)
 
-# If explicit ssl=true present, keep it
-if "ssl" in qs:
-    # ensure it's the string 'true'
+# Always use ssl=true for Neon and most managed Postgres
+# Only set to false if explicitly told to disable
+if "ssl" not in qs:
     qs["ssl"] = ["true"]
+else:
+    # Normalize ssl parameter to 'true' or 'false'
+    ssl_val = qs["ssl"][0] if isinstance(qs["ssl"], list) else qs["ssl"]
+    qs["ssl"] = ["true" if str(ssl_val).lower() in ("true", "1", "yes") else "false"]
 
 # Build cleaned query string
-clean_qs = urlencode({k: v[0] for k, v in qs.items()}) if qs else ""
+clean_qs = urlencode({k: v[0] if isinstance(v, list) else v for k, v in qs.items()}) if qs else ""
 
 # Rebuild URL
-netloc = parsed.netloc
-# If original URL had no username:password (rare), leave as-is
-normalized = urlunparse((scheme, netloc, parsed.path or "", parsed.params or "", clean_qs, parsed.fragment or ""))
+normalized = urlunparse((
+    scheme,
+    parsed.netloc,
+    parsed.path or "",
+    parsed.params or "",
+    clean_qs,
+    parsed.fragment or ""
+))
 
-# Final safety: ensure scheme contains asyncpg
+# Ensure asyncpg is in the scheme
 if "asyncpg" not in normalized:
-    normalized = normalized.replace("postgresql://", "postgresql+asyncpg://", 1).replace("postgres://", "postgresql+asyncpg://", 1)
+    normalized = normalized.replace("postgresql://", "postgresql+asyncpg://", 1)
+    normalized = normalized.replace("postgres://", "postgresql+asyncpg://", 1)
 
-# If nothing in query, add ssl=true as default (Neon requires ssl)
-if "?" not in normalized or normalized.endswith("?"):
-    # Only add if it's a postgres URL
-    if normalized.startswith("postgresql+asyncpg://"):
-        normalized = normalized + "?ssl=true"
-
-# Print masked debug line (appears in logs)
-print("DEBUG: using DATABASE_URL (masked):", mask_db(normalized))
+# Debug logging (masked)
+print("=" * 60)
+print("DATABASE CONNECTION INFO")
+print("=" * 60)
+print(f"Masked URL: {mask_db(normalized)}")
 if "?" in normalized:
-    print("DEBUG: final query params:", normalized.split("?",1)[1])
+    print(f"Query params: {normalized.split('?', 1)[1]}")
+print("=" * 60)
 
-# Create engine
+# Create engine with appropriate pool settings
 engine = create_async_engine(
     normalized,
-    echo=True,
+    echo=True,  # Set to False in production
     future=True,
+    pool_pre_ping=True,  # Verify connections before using them
+    pool_size=5,  # Adjust based on your needs
+    max_overflow=10,  # Additional connections if pool is exhausted
 )
 
+# Create session factory
 AsyncSessionLocal = async_sessionmaker(
     engine,
     expire_on_commit=False,
@@ -103,5 +111,9 @@ class Base(DeclarativeBase):
     pass
 
 async def get_db():
+    """Dependency for getting database sessions"""
     async with AsyncSessionLocal() as session:
-        yield session
+        try:
+            yield session
+        finally:
+            await session.close()
