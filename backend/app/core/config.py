@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from typing import Optional
+from typing import Optional, List
 from pathlib import Path
 
 class Settings(BaseSettings):
@@ -9,15 +9,15 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str
 
-    # ✅ Update with your actual Vercel URL
-    BACKEND_CORS_ORIGINS: list = [
+    # ✅ Allow specific origins + use regex pattern for Vercel previews
+    BACKEND_CORS_ORIGINS: List[str] = [
         "http://localhost:3000",
         "http://localhost:5173",
-        "https://*.vercel.app",  # Allows all Vercel preview deployments
-        "https://f1-prediction-hub-one.vercel.app/",  # Your production Vercel URL
-        # Add your custom domain if you have one:
-        # "https://yourdomain.com"
+        "https://f1-prediction-hub-one.vercel.app",
     ]
+    
+    # ✅ Allow all Vercel preview deployments (they change with each deployment)
+    ALLOW_ALL_VERCEL_ORIGINS: bool = True
     
     API_V1_PREFIX: str = "/api/v1"
 
