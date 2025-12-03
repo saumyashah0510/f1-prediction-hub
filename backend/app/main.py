@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.core.config import settings
 
+from sqlalchemy import text
+from backend.app.models.database import engine
+
 from backend.app.api.endpoints import drivers,races,teams,standings
 
 app = FastAPI(
@@ -24,6 +27,16 @@ app.include_router(teams.router, prefix="/api/v1/teams", tags=["Teams"])
 app.include_router(races.router, prefix="/api/v1/races", tags=["Races"])
 app.include_router(standings.router, prefix="/api/v1/standings", tags=["Standings"])
 
+
+@app.on_event("startup")
+async def startup_event():
+    print("🚀 Starting FastAPI... Checking database connection...")
+    try:
+        async with engine.connect() as conn:
+            await conn.execute(text("SELECT 1"))
+        print("✅ DATABASE CONNECTED SUCCESSFULLY")
+    except Exception as e:
+        print("❌ DATABASE CONNECTION FAILED:", e)
 
 @app.get("/")
 async def root():
